@@ -1,64 +1,70 @@
-# Elder.js Template Project
+# Getting Started with Create React App
 
-<img src="https://img.shields.io/badge/dynamic/json?color=brightgreen&label=Node&query=engines.node&url=https%3A%2F%2Fraw.githubusercontent.com%2Felderjs%2Ftemplate%2Fmaster%2Fpackage.json" alt="node version" />
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-This is a project template for [Elder.js](https://elderguide.com/tech/elderjs/) apps. The template lives at https://github.com/elderjs/template and the Elder.js source is here: https://github.com/elderjs/elderjs
+## Available Scripts
 
-Here is a demo of the template: [https://elderjs.pages.dev/](https://elderjs.pages.dev/)
+In the project directory, you can run:
 
-## Get started
+### `npm start`
 
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-```bash
-npx degit Elderjs/template elderjs-app
-cd elderjs-app
-```
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-### Install the dependencies:
+### `npm test`
 
-```bash
-npm install # or just yarn
-```
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### Start Project:
+### `npm run build`
 
-```bash
-npm start # or npm run dev
-```
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-Navigate to [localhost:3000](http://localhost:3000). You should see your app running.
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-This spawns a development server, so simply edit a file in `src`, save it, and reload the page to see your changes.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-You can also see a live demo of this template: [https://elderjs.pages.dev/](https://elderjs.pages.dev/)
+### `npm run eject`
 
-#### What to Expect
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-- A dev server is watching your files for changes. It will restart when it needs to.
-- Rollup is watching your files for changes. It will restart when it needs to.
-- If your `elder.config.js` has `@elderjs/plugin-browser-reload': {}` in it's plugins, your browser will automatically restart after the server restarts.
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-**esbuild**
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-If you are looking for a faster development experience run `npm run esbuild` this is experimental but will be improving rapidly.
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-### To Build HTML for Production:
+## Learn More
 
-```bash
-npm run build
-```
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-Let the build finish. It will put all of your statically generated files in `./public`.
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-If you wish to preview you can use:
+### Code Splitting
 
-```bash
-npx sirv-cli public
-```
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### To Run in SSR Mode for Production:
+### Analyzing the Bundle Size
 
-```bash
-npm run serve
-```
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
