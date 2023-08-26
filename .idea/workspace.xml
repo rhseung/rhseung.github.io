@@ -5,77 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a681063-63be-42cb-b30d-281019255298" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/rhseung.github.io.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.nojekyll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_elderjs/assets/svelte-cc61ae55.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_elderjs/svelte/components/BlogTeaser.261e2e08.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_elderjs/svelte/components/Clock.94825d09.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_elderjs/svelte/components/HookDetail.53081e91.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_elderjs/svelte/index-e0280fd7.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/allrequests/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/bootstrap/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/buildcomplete/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/compilehtml/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/customizehooks/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/data/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/error/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/getting-started/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/head/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/how-to-build-a-blog-with-elderjs/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/html/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/is-elderjs-right-for-you/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/middleware/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/request/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/requestcomplete/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/shortcodes/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/simple/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/stacks/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/elder.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/esbuild.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/netlify.toml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rollup.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/build.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cleanPublic.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BlogTeaser.svelte" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Clock.svelte" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HookDetail.svelte" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/Layout.svelte" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/blog/Blog.svelte" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/blog/getting-started.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/blog/how-to-build-a-blog-with-elderjs.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/blog/is-elderjs-right-for-you.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/blog/route.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/home/Home.svelte" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/home/route.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/hooks/Hooks.svelte" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/hooks/route.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/simple/Simple.svelte" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/simple/route.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/ssr/Ssr.svelte" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/ssr/route.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shortcodes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/svelte.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reportWebVitals.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/setupTests.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,9 +43,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2UVAtFGWux8Ue69AzUXq59RBCcz" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -114,13 +62,14 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "D:/repos/rhseung/rhseung.github.io",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "file.status.colors",
+    "settings.editor.selected.configurable": "preferences.sourceCode.HTML",
     "ts.external.directory.path": "C:\\Users\\rhseung\\AppData\\Local\\Programs\\WebStorm\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
@@ -130,7 +79,7 @@
       <recent name="D:\repos\rhseung\rhseung.github.io\docs" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.start">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -141,8 +90,19 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.start" />
         <item itemvalue="npm.build" />
       </list>
     </recent_temporary>
@@ -156,6 +116,8 @@
       <option name="presentableId" value="Default" />
       <updated>1691498146298</updated>
       <workItem from="1693014589211" duration="8593000" />
+      <workItem from="1693036318175" duration="102000" />
+      <workItem from="1693036440789" duration="9147000" />
     </task>
     <servers />
   </component>
