@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0a681063-63be-42cb-b30d-281019255298" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +54,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.sourceCode.HTML",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "ts.external.directory.path": "C:\\Users\\rhseung\\AppData\\Local\\Programs\\WebStorm\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
@@ -75,7 +76,7 @@
       <workItem from="1693036318175" duration="102000" />
       <workItem from="1693036440789" duration="9171000" />
       <workItem from="1693048669576" duration="15000" />
-      <workItem from="1693443302986" duration="889000" />
+      <workItem from="1693443302986" duration="1341000" />
     </task>
     <servers />
   </component>
