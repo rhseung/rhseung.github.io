@@ -37,7 +37,8 @@ const BannerOverlay = styled.div`
 `;
 
 const Title = styled.h1`
-	font-family: "Mona Sans Black", sans-serif;
+	font-family: "Mona Sans", sans-serif;
+	font-weight: 700;
 	font-size: 5rem;
 
 	color: white;
@@ -47,7 +48,8 @@ const Title = styled.h1`
 `;
 
 const SubTitle = styled.h2`
-	font-family: "Mona Sans ExtraLight", sans-serif;
+	font-family: "Mona Sans", sans-serif;
+	font-weight: 200;
 	font-size: 1.5rem;
 	
 	color: white;

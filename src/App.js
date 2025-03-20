@@ -16,6 +16,10 @@ import wallpaper from "./image/wallpaper.jpg";
 import gsa from "./image/gsa.png";
 import gist from "./image/gist.png";
 
+const H1 = styled.h1`
+	font-family: "Mona Sans", "Pretendard Variable", sans-serif;
+`;
+
 export default function App() {
 	const [themeMode, themeObject, toggleTheme] = useTheme();
 
@@ -24,7 +28,7 @@ export default function App() {
 			<Global />
 			<Banner wallpaper={wallpaper} title="Rhseung" subTitle="I'm a enterprising developer." />
 			<Header>
-				<h1 onClick={() => window.scroll({ top: 0, left: 0, behavior: 'smooth' })}>Hyunseung Ryu</h1>
+				<H1 onClick={() => window.scroll({ top: 0, left: 0, behavior: 'smooth' })}>Hyunseung Ryu</H1>
 			</Header>
 			<Slot title="Me" subTitle="안녕하세요, 류현승입니다.">
 				<Item width="150px" colors={[themeMode === "light" ? "#000000" : "#ffffff"]} textColor={[themeMode === "light" ? "#ffffff" : "#000000"]}>
