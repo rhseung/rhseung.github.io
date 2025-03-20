@@ -1,0 +1,38 @@
+name: Deploy React App to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # main 브랜치에 푸시될 때 배포하도록 설정
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 체크아웃을 통해 코드 리포지토리를 가져옵니다.
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Node.js 환경 설정
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # 원하는 Node.js 버전으로 변경 가능
+
+      # 의존성 설치
+      - name: Install dependencies
+        run: |
+          npm install
+
+      # 프로젝트 빌드
+      - name: Build project
+        run: |
+          npm run build
+
+      # gh-page 브랜치에 배포하기 위해 GitHub Pages 관련 작업 수행
+      - name: Deploy to gh-page branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # GitHub Token을 사용하여 배포
+          publish_dir: ./build  # build 폴더의 내용을 gh-pages 브랜치에 배포

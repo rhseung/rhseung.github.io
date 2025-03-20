@@ -22,7 +22,7 @@ export default function App() {
 	return (
 		<>
 			<Global />
-			<Banner wallpaper={wallpaper} title="Rhseung" subTitle="Lorem ipsum dolor sit amet" />
+			<Banner wallpaper={wallpaper} title="Rhseung" subTitle="I'm a enterprising developer." />
 			<Header>
 				<h1 onClick={() => window.scroll({ top: 0, left: 0, behavior: 'smooth' })}>Hyunseung Ryu</h1>
 			</Header>
@@ -187,7 +187,7 @@ export default function App() {
 					tags={["AI", "Pytorch"]}
 				/>
 			</Slot>
-			<Footer title="Hyunseung Ryu" subTitle="Lorem ipsum dolor sit amet" />
+			<Footer title="Hyunseung Ryu" subTitle="rhseungg@gmail.com" />
 		</>
 	);
 }
