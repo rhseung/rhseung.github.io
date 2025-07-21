@@ -10,7 +10,7 @@ globalStyle("*", {
 globalStyle("body", {
   margin: 0,
   fontFamily:
-    '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
+    '"Mona Sans", "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
   WebkitFontSmoothing: "antialiased",
   MozOsxFontSmoothing: "grayscale",
   backgroundColor: vars.color.background,
