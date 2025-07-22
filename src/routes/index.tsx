@@ -18,7 +18,7 @@ function Root() {
   return (
     <div className={styles.container}>
       <Header />
-      <section className={styles.heroSection}>
+      <section className={styles.section}>
         <HeroSection />
       </section>
       <section className={styles.sectionAlternate}>

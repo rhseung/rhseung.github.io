@@ -53,11 +53,12 @@ export const maxWidthWideContainer = style({
 export const header = style({
   padding: `${vars.spacing.lg} ${vars.spacing.lg}`,
   borderBottom: `1px solid color-mix(in srgb, ${vars.color.border} 20%, transparent)`,
-  backgroundColor: vars.color.background,
+  backgroundColor: `color-mix(in srgb, ${vars.color.background} 80%, transparent)`,
   position: "sticky",
   top: 0,
   zIndex: 10,
-  backdropFilter: "blur(8px)",
+  backdropFilter: "blur(12px)",
+  WebkitBackdropFilter: "blur(12px)",
   "@media": {
     "(min-width: 1024px)": {
       padding: `${vars.spacing.lg} ${vars.spacing["2xl"]}`,
@@ -92,9 +93,9 @@ export const heading1 = style({
 });
 
 export const heading2 = style({
-  fontSize: vars.fontSize["3xl"],
-  fontWeight: vars.fontWeight.bold,
-  lineHeight: 1.2,
+  fontSize: vars.fontSize["4xl"],
+  fontWeight: vars.fontWeight.black,
+  lineHeight: 1.6,
   color: vars.color.foreground,
 });
 
@@ -115,40 +116,6 @@ export const textMuted = style({
 
 export const textPrimary = style({
   color: vars.color.primary,
-});
-
-// Hero section styles
-export const heroSection = style([
-  section,
-  {
-    position: "relative",
-    paddingTop: `${vars.spacing["3xl"]}`,
-    paddingBottom: `${vars.spacing["2xl"]}`,
-    textAlign: "center",
-  },
-]);
-
-export const profileImage = style({
-  width: "8rem",
-  height: "8rem",
-  borderRadius: vars.borderRadius.full,
-  margin: `0 auto ${vars.spacing.lg}`,
-  boxShadow: vars.shadow.lg,
-  display: "block",
-});
-
-export const heroTitle = style([
-  heading1,
-  {
-    marginBottom: vars.spacing.lg,
-  },
-]);
-
-export const heroDescription = style({
-  marginTop: vars.spacing.lg,
-  fontSize: vars.fontSize.lg,
-  lineHeight: 1.6,
-  color: vars.color.mutedForeground,
 });
 
 export const buttonGroup = style({
