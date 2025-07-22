@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import * as styles from "@/styles/index.css";
+import * as groupStyles from "../styles/group-section.css";
 import { Briefcase, ExternalLink, Github } from "lucide-react";
 
 export const GroupSection: React.FC = () => {
@@ -40,16 +41,18 @@ export const GroupSection: React.FC = () => {
       <div className={styles.cardGrid}>
         {projects.map((project, index) => (
           <div key={index} className={styles.card}>
-            <h3 className={styles.projectTitle}>{project.title}</h3>
-            <p className={styles.projectDescription}>{project.description}</p>
-            <div className={styles.projectTechList}>
+            <h3 className={groupStyles.groupTitle}>{project.title}</h3>
+            <p className={groupStyles.groupDescription}>
+              {project.description}
+            </p>
+            <div className={groupStyles.groupTechList}>
               {project.tech.map((tech) => (
-                <span key={tech} className={styles.projectTechTag}>
+                <span key={tech} className={groupStyles.groupTechTag}>
                   {tech}
                 </span>
               ))}
             </div>
-            <div className={styles.projectButtons}>
+            <div className={groupStyles.groupButtons}>
               <Button size="sm" variant="outline" className="gap-1">
                 <Github className="w-3 h-3" />
                 GitHub

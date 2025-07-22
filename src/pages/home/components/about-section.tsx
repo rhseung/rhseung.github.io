@@ -1,4 +1,5 @@
 import * as styles from "@/styles/index.css";
+import * as aboutStyles from "../styles/about-section.css";
 import { Mail, MapPin, Phone, User } from "lucide-react";
 
 export const AboutSection: React.FC = () => {
@@ -13,7 +14,7 @@ export const AboutSection: React.FC = () => {
       <div className={styles.twoColumnGrid}>
         <div>
           <h3 className={styles.heading3}>기술 스택</h3>
-          <div className={styles.techStack}>
+          <div className={aboutStyles.techStack}>
             {[
               "JavaScript",
               "TypeScript",
@@ -30,7 +31,7 @@ export const AboutSection: React.FC = () => {
               "Docker",
               "Git",
             ].map((tech) => (
-              <span key={tech} className={styles.techTag}>
+              <span key={tech} className={aboutStyles.techTag}>
                 {tech}
               </span>
             ))}
@@ -38,16 +39,16 @@ export const AboutSection: React.FC = () => {
         </div>
         <div>
           <h3 className={styles.heading3}>연락처 정보</h3>
-          <div className={styles.contactInfo}>
-            <div className={styles.contactItem}>
+          <div className={aboutStyles.contactInfo}>
+            <div className={aboutStyles.contactItem}>
               <Mail className="w-4 h-4" />
               <span>hong@example.com</span>
             </div>
-            <div className={styles.contactItem}>
+            <div className={aboutStyles.contactItem}>
               <Phone className="w-4 h-4" />
               <span>010-1234-5678</span>
             </div>
-            <div className={styles.contactItem}>
+            <div className={aboutStyles.contactItem}>
               <MapPin className="w-4 h-4" />
               <span>서울, 대한민국</span>
             </div>

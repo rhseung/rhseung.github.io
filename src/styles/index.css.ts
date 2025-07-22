@@ -118,14 +118,6 @@ export const textPrimary = style({
   color: vars.color.primary,
 });
 
-export const buttonGroup = style({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  gap: vars.spacing.md,
-  flexWrap: "wrap",
-});
-
 // Card styles
 export const card = style({
   border: `1px solid ${vars.color.border}`,
@@ -153,29 +145,6 @@ export const cardGrid = style({
   },
 });
 
-// Tech stack styles
-export const techStack = style({
-  display: "flex",
-  flexWrap: "wrap",
-  gap: vars.spacing.sm,
-});
-
-export const techTag = style({
-  padding: `${vars.spacing.xs} ${vars.spacing.sm}`,
-  backgroundColor: `color-mix(in srgb, ${vars.color.primary} 10%, transparent)`,
-  color: vars.color.primary,
-  borderRadius: vars.borderRadius.full,
-  fontSize: vars.fontSize.sm,
-});
-
-export const projectTechTag = style({
-  padding: `${vars.spacing.xs} ${vars.spacing.sm}`,
-  backgroundColor: vars.color.secondary,
-  color: vars.color.secondaryForeground,
-  borderRadius: vars.borderRadius.sm,
-  fontSize: vars.fontSize.xs,
-});
-
 // Grid layouts
 export const twoColumnGrid = style({
   display: "grid",
@@ -185,80 +154,6 @@ export const twoColumnGrid = style({
       gridTemplateColumns: "repeat(2, 1fr)",
     },
   },
-});
-
-// Contact info styles
-export const contactInfo = style({
-  display: "flex",
-  flexDirection: "column",
-  gap: vars.spacing.sm,
-});
-
-export const contactItem = style({
-  display: "flex",
-  alignItems: "center",
-  gap: vars.spacing.sm,
-  color: vars.color.mutedForeground,
-});
-
-// Experience timeline styles
-export const experienceList = style({
-  display: "flex",
-  flexDirection: "column",
-  gap: vars.spacing["2xl"],
-});
-
-export const experienceItem = style({
-  borderLeft: `4px solid ${vars.color.primary}`,
-  paddingLeft: vars.spacing.lg,
-});
-
-export const experienceDate = style({
-  display: "flex",
-  alignItems: "center",
-  gap: vars.spacing.sm,
-  marginBottom: vars.spacing.sm,
-});
-
-export const experienceDateText = style({
-  fontSize: vars.fontSize.sm,
-  color: vars.color.mutedForeground,
-});
-
-export const experiencePosition = style([
-  heading3,
-  {
-    marginBottom: vars.spacing.xs,
-  },
-]);
-
-export const experienceCompany = style([
-  heading4,
-  {
-    marginBottom: vars.spacing.sm,
-  },
-]);
-
-export const experienceDescription = style({
-  color: vars.color.mutedForeground,
-});
-
-// Footer styles
-export const footer = style({
-  padding: `${vars.spacing["2xl"]} ${vars.spacing.lg}`,
-  borderTop: `1px solid ${vars.color.border}`,
-  textAlign: "center",
-});
-
-export const footerText = style({
-  color: vars.color.mutedForeground,
-  marginBottom: vars.spacing.md,
-});
-
-export const socialLinks = style({
-  display: "flex",
-  justifyContent: "center",
-  gap: vars.spacing.md,
 });
 
 // Section headers
@@ -276,28 +171,3 @@ export const sectionTitle = style([
     gap: vars.spacing.sm,
   },
 ]);
-
-// Project card specific styles
-export const projectTitle = style([
-  heading3,
-  {
-    marginBottom: vars.spacing.sm,
-  },
-]);
-
-export const projectDescription = style({
-  color: vars.color.mutedForeground,
-  marginBottom: vars.spacing.md,
-});
-
-export const projectTechList = style({
-  display: "flex",
-  flexWrap: "wrap",
-  gap: vars.spacing.xs,
-  marginBottom: vars.spacing.md,
-});
-
-export const projectButtons = style({
-  display: "flex",
-  gap: vars.spacing.sm,
-});

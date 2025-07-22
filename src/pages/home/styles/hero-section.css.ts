@@ -20,7 +20,6 @@ export const profileImage = style({
   height: "8rem",
   borderRadius: vars.borderRadius.full,
   margin: `0 0 ${vars.spacing.lg} 0`,
-  boxShadow: "0 0 20px 0 rgb(0 0 0 / 0.15)",
   display: "block",
 });
 

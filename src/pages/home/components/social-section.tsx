@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import * as styles from "@/styles/index.css";
+import * as socialStyles from "../styles/social-section.css";
 import { Briefcase, ExternalLink, Github } from "lucide-react";
 
 export const SocialSection: React.FC = () => {
@@ -40,16 +41,18 @@ export const SocialSection: React.FC = () => {
       <div className={styles.cardGrid}>
         {projects.map((project, index) => (
           <div key={index} className={styles.card}>
-            <h3 className={styles.projectTitle}>{project.title}</h3>
-            <p className={styles.projectDescription}>{project.description}</p>
-            <div className={styles.projectTechList}>
+            <h3 className={socialStyles.socialTitle}>{project.title}</h3>
+            <p className={socialStyles.socialDescription}>
+              {project.description}
+            </p>
+            <div className={socialStyles.socialTechList}>
               {project.tech.map((tech) => (
-                <span key={tech} className={styles.projectTechTag}>
+                <span key={tech} className={socialStyles.socialTechTag}>
                   {tech}
                 </span>
               ))}
             </div>
-            <div className={styles.projectButtons}>
+            <div className={socialStyles.socialButtons}>
               <Button size="sm" variant="outline" className="gap-1">
                 <Github className="w-3 h-3" />
                 GitHub
