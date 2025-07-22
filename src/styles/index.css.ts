@@ -35,7 +35,7 @@ export const section = style({
 export const sectionAlternate = style([
   section,
   {
-    backgroundColor: `color-mix(in srgb, ${vars.color.muted} 50%, transparent)`,
+    backgroundColor: vars.color.muted,
   },
 ]);
 
