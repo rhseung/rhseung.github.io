@@ -12,12 +12,12 @@ export const HomePage: React.FC = () => {
   return (
     <div className={styles.container}>
       <Header />
-      <section className={styles.section}>
-        <HeroSection />
-      </section>
-      <section className={styles.sectionAlternate}>
-        <AboutSection />
-      </section>
+      <div className={styles.maxWidthContainer}>
+        <section className={styles.section}>
+          <HeroSection />
+          <AboutSection />
+        </section>
+      </div>
       <section className={styles.section}>
         <GroupSection />
       </section>

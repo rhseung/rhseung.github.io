@@ -2,6 +2,8 @@ import { style, globalStyle } from "@vanilla-extract/css";
 
 import { vars } from "./theme.css";
 
+// TODO: 반응형 폰트 크기
+
 // Global styles
 globalStyle("*", {
   boxSizing: "border-box",
@@ -10,7 +12,7 @@ globalStyle("*", {
 globalStyle("body", {
   margin: 0,
   fontFamily:
-    '"Mona Sans", "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
+    '"Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
   WebkitFontSmoothing: "antialiased",
   MozOsxFontSmoothing: "grayscale",
   backgroundColor: vars.color.background,
@@ -24,10 +26,17 @@ export const container = style({
 });
 
 export const section = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: vars.spacing["2xl"],
+  alignItems: "start",
+  alignContent: "start",
   padding: `${vars.spacing["3xl"]} ${vars.spacing.lg}`,
   "@media": {
     "(min-width: 1024px)": {
-      padding: `${vars.spacing["3xl"]} ${vars.spacing["2xl"]}`,
+      paddingLeft: 0,
+      paddingRight: 0,
+      // padding: `${vars.spacing["3xl"]} ${vars.spacing["2xl"]}`,
     },
   },
 });
@@ -42,6 +51,12 @@ export const sectionAlternate = style([
 export const maxWidthContainer = style({
   maxWidth: "64rem",
   margin: "0 auto",
+});
+
+export const maxWidthLeftContainer = style({
+  maxWidth: "64rem",
+  marginLeft: 0,
+  marginRight: "auto",
 });
 
 export const maxWidthWideContainer = style({
@@ -155,19 +170,3 @@ export const twoColumnGrid = style({
     },
   },
 });
-
-// Section headers
-export const sectionHeader = style({
-  textAlign: "center",
-  marginBottom: vars.spacing["2xl"],
-});
-
-export const sectionTitle = style([
-  heading2,
-  {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: vars.spacing.sm,
-  },
-]);

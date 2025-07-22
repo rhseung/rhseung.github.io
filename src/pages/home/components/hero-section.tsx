@@ -3,7 +3,7 @@ import * as heroStyles from "../styles/hero-section.css";
 
 export const HeroSection: React.FC = () => {
   return (
-    <div className={styles.maxWidthContainer}>
+    <div className={styles.maxWidthLeftContainer}>
       <img
         src="assets/profile.png"
         alt="Profile"
