@@ -7,9 +7,9 @@ import { Github, Mail } from "lucide-react";
 export const Footer: React.FC = () => {
   return (
     <footer className={footerStyles.footer}>
-      <div className={styles.maxWidthContainer}>
+      <div className={styles.maxWidthWideContainer}>
         <p className={footerStyles.footerText}>
-          © 2024 홍길동. 모든 권리 보유.
+          © {new Date().getFullYear()} Hyunseung Ryu. All rights reserved.
         </p>
         <div className={footerStyles.socialLinks}>
           <Button variant="ghost" size="icon">

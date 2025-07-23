@@ -5,8 +5,10 @@ export const header = style({
   padding: `${vars.spacing.lg} ${vars.spacing.lg}`,
   borderBottom: `1px solid color-mix(in srgb, ${vars.color.border} 20%, transparent)`,
   backgroundColor: `color-mix(in srgb, ${vars.color.background} 80%, transparent)`,
-  position: "sticky",
+  position: "fixed",
   top: 0,
+  left: 0,
+  right: 0,
   zIndex: 10,
   backdropFilter: "blur(12px)",
   WebkitBackdropFilter: "blur(12px)",
@@ -18,6 +20,7 @@ export const header = style({
 });
 
 export const headerContent = style({
+  width: "100%",
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",

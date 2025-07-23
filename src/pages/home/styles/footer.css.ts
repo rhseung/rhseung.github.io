@@ -9,7 +9,6 @@ export const footer = style({
 
 export const footerText = style({
   color: vars.color.mutedForeground,
-  marginBottom: vars.spacing.md,
 });
 
 export const socialLinks = style({

@@ -12,110 +12,11 @@ export const item = style({
   gap: vars.spacing.lg,
 });
 
-export const linkedItem = style({
-  display: "flex",
-  gap: vars.spacing.xs,
-});
-
 export const itemIcon = style({
   width: "1.5rem",
   height: "1.5rem",
   color: vars.color.mutedForeground,
   transition: "color 0.2s ease-in-out",
-});
-
-export const linkIcon = style({
-  width: "1.25rem",
-  height: "1.25rem",
-  color: vars.color.mutedForeground,
-  transition: "color 0.2s ease-in-out",
-});
-
-export const linkContainer = style({
-  display: "flex",
-  alignItems: "center",
-  gap: vars.spacing.lg,
-  ":hover": {
-    color: vars.color.primary,
-  },
-});
-
-export const linkContainerIcon = style({
-  width: "1.5rem",
-  height: "1.5rem",
-  color: vars.color.mutedForeground,
-  transition: "color 0.2s ease-in-out",
-  selectors: {
-    [`${linkContainer}:hover &`]: {
-      color: vars.color.primary,
-    },
-  },
-});
-
-export const schoolLinkContainer = style({
-  display: "flex",
-  alignItems: "center",
-  gap: vars.spacing.lg,
-  ":hover": {
-    color: vars.color.primary,
-  },
-});
-
-export const schoolIcon = style({
-  width: "1.5rem",
-  height: "1.5rem",
-  color: vars.color.mutedForeground,
-  transition: "color 0.2s ease-in-out",
-  selectors: {
-    [`${schoolLinkContainer}:hover &`]: {
-      color: "#0ea5e9", // sky-500
-    },
-  },
-});
-
-export const schoolLink = style({
-  color: vars.color.mutedForeground,
-  textUnderlineOffset: "4px",
-  transition: "color 0.2s ease-in-out",
-  textDecorationThickness: "1.5px",
-  selectors: {
-    [`${schoolLinkContainer}:hover &`]: {
-      color: "#0ea5e9", // sky-500
-    },
-  },
-});
-
-export const graduateLinkContainer = style({
-  display: "flex",
-  alignItems: "center",
-  gap: vars.spacing.lg,
-  ":hover": {
-    color: vars.color.primary,
-  },
-});
-
-export const graduateIcon = style({
-  width: "1.5rem",
-  height: "1.5rem",
-  color: vars.color.mutedForeground,
-  transition: "color 0.2s ease-in-out",
-  selectors: {
-    [`${graduateLinkContainer}:hover &`]: {
-      color: "#ef4444", // red-500
-    },
-  },
-});
-
-export const graduateLink = style({
-  color: vars.color.mutedForeground,
-  textUnderlineOffset: "4px",
-  transition: "color 0.2s ease-in-out",
-  textDecorationThickness: "1.5px",
-  selectors: {
-    [`${graduateLinkContainer}:hover &`]: {
-      color: "#ef4444", // red-500
-    },
-  },
 });
 
 export const itemText = style({
@@ -124,16 +25,27 @@ export const itemText = style({
   color: vars.color.primary,
 });
 
-export const itemLink = style({
-  color: vars.color.mutedForeground,
-  textUnderlineOffset: "4px",
-  transition: "color 0.2s ease-in-out",
-  textDecorationThickness: "1.5px",
+export const linkedText = style({
   textDecoration: "none",
+  color: vars.color.mutedForeground,
+  transition: "color 0.2s ease-in-out",
+  position: "relative",
+  "::after": {
+    content: '""',
+    position: "absolute",
+    bottom: "-0.1em",
+    left: 0,
+    width: 0,
+    height: "0.075em",
+    backgroundColor: vars.color.primary,
+    transition: "width 0.3s ease-in-out",
+  },
+  ":hover": {
+    color: vars.color.primary,
+  },
   selectors: {
-    [`${linkContainer}:hover &`]: {
-      color: vars.color.primary,
-      textDecoration: "underline",
+    "&:hover::after": {
+      width: "100%",
     },
   },
 });

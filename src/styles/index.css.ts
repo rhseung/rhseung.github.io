@@ -26,12 +26,8 @@ export const container = style({
 });
 
 export const section = style({
-  display: "flex",
-  flexDirection: "column",
-  gap: vars.spacing["2xl"],
-  alignItems: "start",
-  alignContent: "start",
   padding: `${vars.spacing["3xl"]} ${vars.spacing.lg}`,
+  backgroundColor: vars.color.background,
   "@media": {
     "(min-width: 1024px)": {
       paddingLeft: 0,
@@ -48,50 +44,45 @@ export const sectionAlternate = style([
   },
 ]);
 
+export const sectionFullHeight = style([
+  section,
+  {
+    minHeight: "100vh",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+]);
+
 export const maxWidthContainer = style({
   maxWidth: "64rem",
   margin: "0 auto",
+  display: "flex",
+  flexDirection: "column",
+  gap: vars.spacing["2xl"],
+  alignItems: "start",
+  alignContent: "start",
 });
 
 export const maxWidthLeftContainer = style({
   maxWidth: "64rem",
   marginLeft: 0,
   marginRight: "auto",
+  display: "flex",
+  flexDirection: "column",
+  gap: vars.spacing["2xl"],
+  alignItems: "start",
+  alignContent: "start",
 });
 
 export const maxWidthWideContainer = style({
   maxWidth: "72rem",
   margin: "0 auto",
-});
-
-// Header styles
-export const header = style({
-  padding: `${vars.spacing.lg} ${vars.spacing.lg}`,
-  borderBottom: `1px solid color-mix(in srgb, ${vars.color.border} 20%, transparent)`,
-  backgroundColor: `color-mix(in srgb, ${vars.color.background} 80%, transparent)`,
-  position: "sticky",
-  top: 0,
-  zIndex: 10,
-  backdropFilter: "blur(12px)",
-  WebkitBackdropFilter: "blur(12px)",
-  "@media": {
-    "(min-width: 1024px)": {
-      padding: `${vars.spacing.lg} ${vars.spacing["2xl"]}`,
-    },
-  },
-});
-
-export const headerContent = style({
   display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-});
-
-export const headerTitle = style({
-  fontSize: vars.fontSize.lg,
-  fontWeight: vars.fontWeight.semibold,
-  color: vars.color.foreground,
-  margin: 0,
+  flexDirection: "column",
+  gap: vars.spacing["2xl"],
+  alignItems: "start",
+  alignContent: "start",
 });
 
 // Typography styles
@@ -133,40 +124,10 @@ export const textPrimary = style({
   color: vars.color.primary,
 });
 
-// Card styles
-export const card = style({
-  border: `1px solid ${vars.color.border}`,
-  borderRadius: vars.borderRadius.lg,
-  padding: vars.spacing.lg,
-  backgroundColor: vars.color.card,
-  transition: "box-shadow 0.2s ease-in-out",
-  selectors: {
-    "&:hover": {
-      boxShadow: vars.shadow.lg,
-    },
-  },
-});
-
-export const cardGrid = style({
-  display: "grid",
-  gap: vars.spacing.lg,
-  "@media": {
-    "(min-width: 768px)": {
-      gridTemplateColumns: "repeat(2, 1fr)",
-    },
-    "(min-width: 1024px)": {
-      gridTemplateColumns: "repeat(3, 1fr)",
-    },
-  },
-});
-
-// Grid layouts
-export const twoColumnGrid = style({
-  display: "grid",
-  gap: vars.spacing["2xl"],
-  "@media": {
-    "(min-width: 768px)": {
-      gridTemplateColumns: "repeat(2, 1fr)",
-    },
-  },
+export const sectionHeader = style({
+  display: "flex",
+  alignItems: "center",
+  gap: vars.spacing.sm,
+  color: vars.color.foreground,
+  marginBottom: vars.spacing.lg,
 });
