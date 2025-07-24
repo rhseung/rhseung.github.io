@@ -1,22 +1,27 @@
 import { style } from "@vanilla-extract/css";
-import { vars } from "@/styles/theme.css";
+import { headerVars } from "./header.theme.css";
 
 export const header = style({
-  padding: `${vars.spacing.lg} ${vars.spacing.lg}`,
-  borderBottom: `1px solid color-mix(in srgb, ${vars.color.border} 20%, transparent)`,
-  backgroundColor: `color-mix(in srgb, ${vars.color.background} 80%, transparent)`,
+  padding: `${headerVars.padding} ${headerVars.padding}`,
+  backgroundColor: headerVars.background,
   position: "fixed",
   top: 0,
   left: 0,
   right: 0,
-  zIndex: 10,
-  backdropFilter: "blur(12px)",
-  WebkitBackdropFilter: "blur(12px)",
+  zIndex: headerVars.zIndex,
+  backdropFilter: headerVars.blur,
+  WebkitBackdropFilter: headerVars.blur,
   "@media": {
     "(min-width: 1024px)": {
-      padding: `${vars.spacing.lg} ${vars.spacing["2xl"]}`,
+      padding: `${headerVars.padding} ${headerVars.paddingLarge}`,
     },
   },
+});
+
+export const headerContainer = style({
+  maxWidth: headerVars.containerMaxWidth,
+  margin: "0 auto",
+  width: "100%",
 });
 
 export const headerContent = style({
@@ -27,8 +32,8 @@ export const headerContent = style({
 });
 
 export const headerTitle = style({
-  fontSize: vars.fontSize.lg,
-  fontWeight: vars.fontWeight.semibold,
-  color: vars.color.foreground,
+  fontSize: headerVars.titleSize,
+  fontWeight: headerVars.titleWeight,
+  color: headerVars.foreground,
   margin: 0,
 });

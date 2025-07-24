@@ -3,8 +3,10 @@ import type { RecipeVariants } from "@vanilla-extract/recipes";
 import * as React from "react";
 
 import { buttonVariants } from "./button.css";
+import { buttonLightTheme, buttonDarkTheme } from "./button.theme.css";
 
 import { cn } from "@/utils/cn";
+import { useTheme } from "@/hooks/use-theme";
 
 function Button({
   className,
@@ -16,12 +18,14 @@ function Button({
   RecipeVariants<typeof buttonVariants> & {
     asChild?: boolean;
   }) {
+  const { getThemeClass } = useTheme();
+  const themeClass = getThemeClass(buttonLightTheme, buttonDarkTheme);
   const Comp = asChild ? Slot : "button";
 
   return (
     <Comp
       data-slot="button"
-      className={cn(buttonVariants({ variant, size }), className)}
+      className={cn(themeClass, buttonVariants({ variant, size }), className)}
       {...props}
     />
   );

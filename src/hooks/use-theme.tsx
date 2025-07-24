@@ -1,54 +1,91 @@
-import { createContext, useContext, useEffect, useState } from "react";
-
-import { themeClass, darkThemeClass } from "../styles/theme.css";
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import { useEffect } from "react";
 
 type Theme = "light" | "dark";
 
-interface ThemeContextType {
+interface ThemeState {
   theme: Theme;
   toggleTheme: () => void;
+  setTheme: (theme: Theme) => void;
+  getThemeClass: (lightClass: string, darkClass: string) => string;
 }
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+// html 클래스를 업데이트하는 함수
+function updateHtmlClass(theme: Theme) {
+  if (typeof document === "undefined") return;
 
-export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(() => {
-    // Check for saved theme preference or default to light
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("theme") as Theme;
-      if (saved) return saved;
+  if (theme === "dark") {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+}
 
-      // Check system preference
-      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        return "dark";
-      }
+// 초기 테마 값을 결정하는 함수
+function getInitialTheme(): Theme {
+  if (typeof window === "undefined") return "light";
+
+  const saved = localStorage.getItem("theme-storage");
+  if (saved) {
+    try {
+      const parsed = JSON.parse(saved);
+      if (parsed.state?.theme) return parsed.state.theme;
+    } catch {
+      // 파싱 실패 시 기본값 사용
     }
-    return "light";
-  });
+  }
 
+  // Check system preference
+  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    return "dark";
+  }
+
+  return "light";
+}
+
+// Zustand store 생성 (persist 미들웨어 사용)
+export const useThemeStore = create<ThemeState>()(
+  persist(
+    (set, get) => ({
+      theme: getInitialTheme(),
+
+      toggleTheme: () => {
+        const currentTheme = get().theme;
+        const newTheme = currentTheme === "light" ? "dark" : "light";
+        set({ theme: newTheme });
+        updateHtmlClass(newTheme);
+      },
+
+      setTheme: (theme: Theme) => {
+        set({ theme });
+        updateHtmlClass(theme);
+      },
+
+      getThemeClass: (lightClass: string, darkClass: string) => {
+        const theme = get().theme;
+        return theme === "light" ? lightClass : darkClass;
+      },
+    }),
+    {
+      name: "theme-storage", // localStorage key
+    }
+  )
+);
+
+// 편의를 위한 useTheme 훅
+export function useTheme() {
+  const { theme, toggleTheme, setTheme, getThemeClass } = useThemeStore();
+
+  // 초기 html 클래스 설정
   useEffect(() => {
-    localStorage.setItem("theme", theme);
-
-    // Apply theme class to body
-    document.body.classList.remove(themeClass, darkThemeClass);
-    document.body.classList.add(theme === "dark" ? darkThemeClass : themeClass);
+    updateHtmlClass(theme);
   }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+  return {
+    theme,
+    toggleTheme,
+    setTheme,
+    getThemeClass,
   };
-
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
-}
-
-export function useTheme() {
-  const context = useContext(ThemeContext);
-  if (context === undefined) {
-    throw new Error("useTheme must be used within a ThemeProvider");
-  }
-  return context;
 }

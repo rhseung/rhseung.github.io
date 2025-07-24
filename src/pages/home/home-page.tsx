@@ -3,24 +3,17 @@ import { Header } from "./components/header";
 import { BannerSection } from "./components/banner-section";
 import { ProjectSection } from "./components/project-section";
 import { Footer } from "./components/footer";
+import { primitiveTheme } from "@/styles/index.theme.css";
 
 export const HomePage: React.FC = () => {
   return (
-    <>
+    <div className={primitiveTheme}>
       <Header />
       <div className={styles.container}>
-        <section className={styles.sectionFullHeight}>
-          <div className={styles.maxWidthWideContainer}>
-            <BannerSection />
-          </div>
-        </section>
-        <section className={styles.sectionAlternate}>
-          <div className={styles.maxWidthWideContainer}>
-            <ProjectSection />
-          </div>
-        </section>
+        <BannerSection />
+        <ProjectSection />
         <Footer />
       </div>
-    </>
+    </div>
   );
 };

@@ -1,18 +1,18 @@
 import { style, globalStyle } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { vars } from "../../styles/theme.css";
+import { buttonVars } from "./button.theme.css";
 
 // Base button styles
 const buttonBase = style({
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",
-  gap: vars.spacing.sm,
+  gap: buttonVars.spacing.sm,
   whiteSpace: "nowrap",
-  borderRadius: vars.borderRadius.md,
-  fontSize: vars.fontSize.sm,
-  fontWeight: vars.fontWeight.medium,
+  borderRadius: buttonVars.borderRadius.md,
+  fontSize: buttonVars.fontSize.sm,
+  fontWeight: buttonVars.fontWeight.medium,
   transition: "all 0.2s ease-in-out",
   outline: "none",
   border: "none",
@@ -24,7 +24,7 @@ const buttonBase = style({
   },
 
   ":focus-visible": {
-    outline: `3px solid ${vars.color.ring}`,
+    outline: `3px solid ${buttonVars.color.ring}`,
     outlineOffset: "2px",
   },
 });
@@ -44,60 +44,58 @@ export const buttonVariants = recipe({
   variants: {
     variant: {
       default: {
-        backgroundColor: vars.color.primary,
-        color: vars.color.primaryForeground,
-        boxShadow: vars.shadow.sm,
+        backgroundColor: buttonVars.color.primary,
+        color: buttonVars.color.primaryForeground,
+        boxShadow: buttonVars.shadow.sm,
 
         ":hover": {
-          backgroundColor: `color-mix(in srgb, ${vars.color.primary} 90%, black)`,
+          backgroundColor: buttonVars.color.primaryHover,
         },
       },
 
       destructive: {
-        backgroundColor: vars.color.destructive,
-        color: vars.color.destructiveForeground,
-        boxShadow: vars.shadow.sm,
+        backgroundColor: buttonVars.color.destructive,
+        color: buttonVars.color.destructiveForeground,
+        boxShadow: buttonVars.shadow.sm,
 
         ":hover": {
-          backgroundColor: `color-mix(in srgb, ${vars.color.destructive} 90%, black)`,
+          backgroundColor: buttonVars.color.destructiveHover,
         },
       },
 
       outline: {
-        border: `1px solid ${vars.color.border}`,
-        backgroundColor: vars.color.background,
-        color: vars.color.foreground,
-        boxShadow: vars.shadow.sm,
+        border: `1px solid ${buttonVars.color.outlineBorder}`,
+        backgroundColor: buttonVars.color.outline,
+        color: buttonVars.color.outlineForeground,
+        boxShadow: buttonVars.shadow.sm,
 
         ":hover": {
-          backgroundColor: vars.color.accent,
-          color: vars.color.accentForeground,
+          backgroundColor: buttonVars.color.outlineHover,
         },
       },
 
       secondary: {
-        backgroundColor: vars.color.secondary,
-        color: vars.color.secondaryForeground,
-        boxShadow: vars.shadow.sm,
+        backgroundColor: buttonVars.color.secondary,
+        color: buttonVars.color.secondaryForeground,
+        boxShadow: buttonVars.shadow.sm,
 
         ":hover": {
-          backgroundColor: `color-mix(in srgb, ${vars.color.secondary} 80%, black)`,
+          backgroundColor: buttonVars.color.secondaryHover,
         },
       },
 
       ghost: {
-        backgroundColor: "transparent",
-        color: vars.color.foreground,
+        backgroundColor: buttonVars.color.ghost,
+        color: buttonVars.color.ghostForeground,
 
         ":hover": {
-          backgroundColor: vars.color.accent,
-          color: vars.color.accentForeground,
+          backgroundColor: buttonVars.color.ghostHover,
         },
       },
 
       link: {
-        backgroundColor: "transparent",
-        color: vars.color.primary,
+        backgroundColor: buttonVars.color.link,
+        color: buttonVars.color.linkForeground,
         textDecoration: "underline",
         textUnderlineOffset: "4px",
 
@@ -110,20 +108,20 @@ export const buttonVariants = recipe({
     size: {
       default: {
         height: "2.25rem", // h-9
-        padding: `${vars.spacing.sm} ${vars.spacing.md}`,
+        padding: `${buttonVars.spacing.sm} ${buttonVars.spacing.md}`,
       },
 
       sm: {
         height: "2rem", // h-8
-        borderRadius: vars.borderRadius.md,
-        gap: vars.spacing.xs,
-        padding: `0 ${vars.spacing.sm}`,
+        borderRadius: buttonVars.borderRadius.md,
+        gap: buttonVars.spacing.xs,
+        padding: `0 ${buttonVars.spacing.sm}`,
       },
 
       lg: {
         height: "2.5rem", // h-10
-        borderRadius: vars.borderRadius.md,
-        padding: `0 ${vars.spacing.lg}`,
+        borderRadius: buttonVars.borderRadius.md,
+        padding: `0 ${buttonVars.spacing.lg}`,
       },
 
       icon: {
