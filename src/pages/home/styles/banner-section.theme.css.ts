@@ -37,7 +37,7 @@ export const [bannerLightTheme, bannerVars] = createTheme({
   description: primitiveTokens.color.neutral[600],
   infoText: primitiveTokens.color.neutral[900],
   infoIcon: primitiveTokens.color.neutral[600],
-  linkDefault: primitiveTokens.color.neutral[600],
+  linkDefault: primitiveTokens.color.neutral[500],
   linkHover: primitiveTokens.color.neutral[900],
   linkUnderline: primitiveTokens.color.neutral[900],
 
@@ -55,7 +55,7 @@ export const bannerDarkTheme = createTheme(bannerVars, {
   description: primitiveTokens.color.neutral[400],
   infoText: primitiveTokens.color.neutral[50],
   infoIcon: primitiveTokens.color.neutral[400],
-  linkDefault: primitiveTokens.color.neutral[400],
+  linkDefault: primitiveTokens.color.neutral[500],
   linkHover: primitiveTokens.color.neutral[50],
   linkUnderline: primitiveTokens.color.neutral[50],
 

@@ -15,14 +15,14 @@ const common = {
   techPadding: primitiveTokens.spacing.xs,
   techPaddingSide: primitiveTokens.spacing.sm,
   buttonGap: primitiveTokens.spacing.sm,
-  cardGap: primitiveTokens.spacing.lg,
+  cardGap: primitiveTokens.spacing["2xl"],
   cardContentGap: primitiveTokens.spacing.md,
   containerGap: primitiveTokens.spacing["2xl"],
   gridGap: primitiveTokens.spacing["2xl"],
 
   // Typography semantics
   titleSize: primitiveTokens.fontSize.xl,
-  titleWeight: primitiveTokens.fontWeight.semibold,
+  titleWeight: primitiveTokens.fontWeight.bold,
   techSize: primitiveTokens.fontSize.xs,
 
   // Border semantics

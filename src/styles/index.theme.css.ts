@@ -1,10 +1,8 @@
 import { createTheme } from "@vanilla-extract/css";
 
-// Primitive design tokens - no semantic meaning
+// primitive 디자인 토큰
 export const [primitiveTheme, primitiveTokens] = createTheme({
-  // Color primitives
   color: {
-    // Base colors
     white: "#ffffff",
     black: "#000000",
 
@@ -88,7 +86,6 @@ export const [primitiveTheme, primitiveTokens] = createTheme({
     },
   },
 
-  // Opacity primitives
   opacity: {
     0: "0",
     10: "0.1",
@@ -103,19 +100,17 @@ export const [primitiveTheme, primitiveTokens] = createTheme({
     100: "1",
   },
 
-  // Spacing primitives
   spacing: {
-    xs: "0.25rem", // 4px
-    sm: "0.5rem", // 8px
-    md: "1rem", // 16px
-    base: "1.25rem", // 20px
-    lg: "1.5rem", // 24px
-    xl: "2rem", // 32px
-    "2xl": "3rem", // 48px
-    "3xl": "4rem", // 64px
+    xs: "0.25rem",
+    sm: "0.5rem",
+    md: "1rem",
+    base: "1.25rem",
+    lg: "1.5rem",
+    xl: "2rem",
+    "2xl": "3rem",
+    "3xl": "4rem",
   },
 
-  // Typography primitives
   fontSize: {
     xs: "0.75rem",
     sm: "0.875rem",
@@ -136,7 +131,6 @@ export const [primitiveTheme, primitiveTokens] = createTheme({
     black: "800",
   },
 
-  // Border primitives
   borderRadius: {
     sm: "0.375rem",
     md: "0.5rem",
@@ -144,14 +138,12 @@ export const [primitiveTheme, primitiveTokens] = createTheme({
     full: "9999px",
   },
 
-  // Shadow primitives
   shadow: {
     sm: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
     md: "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
     lg: "0 10px 15px -3px rgb(0 0 0 / 0.15), 0 4px 6px -4px rgb(0 0 0 / 0.15)",
   },
 
-  // Gradient primitives
   gradient: {
     rainbow:
       "linear-gradient(to right, rgba(240, 85, 150, 1) 0%, rgba(153, 103, 239, 1) 50%, rgba(74, 205, 232, 1) 100%)",
@@ -159,6 +151,3 @@ export const [primitiveTheme, primitiveTokens] = createTheme({
       "linear-gradient(to right, rgb(255, 124, 168) 0%, rgb(180, 145, 255) 50%, rgb(124, 249, 255) 100%)",
   },
 });
-
-// Export for backward compatibility (will be removed later)
-export const [themeClass, vars] = [primitiveTheme, primitiveTokens];

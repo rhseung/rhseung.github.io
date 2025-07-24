@@ -37,3 +37,11 @@ export const headerTitle = style({
   color: headerVars.foreground,
   margin: 0,
 });
+
+export const logo = style({
+  color: headerVars.foreground,
+  transition: "color 0.2s ease",
+  ":hover": {
+    color: headerVars.foregroundHover,
+  },
+});

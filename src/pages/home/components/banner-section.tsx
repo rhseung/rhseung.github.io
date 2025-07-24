@@ -33,7 +33,14 @@ export const BannerSection: React.FC = () => {
               <div className={bannerStyles.infoItem}>
                 <AtSign className={bannerStyles.infoItemIcon} />
                 <span className={bannerStyles.infoItemText}>
-                  rhseungg@gmail.com
+                  <a
+                    href="mailto:rhseungg@gmail.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={bannerStyles.infoItemLinkedText}
+                  >
+                    rhseungg@gmail.com
+                  </a>
                 </span>
               </div>
               <div className={bannerStyles.infoItem}>
