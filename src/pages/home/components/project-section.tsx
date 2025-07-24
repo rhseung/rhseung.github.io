@@ -6,30 +6,38 @@ import { Briefcase, ExternalLink, Github } from "lucide-react";
 export const ProjectSection: React.FC = () => {
   const projects = [
     {
-      title: "광주과학고등학교를 위한 카톡봇",
+      title: "지글, 지스트를 위한 공지 통합 플랫폼",
       description:
         "Node.js로 구축한 광주과학고등학교 전용 카카오톡 봇으로, 공지사항과 학사일정, 급식 정보를 제공합니다.",
       tech: ["Node.js", "MongoDB", "Stripe"],
       github: "https://github.com",
       demo: "https://demo.com",
-      image: "https://picsum.photos/id/10/1080/720",
+      image: "assets/thumbnails/ziggle.png",
     },
     {
-      title: "태스크 관리 앱",
+      title: "광주과학고등학교를 위한 카톡봇",
       description:
-        "Vue.js와 Firebase를 사용한 실시간 협업 태스크 관리 애플리케이션입니다.",
+        "Node.js로 구축한 광주과학고등학교 전용 카카오톡 봇으로, 공지사항과 학사일정, 급식 정보를 제공합니다.",
       tech: ["Vue.js", "Firebase", "Vuetify"],
       github: "https://github.com",
       demo: "https://demo.com",
-      image: "https://picsum.photos/id/11/1080/720",
+      image: "assets/thumbnails/gsa-bot.png",
     },
     {
-      title: "날씨 대시보드",
+      title: "지스트의 모든 플랫폼을 총괄하는 계정 시스템, IdP",
       description: "OpenWeather API를 활용한 반응형 날씨 정보 대시보드입니다.",
       tech: ["React", "TypeScript", "Chart.js"],
       github: "https://github.com",
       demo: "https://demo.com",
-      image: "https://picsum.photos/id/12/1080/720",
+      image: "assets/thumbnails/idp.png",
+    },
+    {
+      title: "Contraint 기반 물리엔진 설계, Particles",
+      description: "OpenWeather API를 활용한 반응형 날씨 정보 대시보드입니다.",
+      tech: ["React", "TypeScript", "Chart.js"],
+      github: "https://github.com",
+      demo: "https://demo.com",
+      image: "assets/thumbnails/particles.png",
     },
   ];
 

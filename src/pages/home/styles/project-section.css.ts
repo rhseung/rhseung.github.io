@@ -46,7 +46,7 @@ export const card = style({
 });
 
 export const cardImage = style({
-  width: "400px",
+  width: "500px",
   backgroundColor: vars.color.muted,
   flexShrink: 0,
   overflow: "hidden",
@@ -92,14 +92,6 @@ export const cardContainer = style({
   flexDirection: "column",
   gap: vars.spacing["3xl"],
   width: "100%",
-  // "@media": {
-  //   "(min-width: 768px)": {
-  //     gridTemplateColumns: "repeat(2, 1fr)",
-  //   },
-  //   "(min-width: 1024px)": {
-  //     gridTemplateColumns: "repeat(3, 1fr)",
-  //   },
-  // },
 });
 
 // Grid layouts
