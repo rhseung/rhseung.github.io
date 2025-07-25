@@ -1,5 +1,5 @@
 import { createTheme } from "@vanilla-extract/css";
-import { primitiveTokens } from "@/styles/index.theme.css";
+import { primitiveTokens } from "@/styles";
 
 const common = {
   spacing: primitiveTokens.spacing,

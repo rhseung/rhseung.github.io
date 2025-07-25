@@ -1,10 +1,11 @@
 import { createTheme } from "@vanilla-extract/css";
-import { primitiveTokens } from "@/styles/index.theme.css";
+import { primitiveTokens } from "@/styles";
 
 // Common tokens that don't change between themes
 const common = {
   // Container layout semantics
   containerMaxWidth: "72rem",
+  gap: primitiveTokens.spacing["3xl"],
 
   // Spacing semantics
   padding: primitiveTokens.spacing.md,

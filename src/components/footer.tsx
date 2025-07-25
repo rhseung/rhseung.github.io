@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import * as footerStyles from "../styles/footer.css";
-import { footerLightTheme, footerDarkTheme } from "../styles/footer.theme.css";
+import * as footerStyles from "./footer.css";
+import { footerLightTheme, footerDarkTheme } from "./footer.theme.css";
 import { useTheme } from "@/hooks/use-theme";
 
 import { Github, Mail } from "lucide-react";

@@ -9,14 +9,26 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ProjectRouteImport } from './routes/project'
 import { Route as LinkRouteImport } from './routes/link'
+import { Route as CareerRouteImport } from './routes/career'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
 import { Route as BlogIdRouteImport } from './routes/blog/$id'
 
+const ProjectRoute = ProjectRouteImport.update({
+  id: '/project',
+  path: '/project',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LinkRoute = LinkRouteImport.update({
   id: '/link',
   path: '/link',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareerRoute = CareerRouteImport.update({
+  id: '/career',
+  path: '/career',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -37,45 +49,74 @@ const BlogIdRoute = BlogIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/career': typeof CareerRoute
   '/link': typeof LinkRoute
+  '/project': typeof ProjectRoute
   '/blog/$id': typeof BlogIdRoute
   '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/career': typeof CareerRoute
   '/link': typeof LinkRoute
+  '/project': typeof ProjectRoute
   '/blog/$id': typeof BlogIdRoute
   '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/career': typeof CareerRoute
   '/link': typeof LinkRoute
+  '/project': typeof ProjectRoute
   '/blog/$id': typeof BlogIdRoute
   '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/link' | '/blog/$id' | '/blog'
+  fullPaths: '/' | '/career' | '/link' | '/project' | '/blog/$id' | '/blog'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/link' | '/blog/$id' | '/blog'
-  id: '__root__' | '/' | '/link' | '/blog/$id' | '/blog/'
+  to: '/' | '/career' | '/link' | '/project' | '/blog/$id' | '/blog'
+  id:
+    | '__root__'
+    | '/'
+    | '/career'
+    | '/link'
+    | '/project'
+    | '/blog/$id'
+    | '/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CareerRoute: typeof CareerRoute
   LinkRoute: typeof LinkRoute
+  ProjectRoute: typeof ProjectRoute
   BlogIdRoute: typeof BlogIdRoute
   BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/project': {
+      id: '/project'
+      path: '/project'
+      fullPath: '/project'
+      preLoaderRoute: typeof ProjectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/link': {
       id: '/link'
       path: '/link'
       fullPath: '/link'
       preLoaderRoute: typeof LinkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/career': {
+      id: '/career'
+      path: '/career'
+      fullPath: '/career'
+      preLoaderRoute: typeof CareerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -104,7 +145,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CareerRoute: CareerRoute,
   LinkRoute: LinkRoute,
+  ProjectRoute: ProjectRoute,
   BlogIdRoute: BlogIdRoute,
   BlogIndexRoute: BlogIndexRoute,
 }

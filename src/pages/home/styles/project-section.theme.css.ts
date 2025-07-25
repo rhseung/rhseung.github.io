@@ -1,5 +1,5 @@
 import { createTheme } from "@vanilla-extract/css";
-import { primitiveTokens } from "@/styles/index.theme.css";
+import { primitiveTokens } from "@/styles";
 
 // Common tokens that don't change between themes
 const common = {
