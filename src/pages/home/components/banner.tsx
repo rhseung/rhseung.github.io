@@ -1,8 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/";
-import * as bannerStyles from "../styles/banner.css";
-import { bannerLightTheme, bannerDarkTheme } from "../styles/banner.theme.css";
-import { useTheme } from "@/hooks/use-theme";
-import { AtSign, School, GraduationCap } from "lucide-react";
+import * as pageStyles from "../styles/home-page.css";
+import { IconAt, IconBackpack, IconSchool } from "@tabler/icons-react";
 
 /**
 안녕하세요. 프로그래머이자 디자이너인 류현승입니다.
@@ -14,73 +12,68 @@ import { AtSign, School, GraduationCap } from "lucide-react";
  */
 
 export const Banner: React.FC = () => {
-  const { getThemeClass } = useTheme();
-  const themeClass = getThemeClass(bannerLightTheme, bannerDarkTheme);
-
   return (
-    <div className={themeClass}>
-      <div className={bannerStyles.section}>
-        <div className={bannerStyles.container}>
-          <div className={bannerStyles.profileContainer}>
-            <Avatar className={bannerStyles.profileImage}>
-              <AvatarImage src="src/assets/profile.png" />
-              <AvatarFallback>Rhseung</AvatarFallback>
-            </Avatar>
-            <div className={bannerStyles.infoContainer}>
-              <div className={bannerStyles.infoItem}>
-                <AtSign className={bannerStyles.infoItemIcon} />
-                <span className={bannerStyles.infoItemText}>
-                  <a
-                    href="mailto:rhseungg@gmail.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={bannerStyles.infoItemLinkedText}
-                  >
-                    rhseungg@gmail.com
-                  </a>
-                </span>
-              </div>
-              <div className={bannerStyles.infoItem}>
-                <School className={bannerStyles.infoItemIcon} />
-                <span className={bannerStyles.infoItemText}>
-                  <a
-                    href="https://gsa.gen.hs.kr:453/main/main.php"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={bannerStyles.infoItemLinkedText}
-                  >
-                    과학영재학교 광주과학고등학교
-                  </a>{" "}
-                  39기 졸업
-                </span>
-              </div>
-              <div className={bannerStyles.infoItem}>
-                <GraduationCap className={bannerStyles.infoItemIcon} />
-                <span className={bannerStyles.infoItemText}>
-                  <a
-                    href="https://ewww.gist.ac.kr/kr/main.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={bannerStyles.infoItemLinkedText}
-                  >
-                    GIST
-                  </a>{" "}
-                  '25 도전탐색과정 재학 중
-                </span>
-              </div>
+    <div className={pageStyles.bannerSection}>
+      <div className={pageStyles.bannerContainer}>
+        <div className={pageStyles.profileContainer}>
+          <Avatar className={pageStyles.profileImage}>
+            <AvatarImage src="src/assets/profile.png" />
+            <AvatarFallback>Rhseung</AvatarFallback>
+          </Avatar>
+          <div className={pageStyles.infoContainer}>
+            <div className={pageStyles.infoItem}>
+              <IconAt className={pageStyles.infoItemIcon} size={28} />
+              <span className={pageStyles.infoItemText}>
+                <a
+                  href="mailto:rhseungg@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={pageStyles.infoItemLinkedText}
+                >
+                  rhseungg@gmail.com
+                </a>
+              </span>
+            </div>
+            <div className={pageStyles.infoItem}>
+              <IconBackpack className={pageStyles.infoItemIcon} size={28} />
+              <span className={pageStyles.infoItemText}>
+                <a
+                  href="https://gsa.gen.hs.kr:453/main/main.php"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={pageStyles.infoItemLinkedText}
+                >
+                  과학영재학교 광주과학고등학교
+                </a>{" "}
+                39기 졸업
+              </span>
+            </div>
+            <div className={pageStyles.infoItem}>
+              <IconSchool className={pageStyles.infoItemIcon} size={28} />
+              <span className={pageStyles.infoItemText}>
+                <a
+                  href="https://ewww.gist.ac.kr/kr/main.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={pageStyles.infoItemLinkedText}
+                >
+                  GIST
+                </a>{" "}
+                '25 도전탐색과정 재학 중
+              </span>
             </div>
           </div>
-          <div>
-            {/* TODO: 수식어 */}
-            <span className={bannerStyles.title}>
-              안녕하세요, 프로그래머이자 디자이너인 류현승입니다.{" "}
-            </span>
-            <span className={bannerStyles.description}>
-              분야를 막론하고, 하고 싶은 것이 생기면 깊게 몰두해 반드시
-              해결해내려고 노력하는 프로그래머입니다. 제가 만들어내는 창작물들을
-              사용하는 사람들에게 긍정적인 영향을 주고자 노력합니다.
-            </span>
-          </div>
+        </div>
+        <div>
+          {/* TODO: 수식어 */}
+          <span className={pageStyles.bannerTitle}>
+            안녕하세요, 프로그래머이자 디자이너인 류현승입니다.{" "}
+          </span>
+          <span className={pageStyles.bannerDescription}>
+            분야를 막론하고, 하고 싶은 것이 생기면 깊게 몰두해 반드시
+            해결해내려고 노력하는 프로그래머입니다. 제가 만들어내는 창작물들을
+            사용하는 사람들에게 긍정적인 영향을 주고자 노력합니다.
+          </span>
         </div>
       </div>
     </div>

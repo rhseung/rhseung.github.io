@@ -1,6 +1,5 @@
 import * as React from "react";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
-import { ChevronDownIcon } from "lucide-react";
 
 import { cn } from "@/utils";
 import { useTheme } from "@/hooks/use-theme";
@@ -74,7 +73,7 @@ function NavigationMenuTrigger({
       className={cn(navigationMenuStyles.trigger, className)}
       {...props}
     >
-      {children} <ChevronDownIcon aria-hidden="true" />
+      {children}
     </NavigationMenuPrimitive.Trigger>
   );
 }

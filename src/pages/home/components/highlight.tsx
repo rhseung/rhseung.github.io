@@ -1,16 +1,9 @@
 import { Button } from "@/components/ui/button";
-import * as projectStyles from "../styles/highlight.css";
-import {
-  highlightLightTheme,
-  highlightDarkTheme,
-} from "../styles/highlight.theme.css";
-import { useTheme } from "@/hooks";
+import * as pageStyles from "../styles/home-page.css";
 import { ExternalLink, Github } from "lucide-react";
 import { Badge } from "@/components";
 
 export const Highlight: React.FC = () => {
-  const { getThemeClass } = useTheme();
-  const themeClass = getThemeClass(highlightLightTheme, highlightDarkTheme);
   const projects = [
     {
       title: "지글, 지스트를 위한 공지 통합 플랫폼",
@@ -81,53 +74,53 @@ export const Highlight: React.FC = () => {
   ];
 
   return (
-    <div className={themeClass}>
-      <div className={projectStyles.section}>
-        <div className={projectStyles.container}>
-          <div className={projectStyles.cardContainer}>
-            {projects.map((project, index) => (
-              <div key={index} className={projectStyles.card}>
-                <div className={projectStyles.cardImage}>
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                    }}
-                  />
-                </div>
-                <div className={projectStyles.cardContent}>
-                  <div className={projectStyles.cardContentTop}>
-                    <div className={projectStyles.title}>{project.title}</div>
-                    <div className={projectStyles.description}>
-                      {project.description}
-                    </div>
+    <div className={pageStyles.highlightSection}>
+      <div className={pageStyles.highlightContainer}>
+        <div className={pageStyles.cardContainer}>
+          {projects.map((project, index) => (
+            <div key={index} className={pageStyles.card}>
+              <div className={pageStyles.cardImage}>
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                  }}
+                />
+              </div>
+              <div className={pageStyles.cardContent}>
+                <div className={pageStyles.cardContentTop}>
+                  <div className={pageStyles.highlightTitle}>
+                    {project.title}
                   </div>
-                  <div className={projectStyles.cardContentBottom}>
-                    <div className={projectStyles.techList}>
-                      {project.tech.map((tech) => (
-                        <Badge key={tech} variant="secondary">
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-                    <div className={projectStyles.buttons}>
-                      <Button size="sm" variant="outline" className="gap-1">
-                        <Github className="w-3 h-3" />
-                        GitHub
-                      </Button>
-                      <Button size="sm" variant="outline" className="gap-1">
-                        <ExternalLink className="w-3 h-3" />
-                        Demo
-                      </Button>
-                    </div>
+                  <div className={pageStyles.highlightDescription}>
+                    {project.description}
+                  </div>
+                </div>
+                <div className={pageStyles.cardContentBottom}>
+                  <div className={pageStyles.techList}>
+                    {project.tech.map((tech) => (
+                      <Badge key={tech} variant="secondary">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                  <div className={pageStyles.buttons}>
+                    <Button size="sm" variant="outline" className="gap-1">
+                      <Github className="w-3 h-3" />
+                      GitHub
+                    </Button>
+                    <Button size="sm" variant="outline" className="gap-1">
+                      <ExternalLink className="w-3 h-3" />
+                      Demo
+                    </Button>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

@@ -2,8 +2,7 @@ import { Button } from "@/components/ui/button";
 import * as footerStyles from "./footer.css";
 import { footerLightTheme, footerDarkTheme } from "./footer.theme.css";
 import { useTheme } from "@/hooks/use-theme";
-
-import { Github, Mail } from "lucide-react";
+import { IconMail, IconBrandGithub } from "@tabler/icons-react";
 
 export const Footer: React.FC = () => {
   const { getThemeClass } = useTheme();
@@ -18,10 +17,10 @@ export const Footer: React.FC = () => {
           </p>
           <div className={footerStyles.socialLinks}>
             <Button variant="ghost" size="icon">
-              <Github className="w-4 h-4" />
+              <IconBrandGithub size={20} />
             </Button>
             <Button variant="ghost" size="icon">
-              <Mail className="w-4 h-4" />
+              <IconMail size={20} />
             </Button>
           </div>
         </div>

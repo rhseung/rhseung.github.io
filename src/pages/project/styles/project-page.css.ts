@@ -1,91 +1,101 @@
 import { style } from "@vanilla-extract/css";
-import { projectVars } from "./project.theme.css";
+import { projectPageVars } from "./project-page.theme.css";
 
+// 페이지 레벨 스타일
 export const section = style({
-  backgroundColor: projectVars.background,
+  backgroundColor: projectPageVars.background,
   width: "100%",
-  padding: projectVars.sectionPadding,
+  padding: projectPageVars.sectionPadding,
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
 
   "@media": {
     "(max-width: 1023px)": {
-      padding: projectVars.sectionPaddingMobile,
+      padding: projectPageVars.sectionPaddingMobile,
     },
   },
 });
 
 export const titleSection = style({
-  backgroundColor: projectVars.background,
+  backgroundColor: projectPageVars.background,
   width: "100%",
-  paddingLeft: projectVars.titleSectionPaddingX,
-  paddingRight: projectVars.titleSectionPaddingX,
-  paddingTop: projectVars.titleSectionPaddingY,
-  paddingBottom: projectVars.titleSectionPaddingY,
+  paddingLeft: projectPageVars.titleSectionPaddingX,
+  paddingRight: projectPageVars.titleSectionPaddingX,
+  paddingTop: projectPageVars.titleSectionPaddingY,
+  paddingBottom: projectPageVars.titleSectionPaddingY,
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
 
   "@media": {
     "(max-width: 1023px)": {
-      padding: projectVars.titleSectionPaddingMobile,
+      padding: projectPageVars.titleSectionPaddingMobile,
     },
   },
 });
 
 export const container = style({
-  maxWidth: projectVars.containerMaxWidth,
+  maxWidth: projectPageVars.containerMaxWidth,
   width: "100%",
 });
 
 export const separatorSection = style({
-  backgroundColor: projectVars.background,
+  backgroundColor: projectPageVars.background,
   width: "100%",
-  marginLeft: projectVars.titleSectionPaddingX,
-  marginRight: projectVars.titleSectionPaddingX,
+  marginLeft: projectPageVars.titleSectionPaddingX,
+  marginRight: projectPageVars.titleSectionPaddingX,
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
 
   "@media": {
     "(max-width: 1023px)": {
-      marginLeft: projectVars.titleSectionPaddingMobile,
-      marginRight: projectVars.titleSectionPaddingMobile,
+      marginLeft: projectPageVars.titleSectionPaddingMobile,
+      marginRight: projectPageVars.titleSectionPaddingMobile,
     },
   },
 });
 
-export const projectTitle = style({
-  fontSize: projectVars.titleSize,
-  fontWeight: projectVars.titleWeight,
-  color: projectVars.title,
+// 페이지 타이틀 스타일
+export const pageTitle = style({
+  fontSize: projectPageVars.pageTitle,
+  fontWeight: projectPageVars.pageTitleWeight,
+  color: projectPageVars.pageTitleColor,
   margin: 0,
-  marginBottom: projectVars.titleMarginBottom,
+});
+
+// 프로젝트 카드 스타일
+export const projectTitle = style({
+  fontSize: projectPageVars.titleSize,
+  fontWeight: projectPageVars.titleWeight,
+  color: projectPageVars.title,
+  margin: 0,
+  marginBottom: projectPageVars.titleMarginBottom,
 });
 
 export const projectDesc = style({
-  color: projectVars.description,
+  color: projectPageVars.description,
   margin: 0,
-  marginBottom: projectVars.descriptionMarginBottom,
+  marginBottom: projectPageVars.descriptionMarginBottom,
 });
 
 export const techList = style({
   display: "flex",
   flexWrap: "wrap",
-  gap: projectVars.techGap,
+  gap: projectPageVars.techGap,
 });
 
 export const buttons = style({
   display: "flex",
-  gap: projectVars.buttonGap,
+  gap: projectPageVars.buttonGap,
 });
 
 // Card styles
 export const card = style({
   width: "100%",
   display: "flex",
-  gap: projectVars.cardGap,
+  gap: projectPageVars.cardGap,
   "@media": {
     "(max-width: 768px)": {
       flexDirection: "column",
@@ -94,15 +104,15 @@ export const card = style({
 });
 
 export const cardImage = style({
-  width: projectVars.imageWidth,
-  backgroundColor: projectVars.imageBg,
+  width: projectPageVars.imageWidth,
+  backgroundColor: projectPageVars.imageBg,
   flexShrink: 0,
   overflow: "hidden",
-  borderRadius: projectVars.imageRadius,
+  borderRadius: projectPageVars.imageRadius,
   "@media": {
     "(max-width: 768px)": {
       width: "100%",
-      height: projectVars.imageHeightMobile,
+      height: projectPageVars.imageHeightMobile,
     },
   },
 });
@@ -112,7 +122,7 @@ export const cardContent = style({
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
-  minHeight: projectVars.cardMinHeight,
+  minHeight: projectPageVars.cardMinHeight,
   "@media": {
     "(max-width: 768px)": {
       minHeight: "auto",
@@ -128,21 +138,21 @@ export const cardContentTop = style({
 export const cardContentBottom = style({
   display: "flex",
   flexDirection: "column",
-  gap: projectVars.cardContentGap,
+  gap: projectPageVars.cardContentGap,
   marginTop: "auto",
 });
 
 export const cardContainer = style({
   display: "flex",
   flexDirection: "column",
-  gap: projectVars.containerGap,
+  gap: projectPageVars.containerGap,
   width: "100%",
 });
 
 // Grid layouts
 export const twoColumnGrid = style({
   display: "grid",
-  gap: projectVars.gridGap,
+  gap: projectPageVars.gridGap,
   "@media": {
     "(min-width: 768px)": {
       gridTemplateColumns: "repeat(2, 1fr)",

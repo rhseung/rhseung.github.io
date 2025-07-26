@@ -26,6 +26,8 @@ const common = {
   // Typography semantics
   titleSize: primitiveTokens.fontSize.xl,
   titleWeight: primitiveTokens.fontWeight.bold,
+  pageTitle: primitiveTokens.fontSize["2xl"],
+  pageTitleWeight: primitiveTokens.fontWeight.bold,
   techSize: primitiveTokens.fontSize.xs,
 
   // Border semantics
@@ -38,11 +40,12 @@ const common = {
   cardMinHeight: "200px",
 };
 
-// Project section semantic tokens - complete independence
-export const [projectLightTheme, projectVars] = createTheme({
+// Project page semantic tokens - 전체 페이지 테마 관리
+export const [projectPageLightTheme, projectPageVars] = createTheme({
   // Color semantics
   background: primitiveTokens.color.white,
   title: primitiveTokens.color.neutral[900],
+  pageTitleColor: primitiveTokens.color.neutral[900],
   description: primitiveTokens.color.neutral[600],
   techBg: primitiveTokens.color.neutral[200],
   techText: primitiveTokens.color.neutral[700],
@@ -51,10 +54,11 @@ export const [projectLightTheme, projectVars] = createTheme({
   ...common,
 });
 
-export const projectDarkTheme = createTheme(projectVars, {
+export const projectPageDarkTheme = createTheme(projectPageVars, {
   // Color semantics
   background: primitiveTokens.color.neutral[900],
   title: primitiveTokens.color.neutral[50],
+  pageTitleColor: primitiveTokens.color.neutral[50],
   description: primitiveTokens.color.neutral[400],
   techBg: primitiveTokens.color.neutral[800],
   techText: primitiveTokens.color.neutral[300],

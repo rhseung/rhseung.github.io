@@ -39,11 +39,6 @@ globalStyle("body.dark", {
   color: primitiveTokens.color.neutral[50],
 });
 
-// Layout styles - 레이아웃만, 패딩/마진은 각 컴포넌트에서 관리
-export const container = style({
-  minHeight: "100vh",
-});
-
 export const titleContainer = style({
   width: "100%",
   padding: primitiveTokens.spacing["3xl"],

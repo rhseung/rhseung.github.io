@@ -8,5 +8,13 @@
   "files.readonlyInclude": {
     "**/routeTree.gen.ts": true
   },
-  "cSpell.words": ["bunx", "Hyunseung", "oklch", "shadcn"]
+  "cSpell.words": [
+    "bunx",
+    "Hyunseung",
+    "oklch",
+    "shadcn",
+    "Stackoverflow",
+    "tabler",
+    "ziggle"
+  ]
 }

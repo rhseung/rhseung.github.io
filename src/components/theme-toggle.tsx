@@ -1,4 +1,4 @@
-import { Moon, Sun, Monitor } from "lucide-react";
+import { IconMoon, IconSun, IconShadow } from "@tabler/icons-react";
 
 import { useTheme } from "../hooks/use-theme";
 
@@ -10,11 +10,11 @@ export function ThemeToggle() {
   const getIcon = () => {
     switch (theme) {
       case "light":
-        return <Sun className="w-5 h-5" />;
+        return <IconSun size={20} />;
       case "dark":
-        return <Moon className="w-5 h-5" />;
+        return <IconMoon size={20} />;
       case "system":
-        return <Monitor className="w-5 h-5" />;
+        return <IconShadow size={20} />;
     }
   };
 
