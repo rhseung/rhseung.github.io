@@ -4,7 +4,7 @@ import { primitiveTokens } from "@/styles";
 // Common tokens that don't change between themes
 const common = {
   // Container layout semantics
-  containerMaxWidth: "72rem",
+  containerMaxWidth: primitiveTokens.maxWidth,
 
   // Spacing semantics
   padding: primitiveTokens.spacing["2xl"],

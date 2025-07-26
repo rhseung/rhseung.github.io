@@ -150,4 +150,9 @@ export const [primitiveTheme, primitiveTokens] = createTheme({
     rainbowDark:
       "linear-gradient(to right, rgb(255, 124, 168) 0%, rgb(180, 145, 255) 50%, rgb(124, 249, 255) 100%)",
   },
+
+  maxWidth: "72rem",
 });
+
+// TODO: header 뒷 배경 paddingTop 처리 - store로 전역 변수로 만들면?
+// TODO: import 정렬 lint 추가

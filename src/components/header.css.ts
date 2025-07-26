@@ -39,6 +39,8 @@ export const headerTitle = style({
 });
 
 export const logo = style({
+  display: "flex",
+  alignItems: "center",
   color: headerVars.foreground,
   transition: "color 0.2s ease",
   ":hover": {

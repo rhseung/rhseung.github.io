@@ -1,10 +1,9 @@
 import { style } from "@vanilla-extract/css";
-import { projectVars } from "./project-section.theme.css";
+import { projectVars } from "./project.theme.css";
 
-export const projectSection = style({
+export const section = style({
   backgroundColor: projectVars.background,
   width: "100%",
-  minHeight: "100vh",
   padding: projectVars.sectionPadding,
   display: "flex",
   alignItems: "center",
@@ -17,9 +16,44 @@ export const projectSection = style({
   },
 });
 
-export const projectContainer = style({
+export const titleSection = style({
+  backgroundColor: projectVars.background,
+  width: "100%",
+  paddingLeft: projectVars.titleSectionPaddingX,
+  paddingRight: projectVars.titleSectionPaddingX,
+  paddingTop: projectVars.titleSectionPaddingY,
+  paddingBottom: projectVars.titleSectionPaddingY,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+
+  "@media": {
+    "(max-width: 1023px)": {
+      padding: projectVars.titleSectionPaddingMobile,
+    },
+  },
+});
+
+export const container = style({
   maxWidth: projectVars.containerMaxWidth,
   width: "100%",
+});
+
+export const separatorSection = style({
+  backgroundColor: projectVars.background,
+  width: "100%",
+  marginLeft: projectVars.titleSectionPaddingX,
+  marginRight: projectVars.titleSectionPaddingX,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+
+  "@media": {
+    "(max-width: 1023px)": {
+      marginLeft: projectVars.titleSectionPaddingMobile,
+      marginRight: projectVars.titleSectionPaddingMobile,
+    },
+  },
 });
 
 export const projectTitle = style({
@@ -30,27 +64,19 @@ export const projectTitle = style({
   marginBottom: projectVars.titleMarginBottom,
 });
 
-export const projectDescription = style({
+export const projectDesc = style({
   color: projectVars.description,
   margin: 0,
   marginBottom: projectVars.descriptionMarginBottom,
 });
 
-export const projectTechList = style({
+export const techList = style({
   display: "flex",
   flexWrap: "wrap",
   gap: projectVars.techGap,
 });
 
-export const projectTechTag = style({
-  padding: `${projectVars.techPadding} ${projectVars.techPaddingSide}`,
-  backgroundColor: projectVars.techBg,
-  color: projectVars.techText,
-  borderRadius: projectVars.techRadius,
-  fontSize: projectVars.techSize,
-});
-
-export const projectButtons = style({
+export const buttons = style({
   display: "flex",
   gap: projectVars.buttonGap,
 });

@@ -1,12 +1,12 @@
 import { styles } from "@/styles";
-import { BannerSection } from "./components/banner-section";
-import { ProjectSection } from "./components/project-section";
+import { Banner } from "./components/banner";
+import { Highlight } from "./components/highlight";
 
 export const HomePage: React.FC = () => {
   return (
     <div className={styles.container}>
-      <BannerSection />
-      <ProjectSection />
+      <Banner />
+      <Highlight />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
-import { bannerVars } from "./banner-section.theme.css";
+import { bannerVars } from "./banner.theme.css";
 
-export const bannerSection = style({
+export const section = style({
   display: "flex",
   flexDirection: "column",
   gap: bannerVars.sectionGap,
@@ -19,7 +19,7 @@ export const bannerSection = style({
   },
 });
 
-export const bannerContainer = style({
+export const container = style({
   maxWidth: bannerVars.containerMaxWidth,
   width: "100%",
   display: "flex",
@@ -40,7 +40,7 @@ export const profileImage = style({
   display: "block",
 });
 
-export const bannerTitle = style({
+export const title = style({
   fontSize: bannerVars.titleSize,
   fontWeight: bannerVars.titleWeight,
   lineHeight: 1.6,
@@ -53,7 +53,7 @@ export const bannerTitle = style({
   letterSpacing: "-0.02em",
 });
 
-export const bannerDescription = style({
+export const description = style({
   fontSize: bannerVars.descriptionSize,
   fontWeight: bannerVars.descriptionWeight,
   lineHeight: 1.6,

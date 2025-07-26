@@ -43,3 +43,24 @@ globalStyle("body.dark", {
 export const container = style({
   minHeight: "100vh",
 });
+
+export const titleContainer = style({
+  width: "100%",
+  padding: primitiveTokens.spacing["3xl"],
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  "@media": {
+    "(max-width: 1023px)": {
+      padding: primitiveTokens.spacing.lg,
+    },
+  },
+});
+
+export const title = style({
+  maxWidth: primitiveTokens.maxWidth,
+  width: "100%",
+  display: "flex",
+  flexDirection: "column",
+  gap: primitiveTokens.spacing["3xl"],
+});

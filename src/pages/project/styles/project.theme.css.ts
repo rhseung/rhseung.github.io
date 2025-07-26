@@ -6,7 +6,10 @@ const common = {
   // Section layout semantics
   sectionPadding: primitiveTokens.spacing["3xl"],
   sectionPaddingMobile: primitiveTokens.spacing.lg,
-  containerMaxWidth: "72rem",
+  titleSectionPaddingX: primitiveTokens.spacing["3xl"],
+  titleSectionPaddingY: primitiveTokens.spacing.xl,
+  titleSectionPaddingMobile: primitiveTokens.spacing.lg,
+  containerMaxWidth: primitiveTokens.maxWidth,
 
   // Spacing semantics
   titleMarginBottom: primitiveTokens.spacing.sm,

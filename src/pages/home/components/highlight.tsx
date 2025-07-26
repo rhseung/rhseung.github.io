@@ -1,15 +1,16 @@
 import { Button } from "@/components/ui/button";
-import * as projectStyles from "../styles/project-section.css";
+import * as projectStyles from "../styles/highlight.css";
 import {
-  projectLightTheme,
-  projectDarkTheme,
-} from "../styles/project-section.theme.css";
-import { useTheme } from "@/hooks/use-theme";
+  highlightLightTheme,
+  highlightDarkTheme,
+} from "../styles/highlight.theme.css";
+import { useTheme } from "@/hooks";
 import { ExternalLink, Github } from "lucide-react";
+import { Badge } from "@/components";
 
-export const ProjectSection: React.FC = () => {
+export const Highlight: React.FC = () => {
   const { getThemeClass } = useTheme();
-  const themeClass = getThemeClass(projectLightTheme, projectDarkTheme);
+  const themeClass = getThemeClass(highlightLightTheme, highlightDarkTheme);
   const projects = [
     {
       title: "지글, 지스트를 위한 공지 통합 플랫폼",
@@ -81,8 +82,8 @@ export const ProjectSection: React.FC = () => {
 
   return (
     <div className={themeClass}>
-      <div className={projectStyles.projectSection}>
-        <div className={projectStyles.projectContainer}>
+      <div className={projectStyles.section}>
+        <div className={projectStyles.container}>
           <div className={projectStyles.cardContainer}>
             {projects.map((project, index) => (
               <div key={index} className={projectStyles.card}>
@@ -99,25 +100,20 @@ export const ProjectSection: React.FC = () => {
                 </div>
                 <div className={projectStyles.cardContent}>
                   <div className={projectStyles.cardContentTop}>
-                    <div className={projectStyles.projectTitle}>
-                      {project.title}
-                    </div>
-                    <div className={projectStyles.projectDescription}>
+                    <div className={projectStyles.title}>{project.title}</div>
+                    <div className={projectStyles.description}>
                       {project.description}
                     </div>
                   </div>
                   <div className={projectStyles.cardContentBottom}>
-                    <div className={projectStyles.projectTechList}>
+                    <div className={projectStyles.techList}>
                       {project.tech.map((tech) => (
-                        <span
-                          key={tech}
-                          className={projectStyles.projectTechTag}
-                        >
+                        <Badge key={tech} variant="secondary">
                           {tech}
-                        </span>
+                        </Badge>
                       ))}
                     </div>
-                    <div className={projectStyles.projectButtons}>
+                    <div className={projectStyles.buttons}>
                       <Button size="sm" variant="outline" className="gap-1">
                         <Github className="w-3 h-3" />
                         GitHub

@@ -5,7 +5,7 @@ import * as React from "react";
 import { buttonVariants } from "./button.css";
 import { buttonLightTheme, buttonDarkTheme } from "./button.theme.css";
 
-import { cn } from "@/utils/cn";
+import { cn } from "@/utils";
 import { useTheme } from "@/hooks/use-theme";
 
 function Button({

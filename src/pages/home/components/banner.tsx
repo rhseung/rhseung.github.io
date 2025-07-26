@@ -1,8 +1,6 @@
-import * as bannerStyles from "../styles/banner-section.css";
-import {
-  bannerLightTheme,
-  bannerDarkTheme,
-} from "../styles/banner-section.theme.css";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/";
+import * as bannerStyles from "../styles/banner.css";
+import { bannerLightTheme, bannerDarkTheme } from "../styles/banner.theme.css";
 import { useTheme } from "@/hooks/use-theme";
 import { AtSign, School, GraduationCap } from "lucide-react";
 
@@ -15,20 +13,19 @@ import { AtSign, School, GraduationCap } from "lucide-react";
 앞으로도 계속해서 배우고 성장하며, 기술과 창의성을 통해 세상에 긍정적인 변화를 만들어내는 인재가 되고자 합니다.
  */
 
-export const BannerSection: React.FC = () => {
+export const Banner: React.FC = () => {
   const { getThemeClass } = useTheme();
   const themeClass = getThemeClass(bannerLightTheme, bannerDarkTheme);
 
   return (
     <div className={themeClass}>
-      <div className={bannerStyles.bannerSection}>
-        <div className={bannerStyles.bannerContainer}>
+      <div className={bannerStyles.section}>
+        <div className={bannerStyles.container}>
           <div className={bannerStyles.profileContainer}>
-            <img
-              src="src/assets/profile.png"
-              alt="Profile"
-              className={bannerStyles.profileImage}
-            />
+            <Avatar className={bannerStyles.profileImage}>
+              <AvatarImage src="src/assets/profile.png" />
+              <AvatarFallback>Rhseung</AvatarFallback>
+            </Avatar>
             <div className={bannerStyles.infoContainer}>
               <div className={bannerStyles.infoItem}>
                 <AtSign className={bannerStyles.infoItemIcon} />
@@ -75,10 +72,10 @@ export const BannerSection: React.FC = () => {
           </div>
           <div>
             {/* TODO: 수식어 */}
-            <span className={bannerStyles.bannerTitle}>
-              안녕하세요, 프로그래머이자 디자이너인 류현승 입니다.{" "}
+            <span className={bannerStyles.title}>
+              안녕하세요, 프로그래머이자 디자이너인 류현승입니다.{" "}
             </span>
-            <span className={bannerStyles.bannerDescription}>
+            <span className={bannerStyles.description}>
               분야를 막론하고, 하고 싶은 것이 생기면 깊게 몰두해 반드시
               해결해내려고 노력하는 프로그래머입니다. 제가 만들어내는 창작물들을
               사용하는 사람들에게 긍정적인 영향을 주고자 노력합니다.
