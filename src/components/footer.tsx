@@ -8,6 +8,14 @@ export const Footer: React.FC = () => {
   const { getThemeClass } = useTheme();
   const themeClass = getThemeClass(footerLightTheme, footerDarkTheme);
 
+  const handleGithubClick = () => {
+    window.open("https://github.com/rhseung", "_blank", "noopener,noreferrer");
+  };
+
+  const handleMailClick = () => {
+    window.open("mailto:rhseungg@gmail.com", "_blank", "noopener,noreferrer");
+  };
+
   return (
     <footer className={themeClass}>
       <div className={footerStyles.footer}>
@@ -16,10 +24,10 @@ export const Footer: React.FC = () => {
             © {new Date().getFullYear()} Hyunseung Ryu. All rights reserved.
           </p>
           <div className={footerStyles.socialLinks}>
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" onClick={handleGithubClick}>
               <IconBrandGithub size={20} />
             </Button>
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" onClick={handleMailClick}>
               <IconMail size={20} />
             </Button>
           </div>

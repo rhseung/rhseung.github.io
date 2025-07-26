@@ -42,7 +42,7 @@ export const logo = style({
   display: "flex",
   alignItems: "center",
   color: headerVars.foreground,
-  transition: "color 0.2s ease",
+  transition: "color 0.1s ease",
   ":hover": {
     color: headerVars.foregroundHover,
   },

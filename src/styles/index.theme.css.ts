@@ -103,6 +103,7 @@ export const [primitiveTheme, primitiveTokens] = createTheme({
   spacing: {
     xs: "0.25rem",
     sm: "0.5rem",
+    smd: "0.75rem",
     md: "1rem",
     base: "1.25rem",
     lg: "1.5rem",
@@ -156,3 +157,4 @@ export const [primitiveTheme, primitiveTokens] = createTheme({
 
 // TODO: header 뒷 배경 paddingTop 처리 - store로 전역 변수로 만들면?
 // TODO: import 정렬 lint 추가
+// TODO: https://ui.shadcn.com/ 의 컬러 팔레트 사용하자 - 지금 다크 모드 색상이 너무 밝음 - 이를 위해서는 일단 primitive token -> semantic token -> component token 구조로 리팩토링하기

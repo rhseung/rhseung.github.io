@@ -44,7 +44,7 @@ export const trigger = style({
   border: "none",
   cursor: "pointer",
   outline: "none",
-  transition: "all 0.2s ease-in-out",
+  transition: "all 0.1s ease-in-out",
 
   ":hover": {
     backgroundColor: navigationMenuVars.color.triggerHover,

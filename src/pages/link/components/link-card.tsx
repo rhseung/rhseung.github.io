@@ -24,6 +24,11 @@ export const LinkCard: React.FC<{
       onClick={handleClick}
       role="button"
       tabIndex={0}
+      style={
+        {
+          "--hover-border-color": link.iconColor || "transparent",
+        } as React.CSSProperties
+      }
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();

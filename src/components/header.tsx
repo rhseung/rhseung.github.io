@@ -25,6 +25,10 @@ export const Header = forwardRef<HTMLDivElement>((_props, ref) => {
     });
   };
 
+  // TODO: 선택되어 있는 탭은 강조 표시 - shadcn ui에서 tab 컴포넌트 쓰는건 어때 <- 홈 탭 왼쪽 아래에 알 수 없는 회색 픽셀이 자꾸 보이는데 navigation bar content 같아서 그럼
+  // TODO: 선택되어 있는 탭 아래 하얀 바로 선택되었다는 표시 추가
+  // TODO: 탭 간 전환 애니메이션 추가
+
   return (
     <header className={themeClass}>
       <div ref={ref} className={headerStyles.header}>
@@ -46,13 +50,13 @@ export const Header = forwardRef<HTMLDivElement>((_props, ref) => {
                   </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link to="/link">
-                    <NavigationMenuTrigger>링크</NavigationMenuTrigger>
+                  <Link to="/career">
+                    <NavigationMenuTrigger>이력</NavigationMenuTrigger>
                   </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link to="/career">
-                    <NavigationMenuTrigger>이력</NavigationMenuTrigger>
+                  <Link to="/link">
+                    <NavigationMenuTrigger>링크</NavigationMenuTrigger>
                   </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>

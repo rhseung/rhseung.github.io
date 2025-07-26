@@ -76,13 +76,21 @@ export const linkCard = style({
   ":hover": {
     backgroundColor: linkPageVars.cardHoverBg,
     transform: "translateY(-2px)",
-    boxShadow: "0 2px 8px rgba(0, 0, 0, 0.06)",
+    boxShadow:
+      "0 2px 8px rgba(0, 0, 0, 0.06), inset 0 0 0 1px var(--hover-border-color, " +
+      linkPageVars.cardBorderColor +
+      ")",
+    borderColor:
+      "var(--hover-border-color, " + linkPageVars.cardBorderColor + ")",
   },
 
   "@media": {
     "(prefers-color-scheme: dark)": {
       ":hover": {
-        boxShadow: "0 2px 8px rgba(0, 0, 0, 0.2)",
+        boxShadow:
+          "0 2px 8px rgba(0, 0, 0, 0.2), inset 0 0 0 1px var(--hover-border-color, " +
+          linkPageVars.cardBorderColor +
+          ")",
       },
     },
   },
