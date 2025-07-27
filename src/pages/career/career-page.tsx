@@ -43,15 +43,15 @@ export const CareerPage: React.FC = () => {
   const certificationsData = [
     {
       date: "2024.06",
-      name: "정보처리기능사",
-      agency: "한국산업인력공단",
+      name: "예시1",
+      agency: "예시1",
       status: "취득",
       logo: <IconCertificate size={20} />,
     },
     {
       date: "2023.12",
-      name: "컴활 1급",
-      agency: "대한상공회의소",
+      name: "예시2",
+      agency: "예시2",
       status: "취득",
       logo: <IconCertificate size={20} />,
     },
@@ -61,16 +61,16 @@ export const CareerPage: React.FC = () => {
   const competitionsData = [
     {
       year: "2023",
-      name: "대한민국 프로그래밍 대회",
-      organizer: "한국정보과학회",
+      name: "예시1",
+      organizer: "예시1",
       category: "알고리즘 부문",
       result: "참가",
       logo: <IconCode size={20} />,
     },
     {
       year: "2022",
-      name: "청소년 SW 창작대회",
-      organizer: "과학기술정보통신부",
+      name: "예시2",
+      organizer: "예시2",
       category: "웹 개발 부문",
       result: "참가",
       logo: <IconTrophy size={20} />,
@@ -103,49 +103,53 @@ export const CareerPage: React.FC = () => {
             </div>
             <p className={pageStyles.detailText} style={{ marginTop: "1rem" }}>
               <li>
-                광주과학고등학교 1학년 1학기 정보과학 I <b>5등 (교과우수상)</b>
+                광주과학고등학교 1학년 1학기 정보과학 I <b>5th (교과우수상)</b>
               </li>
               <li>
-                광주과학고등학교 1학년 2학기 정보과학 II <b>2등 (교과우수상)</b>
+                광주과학고등학교 1학년 2학기 정보과학 II <b>2nd (교과우수상)</b>
               </li>
               <li>
-                광주과학고등학교 1학년 교내경시대회 정보부문{" "}
+                광주과학고등학교 2022년 교내경시대회 정보부문{" "}
                 <b className={pageStyles.goldText}>금상 (1학년 유일)</b>
               </li>
               <li>
                 광주과학고등학교 2학년 2학기 머신러닝과 딥러닝{" "}
-                <b className={pageStyles.goldText}>1등 (교과우수상)</b>
+                <b className={pageStyles.goldText}>1st (교과우수상)</b>
               </li>
               <li>
                 광주과학고등학교 2학년 2학기 객체지향 프로그래밍{" "}
-                <b className={pageStyles.goldText}>1등 (교과우수상)</b>
+                <b className={pageStyles.goldText}>1st (교과우수상)</b>
               </li>
               <li>
                 광주과학고등학교 2학년 2학기 프로그래밍과 문제해결{" "}
-                <b className={pageStyles.goldText}>1등 (AP, 교과우수상)</b>
+                <b className={pageStyles.goldText}>1st (AP, 교과우수상)</b>
               </li>
               <li>
-                광주과학고등학교 2학년 교내경시대회 정보부문{" "}
+                광주과학고등학교 2023년 교내경시대회 정보부문{" "}
                 <b className={pageStyles.goldText}>금상</b>
               </li>
               <li>
                 광주과학고등학교 3학년 1학기 자료구조와 알고리즘{" "}
-                <b>2등 (교과우수상)</b>
+                <b>2nd (교과우수상)</b>
               </li>
               <li>
                 광주과학고등학교 3학년 1학기 정보과학 프로젝트{" "}
-                <b className={pageStyles.goldText}>1등 (교과우수상)</b>
+                <b className={pageStyles.goldText}>1st (교과우수상)</b>
+              </li>
+              <li>
+                광주과학고등학교 종합 정보부문 GPA{" "}
+                <b className={pageStyles.goldText}>4.285 / 4.3</b>
               </li>
               <br />
               <li>GIST 2025년 입학식 학부생(신입생) 대표</li>
               <li>GIST 2025년 1학기 이공계 성적우수 장학생 해당자</li>
               <li>
                 GIST GS1001 미적분학과 응용{" "}
-                <b className={pageStyles.goldText}>1등</b> (241점/240점)
+                <b className={pageStyles.goldText}>1st</b> (241점/240점)
               </li>
               <li>
                 GIST GS1401 컴퓨터 프로그래밍{" "}
-                <b className={pageStyles.goldText}>1등</b> (98점/100점)
+                <b className={pageStyles.goldText}>1st</b> (98점/100점)
               </li>
             </p>
           </div>

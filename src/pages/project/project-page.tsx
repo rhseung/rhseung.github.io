@@ -13,6 +13,8 @@ export const ProjectPage: React.FC = () => {
   const themeClass = getThemeClass(projectPageLightTheme, projectPageDarkTheme);
 
   // TODO: https://ui.shadcn.com/docs/components/pagination 이거로 페이지 늘리기
+  // TODO: https://ui.shadcn.com/docs/components/select 이거로 필터링 기능 추가 및 테크 스택 자랑 섹션을 위에 달아두기
+  // TODO: 각 프로젝트 카드마다 자세히 보기 기능 및 페이지 추가
 
   const projects = [
     {
@@ -80,6 +82,22 @@ export const ProjectPage: React.FC = () => {
       github: "https://github.com",
       demo: "https://demo.com",
       image: "src/assets/thumbnails/siunits.png",
+    },
+    {
+      title: "정규표현식을 빌더 패턴으로 생성할 수 있는 라이브러리, Pattern",
+      description: "OpenWeather API를 활용한 반응형 날씨 정보 대시보드입니다.",
+      tech: ["React", "TypeScript", "Chart.js"],
+      github: "https://github.com",
+      demo: "https://demo.com",
+      image: "src/assets/thumbnails/pattern.png",
+    },
+    {
+      title: "마인크래프트에 여러 Tweaks를 추가해주는 인터페이스 모드, Glance",
+      description: "OpenWeather API를 활용한 반응형 날씨 정보 대시보드입니다.",
+      tech: ["React", "TypeScript", "Chart.js"],
+      github: "https://github.com/rhseung-mods/glance",
+      demo: "https://modrinth.com/mod/glance",
+      image: "src/assets/thumbnails/glance.png",
     },
   ];
 

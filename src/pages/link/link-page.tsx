@@ -21,12 +21,16 @@ import {
   IconBrandSteam,
   IconBrandSpotify,
   IconBox,
+  IconBlockquote,
 } from "@tabler/icons-react";
 
 export const LinkPage: React.FC = () => {
   const { getThemeClass, getActualTheme } = useTheme();
   const themeClass = getThemeClass(linkPageLightTheme, linkPageDarkTheme);
   const currentTheme = getActualTheme();
+
+  // TODO: api 사용해서 팔로워 같은 거 보면 좋을 듯
+  // TODO: 호버 시 막 아래에 콘텐츠 더 떠서 깃허브면 레포개수, 커밋 잔디 등 버라이어티한 인터랙션
 
   const contactLinks = [
     {
@@ -94,6 +98,13 @@ export const LinkPage: React.FC = () => {
       url: "https://modrinth.com/user/Rhseung",
       icon: <IconBox />,
       iconColor: "#66d676",
+    },
+    {
+      title: "Velog",
+      username: "@rhseung224",
+      url: "https://velog.io/@rhseung224/posts",
+      icon: <IconBlockquote />,
+      iconColor: "#5dc096",
     },
   ];
 

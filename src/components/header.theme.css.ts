@@ -34,7 +34,7 @@ export const headerDarkTheme = createTheme(headerVars, {
   // Color semantics
   background: "rgba(10, 10, 10, 0.85)", // 반투명
   foreground: primitiveTokens.color.neutral[50],
-  foregroundHover: primitiveTokens.color.primary[200],
+  foregroundHover: primitiveTokens.color.neutral[200],
 
   ...common,
 });
