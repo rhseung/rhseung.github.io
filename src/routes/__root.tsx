@@ -1,13 +1,11 @@
 import { Footer, Header } from "@/components";
 import { primitiveTheme } from "@/styles";
 import type { QueryClient } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import {
   Outlet,
   createRootRouteWithContext,
   useLocation,
 } from "@tanstack/react-router";
-import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import { useEffect, useRef, useState } from "react";
 
 interface MyRouterContext {

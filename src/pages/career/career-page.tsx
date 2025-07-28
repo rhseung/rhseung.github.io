@@ -6,17 +6,26 @@ import {
 import { useTheme } from "@/hooks";
 import { Separator } from "@/components";
 import { cn } from "@/utils";
-import { EducationCard } from "./components/education-card";
-import { CertificationCard } from "./components/certification-card";
-import { CompetitionCard } from "./components/competition-card";
-import { IconCertificate, IconTrophy, IconCode } from "@tabler/icons-react";
+import {
+  EducationCard,
+  type EducationCardProps,
+} from "./components/education-card";
+import {
+  CertificationCard,
+  type CertificationCardProps,
+} from "./components/certification-card";
+import {
+  CompetitionCard,
+  type CompetitionCardProps,
+} from "./components/competition-card";
+import { IconCode } from "@tabler/icons-react";
 
 export const CareerPage: React.FC = () => {
   const { getThemeClass } = useTheme();
   const themeClass = getThemeClass(careerPageLightTheme, careerPageDarkTheme);
 
   // 학력 데이터
-  const educationData = [
+  const educationData: EducationCardProps[] = [
     {
       period: "2022.03 - 2025.02",
       institution: "과학영재학교 광주과학고등학교",
@@ -40,7 +49,7 @@ export const CareerPage: React.FC = () => {
   ];
 
   // 자격증 데이터
-  const certificationsData = [
+  const certificationsData: CertificationCardProps[] = [
     // {
     //   date: "2024.06",
     //   name: "예시1",
@@ -58,7 +67,7 @@ export const CareerPage: React.FC = () => {
   ];
 
   // 대회 참가 데이터
-  const competitionsData = [
+  const competitionsData: CompetitionCardProps[] = [
     {
       year: "2025",
       name: "AI 창의융합경진대회",

@@ -2,6 +2,7 @@
   "name": "rhseung.github.io",
   "private": true,
   "type": "module",
+  "homepage": "https://rhseung.github.io",
   "scripts": {
     "dev": "vite --port 3000",
     "start": "vite --port 3000",
@@ -11,7 +12,8 @@
     "lint": "eslint",
     "format": "prettier",
     "check": "prettier --write . && eslint --fix",
-    "add": "bunx --bun shadcn@latest add"
+    "add": "bunx --bun shadcn@latest add",
+    "deploy": "bun run build && gh-pages -d build"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.10",
@@ -35,6 +37,7 @@
     "@vanilla-extract/vite-plugin": "^5.1.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "gh-pages": "^6.3.0",
     "lucide-react": "^0.476.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

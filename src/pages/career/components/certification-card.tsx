@@ -1,7 +1,7 @@
 import * as pageStyles from "../styles/career-page.css";
 import { Badge } from "@/components/ui/badge";
 
-interface CertificationCardProps {
+export interface CertificationCardProps {
   date: string;
   name: string;
   agency: string;

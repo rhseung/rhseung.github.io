@@ -1,7 +1,7 @@
 import * as pageStyles from "../styles/career-page.css";
 import { Badge } from "@/components/ui/badge";
 
-interface CompetitionCardProps {
+export interface CompetitionCardProps {
   year: string;
   name: string;
   organizer: string;

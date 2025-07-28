@@ -2,7 +2,7 @@ import * as pageStyles from "../styles/career-page.css";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/utils";
 
-interface EducationCardProps {
+export interface EducationCardProps {
   period: string;
   institution: string;
   major: string;
