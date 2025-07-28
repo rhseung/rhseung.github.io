@@ -8,6 +8,20 @@ import { useTheme } from "@/hooks";
 import { Separator } from "@/components";
 import { cn } from "@/utils";
 
+import ziggleBanner from "@/assets/thumbnails/ziggle.png";
+import gsaBotBanner from "@/assets/thumbnails/gsa-bot.png";
+import idpBanner from "@/assets/thumbnails/idp.png";
+import particlesBanner from "@/assets/thumbnails/particles.png";
+import pingpongBanner from "@/assets/thumbnails/pingpong.png";
+import yoloBanner from "@/assets/thumbnails/yolo.png";
+import siunitsBanner from "@/assets/thumbnails/siunits.png";
+import datetimeBanner from "@/assets/thumbnails/datetime.png";
+import patternBanner from "@/assets/thumbnails/pattern.png";
+import glanceBanner from "@/assets/thumbnails/glance.png";
+import neatBanner from "@/assets/thumbnails/neat.png";
+import rhseungBanner from "@/assets/thumbnails/rhseung.png";
+import fliggleBanner from "@/assets/thumbnails/fliggle.png";
+
 const techStacks = {
   Flutter: { name: "Flutter", color: "#135C9C" },
   Nextjs: { name: "Next.js", color: "#000000" },
@@ -73,7 +87,7 @@ export const ProjectPage: React.FC = () => {
         Frontend: "https://github.com/gsainfoteam/ziggle-fe",
         Site: "https://ziggle.gistory.me",
       },
-      image: "src/assets/thumbnails/ziggle.png",
+      image: ziggleBanner,
     },
     {
       title: "광주과학고등학교를 위한 카톡봇",
@@ -83,7 +97,7 @@ export const ProjectPage: React.FC = () => {
       links: {
         GitHub: "https://github.com/GSAStudentCouncil/gsa-bot",
       },
-      image: "src/assets/thumbnails/gsa-bot.png",
+      image: gsaBotBanner,
     },
     {
       title: "지스트의 통합 계정 시스템, IdP",
@@ -105,7 +119,7 @@ export const ProjectPage: React.FC = () => {
         Frontend: "https://github.com/gsainfoteam/idp-fe",
         Site: "https://idp.gistory.me",
       },
-      image: "src/assets/thumbnails/idp.png",
+      image: idpBanner,
     },
     {
       title: "Constraint 기반 물리엔진 설계, Particles",
@@ -115,7 +129,7 @@ export const ProjectPage: React.FC = () => {
       links: {
         GitHub: "https://github.com/rhseung/particles",
       },
-      image: "src/assets/thumbnails/particles.png",
+      image: particlesBanner,
     },
     {
       title: "컴퓨터 비전과 하드웨어를 융합한 탁구 로봇",
@@ -125,7 +139,7 @@ export const ProjectPage: React.FC = () => {
       links: {
         GitHub: "https://github.com/studio-void/hinguri-pingpong",
       },
-      image: "src/assets/thumbnails/pingpong.png",
+      image: pingpongBanner,
     },
     {
       title: "YOLOv3 재구현하기",
@@ -135,7 +149,7 @@ export const ProjectPage: React.FC = () => {
       links: {
         GitHub: "https://github.com/gsa-projects/2023-rne",
       },
-      image: "src/assets/thumbnails/yolo.png",
+      image: yoloBanner,
     },
     {
       title: "Python의 물리학 실험 단위 계산 라이브러리, siunits",
@@ -146,7 +160,7 @@ export const ProjectPage: React.FC = () => {
         GitHub: "https://github.com/rhseung/siunits",
         PyPI: "https://pypi.org/project/rhseung.units/",
       },
-      image: "src/assets/thumbnails/siunits.png",
+      image: siunitsBanner,
     },
     {
       title: "자연어 날짜 파싱을 위한 라이브러리, DateTime",
@@ -157,7 +171,7 @@ export const ProjectPage: React.FC = () => {
         GitHub: "https://github.com/essentialib/datetime",
         npm: "https://www.npmjs.com/package/@essentialib/datetime",
       },
-      image: "src/assets/thumbnails/datetime.png",
+      image: datetimeBanner,
     },
     {
       title: "정규표현식을 빌더 패턴으로 생성할 수 있는 라이브러리, Pattern",
@@ -168,7 +182,7 @@ export const ProjectPage: React.FC = () => {
         GitHub: "https://github.com/essentialib/pattern",
         npm: "https://www.npmjs.com/package/@essentialib/pattern",
       },
-      image: "src/assets/thumbnails/pattern.png",
+      image: patternBanner,
     },
     {
       title: "마인크래프트에 여러 Tweaks를 추가해주는 인터페이스 모드, Glance",
@@ -179,7 +193,7 @@ export const ProjectPage: React.FC = () => {
         GitHub: "https://github.com/rhseung-mods/glance",
         Modrinth: "https://modrinth.com/mod/glance",
       },
-      image: "src/assets/thumbnails/glance.png",
+      image: glanceBanner,
     },
     {
       title: "NEAT 알고리즘으로 최적화 신경망 구현해보기",
@@ -189,7 +203,7 @@ export const ProjectPage: React.FC = () => {
       links: {
         GitHub: "https://github.com/gsa-projects/artificial-aquarium",
       },
-      image: "src/assets/thumbnails/neat.png",
+      image: neatBanner,
     },
     {
       title: "이 사이트, rhseung.github.io",
@@ -208,7 +222,7 @@ export const ProjectPage: React.FC = () => {
         GitHub: "https://github.com/rhseung/rhseung.github.io",
         Site: "https://rhseung.github.io",
       },
-      image: "src/assets/thumbnails/rhseung.png",
+      image: rhseungBanner,
     },
     {
       title: "연습용 SNS 앱 개발 프로젝트, Fliggle",
@@ -226,7 +240,7 @@ export const ProjectPage: React.FC = () => {
         Backend: "https://github.com/rhseung/toonflix-be",
         Swagger: "https://toonflix-be.vercel.app/api/",
       },
-      image: "src/assets/thumbnails/fliggle.png",
+      image: fliggleBanner,
     },
   ];
 

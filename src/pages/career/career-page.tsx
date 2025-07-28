@@ -20,6 +20,9 @@ import {
 } from "./components/competition-card";
 import { IconCode } from "@tabler/icons-react";
 
+import gsaLogo from "@/assets/logos/gsa.webp";
+import gistLogo from "@/assets/logos/gist.svg";
+
 export const CareerPage: React.FC = () => {
   const { getThemeClass } = useTheme();
   const themeClass = getThemeClass(careerPageLightTheme, careerPageDarkTheme);
@@ -33,7 +36,7 @@ export const CareerPage: React.FC = () => {
       status: "졸업",
       logo: (
         <img
-          src="src/assets/logos/gsa.webp"
+          src={gsaLogo}
           width={25}
           alt="과학영재학교 광주과학고등학교 로고"
         />
@@ -44,7 +47,7 @@ export const CareerPage: React.FC = () => {
       institution: "GIST",
       major: "도전탐색과정",
       status: "재학",
-      logo: <img src="src/assets/logos/gist.svg" width={25} alt="GIST 로고" />,
+      logo: <img src={gistLogo} width={25} alt="GIST 로고" />,
     },
   ];
 

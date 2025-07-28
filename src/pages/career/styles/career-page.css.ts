@@ -248,4 +248,5 @@ export const cardDetail = style({
   fontSize: careerPageVars.smallText,
   color: careerPageVars.bodyTextColor,
   margin: 0,
+  lineHeight: "1.6",
 });

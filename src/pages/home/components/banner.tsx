@@ -1,6 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/";
 import * as pageStyles from "../styles/home-page.css";
 import { IconAt, IconBackpack, IconSchool } from "@tabler/icons-react";
+import profileImage from "@/assets/profile.png";
 
 /**
 안녕하세요. 프로그래머이자 디자이너인 류현승입니다.
@@ -17,7 +18,7 @@ export const Banner: React.FC = () => {
       <div className={pageStyles.bannerContainer}>
         <div className={pageStyles.profileContainer}>
           <Avatar className={pageStyles.profileImage}>
-            <AvatarImage src="src/assets/profile.png" />
+            <AvatarImage src={profileImage} />
             <AvatarFallback>Rhseung</AvatarFallback>
           </Avatar>
           <div className={pageStyles.infoContainer}>
@@ -25,12 +26,12 @@ export const Banner: React.FC = () => {
               <IconAt className={pageStyles.infoItemIcon} size={28} />
               <span className={pageStyles.infoItemText}>
                 <a
-                  href="mailto:rhseungg@gmail.com"
+                  href="mailto:ryu@rhseung.me"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={pageStyles.infoItemLinkedText}
                 >
-                  rhseungg@gmail.com
+                  ryu@rhseung.me
                 </a>
               </span>
             </div>
