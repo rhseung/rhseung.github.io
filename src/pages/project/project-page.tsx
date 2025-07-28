@@ -206,7 +206,7 @@ export const ProjectPage: React.FC = () => {
       image: neatBanner,
     },
     {
-      title: "이 사이트, rhseung.github.io",
+      title: "이 사이트, rhseung.me",
       description:
         "이 사이트는 제 개인 블로그이자 포트폴리오입니다. 제 개발 경험과 프로젝트를 소개합니다.",
       techStacks: [
@@ -220,7 +220,7 @@ export const ProjectPage: React.FC = () => {
       ],
       links: {
         GitHub: "https://github.com/rhseung/rhseung.github.io",
-        Site: "https://rhseung.github.io",
+        Site: "https://rhseung.me",
       },
       image: rhseungBanner,
     },

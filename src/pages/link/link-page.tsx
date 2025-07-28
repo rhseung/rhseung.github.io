@@ -35,8 +35,8 @@ export const LinkPage: React.FC = () => {
   const contactLinks = [
     {
       title: "이메일",
-      username: "rhseungg@gmail.com",
-      url: "mailto:rhseungg@gmail.com",
+      username: "ryu@rhseung.me",
+      url: "mailto:ryu@rhseung.me",
       icon: <IconMail />,
       iconColor: "#EA4335",
     },
