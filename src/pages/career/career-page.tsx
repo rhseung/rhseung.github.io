@@ -41,39 +41,31 @@ export const CareerPage: React.FC = () => {
 
   // 자격증 데이터
   const certificationsData = [
-    {
-      date: "2024.06",
-      name: "예시1",
-      agency: "예시1",
-      status: "취득",
-      logo: <IconCertificate size={20} />,
-    },
-    {
-      date: "2023.12",
-      name: "예시2",
-      agency: "예시2",
-      status: "취득",
-      logo: <IconCertificate size={20} />,
-    },
+    // {
+    //   date: "2024.06",
+    //   name: "예시1",
+    //   agency: "예시1",
+    //   status: "취득",
+    //   logo: <IconCertificate size={20} />,
+    // },
+    // {
+    //   date: "2023.12",
+    //   name: "예시2",
+    //   agency: "예시2",
+    //   status: "취득",
+    //   logo: <IconCertificate size={20} />,
+    // },
   ];
 
   // 대회 참가 데이터
   const competitionsData = [
     {
-      year: "2023",
-      name: "예시1",
-      organizer: "예시1",
-      category: "알고리즘 부문",
+      year: "2025",
+      name: "AI 창의융합경진대회",
+      organizer: "GIST AI융합학과",
+      category: "탁구로봇 트랙",
       result: "참가",
       logo: <IconCode size={20} />,
-    },
-    {
-      year: "2022",
-      name: "예시2",
-      organizer: "예시2",
-      category: "웹 개발 부문",
-      result: "참가",
-      logo: <IconTrophy size={20} />,
     },
   ];
 

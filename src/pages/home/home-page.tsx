@@ -1,5 +1,5 @@
 import { Banner } from "./components/banner";
-import { Highlight } from "./components/highlight";
+// import { Highlight } from "./components/highlight";
 import { useTheme } from "@/hooks";
 import {
   homePageLightTheme,
@@ -13,7 +13,7 @@ export const HomePage: React.FC = () => {
   return (
     <div className={themeClass}>
       <Banner />
-      <Highlight />
+      {/* <Highlight /> */}
     </div>
   );
 };

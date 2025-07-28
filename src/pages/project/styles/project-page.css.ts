@@ -78,6 +78,7 @@ export const projectDesc = style({
   color: projectPageVars.description,
   margin: 0,
   marginBottom: projectPageVars.descriptionMarginBottom,
+  lineHeight: "1.6",
 });
 
 export const techList = style({

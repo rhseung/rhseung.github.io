@@ -1,4 +1,5 @@
 {
+  "git.enableCommitSigning": true,
   "files.watcherExclude": {
     "**/routeTree.gen.ts": true
   },
@@ -10,10 +11,14 @@
   },
   "cSpell.words": [
     "bunx",
+    "fliggle",
     "Hyunseung",
     "Modrinth",
     "oklch",
+    "pingpong",
+    "SFML",
     "shadcn",
+    "siunits",
     "Stackoverflow",
     "tabler",
     "ziggle"

@@ -42,8 +42,8 @@ const RootComponent: React.FC = () => {
         </div>
         <Footer />
       </div>
-      <TanStackRouterDevtools />
-      <ReactQueryDevtools buttonPosition="bottom-right" />
+      {/* <TanStackRouterDevtools />
+      <ReactQueryDevtools buttonPosition="bottom-right" /> */}
     </>
   );
 };
