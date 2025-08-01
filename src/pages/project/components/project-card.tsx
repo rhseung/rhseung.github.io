@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button";
-import * as pageStyles from "../styles/project-page.css";
-import { IconLink, IconBrandGithub } from "@tabler/icons-react";
-import { Badge } from "@/components";
+import { IconBrandGithub, IconLink } from '@tabler/icons-react';
+
+import { Button } from '@/components';
+import { Badge } from '@/components';
 
 export interface TechStack {
   name: string;
@@ -18,7 +18,7 @@ export interface ProjectType {
 
 const getTextColor = (backgroundColor: string): string => {
   // Remove # if present
-  const hex = backgroundColor.replace("#", "");
+  const hex = backgroundColor.replace('#', '');
 
   // Convert hex to RGB
   const r = parseInt(hex.substring(0, 2), 16);
@@ -29,7 +29,7 @@ const getTextColor = (backgroundColor: string): string => {
   const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
 
   // Return white for dark backgrounds, black for light backgrounds
-  return luminance > 0.5 ? "#000000" : "#FFFFFF";
+  return luminance > 0.5 ? '#000000' : '#FFFFFF';
 };
 
 export const ProjectCard: React.FC<{
@@ -37,29 +37,29 @@ export const ProjectCard: React.FC<{
   index: number;
 }> = ({ project, index }) => {
   const handleLinkClick = (url: string) => {
-    window.open(url, "_blank", "noopener,noreferrer");
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (
-    <div key={index} className={pageStyles.card}>
-      <div className={pageStyles.cardImage}>
+    <div key={index} className="w-full flex gap-8 md:flex-row flex-col">
+      <div className="w-full md:w-[500px] md:h-[200px] h-[200px] bg-neutral-200 dark:bg-neutral-800 flex-shrink-0 overflow-hidden rounded-lg">
         <img
           src={project.image}
           alt={project.title}
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-          }}
+          className="w-full h-full object-cover"
         />
       </div>
-      <div className={pageStyles.cardContent}>
-        <div className={pageStyles.cardContentTop}>
-          <div className={pageStyles.projectTitle}>{project.title}</div>
-          <div className={pageStyles.projectDesc}>{project.description}</div>
+      <div className="flex-1 flex flex-col justify-between min-h-[200px] md:min-h-[200px]">
+        <div className="flex flex-col">
+          <div className="text-xl font-bold text-neutral-900 dark:text-neutral-50 mb-3 leading-tight">
+            {project.title}
+          </div>
+          <div className="text-neutral-600 dark:text-neutral-400 mb-4 leading-relaxed">
+            {project.description}
+          </div>
         </div>
-        <div className={pageStyles.cardContentBottom}>
-          <div className={pageStyles.techList}>
+        <div className="flex flex-col gap-4 mt-auto">
+          <div className="flex flex-wrap gap-2">
             {project.techStacks.map((tech) => (
               <Badge
                 key={tech.name}
@@ -73,25 +73,23 @@ export const ProjectCard: React.FC<{
               </Badge>
             ))}
           </div>
-          <div className={pageStyles.buttons}>
-            <div className={pageStyles.buttons}>
-              {Object.entries(project.links).map(([label, url]) => (
-                <Button
-                  key={label}
-                  size="sm"
-                  variant="outline"
-                  className="gap-1"
-                  onClick={() => handleLinkClick(url)}
-                >
-                  {url.includes("github.com") ? (
-                    <IconBrandGithub size={12} />
-                  ) : (
-                    <IconLink size={12} />
-                  )}
-                  <span>{label}</span>
-                </Button>
-              ))}
-            </div>
+          <div className="flex gap-3">
+            {Object.entries(project.links).map(([label, url]) => (
+              <Button
+                key={label}
+                size="sm"
+                variant="outline"
+                className="gap-1"
+                onClick={() => handleLinkClick(url)}
+              >
+                {url.includes('github.com') ? (
+                  <IconBrandGithub size={12} />
+                ) : (
+                  <IconLink size={12} />
+                )}
+                <span>{label}</span>
+              </Button>
+            ))}
           </div>
         </div>
       </div>

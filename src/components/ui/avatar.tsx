@@ -1,31 +1,19 @@
-import * as React from "react";
-import * as AvatarPrimitive from "@radix-ui/react-avatar";
+import * as React from 'react';
 
-import { cn } from "@/utils";
-import { useTheme } from "@/hooks";
-import * as avatarStyles from "./avatar.css";
-import {
-  avatarVars,
-  avatarLightTheme,
-  avatarDarkTheme,
-} from "./avatar.theme.css";
+import * as AvatarPrimitive from '@radix-ui/react-avatar';
 
-interface AvatarProps
-  extends React.ComponentProps<typeof AvatarPrimitive.Root> {
-  size?: keyof typeof avatarVars.size; // Use the AvatarSize type from avatar.css
-}
+import { cn } from '@/utils';
 
-function Avatar({ className, size, ...props }: AvatarProps) {
-  const { getThemeClass } = useTheme();
-  const themeClass = getThemeClass(avatarLightTheme, avatarDarkTheme);
-
+function Avatar({
+  className,
+  ...props
+}: React.ComponentProps<typeof AvatarPrimitive.Root>) {
   return (
     <AvatarPrimitive.Root
       data-slot="avatar"
       className={cn(
-        themeClass,
-        avatarStyles.avatarVariants({ size }),
-        className
+        'relative flex size-8 shrink-0 overflow-hidden rounded-full',
+        className,
       )}
       {...props}
     />
@@ -39,7 +27,7 @@ function AvatarImage({
   return (
     <AvatarPrimitive.Image
       data-slot="avatar-image"
-      className={cn(avatarStyles.image, className)}
+      className={cn('aspect-square size-full', className)}
       {...props}
     />
   );
@@ -52,7 +40,10 @@ function AvatarFallback({
   return (
     <AvatarPrimitive.Fallback
       data-slot="avatar-fallback"
-      className={cn(avatarStyles.fallback, className)}
+      className={cn(
+        'bg-muted flex size-full items-center justify-center rounded-full',
+        className,
+      )}
       {...props}
     />
   );

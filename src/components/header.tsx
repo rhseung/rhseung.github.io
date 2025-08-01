@@ -1,27 +1,24 @@
-import { ThemeToggle } from "@/components/theme-toggle";
-import * as headerStyles from "./header.css";
-import { headerLightTheme, headerDarkTheme } from "./header.theme.css";
-import Logo from "@/assets/logo.svg?react";
-import { useTheme } from "@/hooks/use-theme";
+import { forwardRef } from 'react';
+
+import { Link, useNavigate } from '@tanstack/react-router';
+
+import Logo from '@/assets/logo.svg?react';
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@/components";
-import { Link, useNavigate } from "@tanstack/react-router";
-import { forwardRef } from "react";
+} from '@/components';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 export const Header = forwardRef<HTMLDivElement>((_props, ref) => {
   const navigate = useNavigate();
-  const { getThemeClass } = useTheme();
-  const themeClass = getThemeClass(headerLightTheme, headerDarkTheme);
 
   const handleLogoClick = async () => {
-    await navigate({ to: "/" });
+    await navigate({ to: '/' });
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
@@ -31,48 +28,49 @@ export const Header = forwardRef<HTMLDivElement>((_props, ref) => {
   // TODO: https://ui.shadcn.com/docs/components/sidebar 모바일에서 이거 사용
 
   return (
-    <header className={themeClass}>
-      <div ref={ref} className={headerStyles.header}>
-        <div className={headerStyles.headerContainer}>
-          <div className={headerStyles.headerContent}>
-            <div onClick={handleLogoClick} className={headerStyles.logo}>
-              <Logo width={100} />
-            </div>
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <Link to="/">
-                    <NavigationMenuTrigger>홈</NavigationMenuTrigger>
-                  </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <Link to="/project">
-                    <NavigationMenuTrigger>프로젝트</NavigationMenuTrigger>
-                  </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <Link to="/career">
-                    <NavigationMenuTrigger>이력</NavigationMenuTrigger>
-                  </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <Link to="/link">
-                    <NavigationMenuTrigger>링크</NavigationMenuTrigger>
-                  </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <Link to="/blog">
-                    <NavigationMenuTrigger>블로그</NavigationMenuTrigger>
-                  </Link>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-            <ThemeToggle />
+    <header className="fixed top-0 right-0 left-0 z-50 bg-neutral-50/85 p-4 backdrop-blur-md lg:px-6 dark:bg-neutral-950/85">
+      <div ref={ref} className="mx-auto w-full max-w-7xl">
+        <div className="flex w-full items-center justify-between">
+          <div
+            onClick={handleLogoClick}
+            className="flex cursor-pointer items-center text-neutral-900 transition-colors duration-100 hover:text-neutral-600 dark:text-neutral-50 dark:hover:text-neutral-200"
+          >
+            <Logo width={100} />
           </div>
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <Link to="/">
+                  <NavigationMenuTrigger>홈</NavigationMenuTrigger>
+                </Link>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <Link to="/project">
+                  <NavigationMenuTrigger>프로젝트</NavigationMenuTrigger>
+                </Link>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <Link to="/career">
+                  <NavigationMenuTrigger>이력</NavigationMenuTrigger>
+                </Link>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <Link to="/link">
+                  <NavigationMenuTrigger>링크</NavigationMenuTrigger>
+                </Link>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <Link to="/blog">
+                  <NavigationMenuTrigger>블로그</NavigationMenuTrigger>
+                </Link>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+          <ThemeToggle />
         </div>
       </div>
     </header>
   );
 });
 
-Header.displayName = "Header";
+Header.displayName = 'Header';

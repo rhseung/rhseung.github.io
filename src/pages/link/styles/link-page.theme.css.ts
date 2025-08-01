@@ -1,12 +1,13 @@
-import { createTheme } from "@vanilla-extract/css";
-import { primitiveTokens } from "@/styles";
+import { createTheme } from '@vanilla-extract/css';
+
+import { primitiveTokens } from '@/styles';
 
 // Common tokens that don't change between themes
 const common = {
   // Section layout semantics
-  sectionPadding: primitiveTokens.spacing["3xl"],
+  sectionPadding: primitiveTokens.spacing['3xl'],
   sectionPaddingMobile: primitiveTokens.spacing.lg,
-  titleSectionPaddingX: primitiveTokens.spacing["3xl"],
+  titleSectionPaddingX: primitiveTokens.spacing['3xl'],
   titleSectionPaddingY: primitiveTokens.spacing.xl,
   titleSectionPaddingMobile: primitiveTokens.spacing.lg,
   containerMaxWidth: primitiveTokens.maxWidth,
@@ -15,14 +16,14 @@ const common = {
   subTitleGap: primitiveTokens.spacing.lg,
   cardGap: primitiveTokens.spacing.lg,
   cardContentGap: primitiveTokens.spacing.sm,
-  containerGap: primitiveTokens.spacing["2xl"],
+  containerGap: primitiveTokens.spacing['2xl'],
   columnGap: primitiveTokens.spacing.xl,
   iconGap: primitiveTokens.spacing.md, // 아이콘과 제목 사이 간격
 
   // Typography semantics
   titleSize: primitiveTokens.fontSize.lg,
   titleWeight: primitiveTokens.fontWeight.semibold,
-  pageTitle: primitiveTokens.fontSize["2xl"],
+  pageTitle: primitiveTokens.fontSize['2xl'],
   pageTitleWeight: primitiveTokens.fontWeight.bold,
   pageSubTitle: primitiveTokens.fontSize.lg,
   pageSubTitleWeight: primitiveTokens.fontWeight.semibold,
@@ -30,12 +31,12 @@ const common = {
 
   // Border semantics
   cardRadius: primitiveTokens.borderRadius.lg,
-  cardBorder: "1px solid",
+  cardBorder: '1px solid',
 
   // Layout semantics
-  iconSize: "1.5rem",
+  iconSize: '1.5rem',
   cardPadding: primitiveTokens.spacing.md,
-  cardMinHeight: "60px",
+  cardMinHeight: '60px',
 };
 
 // Link page semantic tokens - 전체 페이지 테마 관리

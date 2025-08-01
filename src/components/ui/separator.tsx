@@ -1,26 +1,26 @@
-import * as React from "react";
-import * as SeparatorPrimitive from "@radix-ui/react-separator";
+'use client';
 
-import { cn } from "@/utils/index";
-import { useTheme } from "@/hooks/use-theme";
-import * as separatorStyles from "./separator.css";
-import { separatorLightTheme, separatorDarkTheme } from "./separator.theme.css";
+import * as React from 'react';
+
+import * as SeparatorPrimitive from '@radix-ui/react-separator';
+
+import { cn } from '@/utils';
 
 function Separator({
   className,
-  orientation = "horizontal",
+  orientation = 'horizontal',
   decorative = true,
   ...props
 }: React.ComponentProps<typeof SeparatorPrimitive.Root>) {
-  const { getThemeClass } = useTheme();
-  const themeClass = getThemeClass(separatorLightTheme, separatorDarkTheme);
-
   return (
     <SeparatorPrimitive.Root
       data-slot="separator"
       decorative={decorative}
       orientation={orientation}
-      className={cn(themeClass, separatorStyles.root, className)}
+      className={cn(
+        'bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px',
+        className,
+      )}
       {...props}
     />
   );

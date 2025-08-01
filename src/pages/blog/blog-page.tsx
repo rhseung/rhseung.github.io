@@ -1,8 +1,8 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 export const BlogPage: React.FC = () => {
   useEffect(() => {
-    window.location.href = "https://velog.io/@rhseung224/posts";
+    window.location.href = 'https://velog.io/@rhseung224/posts';
   }, []);
 
   return (

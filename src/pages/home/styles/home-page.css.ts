@@ -1,20 +1,21 @@
-import { style } from "@vanilla-extract/css";
-import { homePageVars } from "./home-page.theme.css";
+import { style } from '@vanilla-extract/css';
+
+import { homePageVars } from './home-page.theme.css';
 
 // Banner section styles
 export const bannerSection = style({
-  display: "flex",
-  flexDirection: "column",
+  display: 'flex',
+  flexDirection: 'column',
   gap: homePageVars.bannerSectionGap,
   backgroundColor: homePageVars.bannerBackground,
-  width: "100%",
-  minHeight: "100vh",
+  width: '100%',
+  minHeight: '100vh',
   padding: homePageVars.sectionPadding,
-  alignItems: "center",
-  justifyContent: "center",
+  alignItems: 'center',
+  justifyContent: 'center',
 
-  "@media": {
-    "(max-width: 1023px)": {
+  '@media': {
+    '(max-width: 1023px)': {
       padding: homePageVars.sectionPaddingMobile,
     },
   },
@@ -22,23 +23,23 @@ export const bannerSection = style({
 
 export const bannerContainer = style({
   maxWidth: homePageVars.containerMaxWidth,
-  width: "100%",
-  display: "flex",
-  flexDirection: "column",
+  width: '100%',
+  display: 'flex',
+  flexDirection: 'column',
   gap: homePageVars.bannerSectionGap,
 });
 
 export const profileContainer = style({
-  display: "flex",
+  display: 'flex',
   gap: homePageVars.profileGap,
-  alignItems: "center",
+  alignItems: 'center',
 });
 
 export const profileImage = style({
-  width: "8rem",
-  height: "8rem",
+  width: '8rem',
+  height: '8rem',
   borderRadius: homePageVars.profileRadius,
-  display: "block",
+  display: 'block',
 });
 
 export const bannerTitle = style({
@@ -47,11 +48,11 @@ export const bannerTitle = style({
   lineHeight: 1.6,
   marginBottom: homePageVars.titleMargin,
   background: homePageVars.titleGradient,
-  WebkitBackgroundClip: "text",
-  backgroundClip: "text",
-  WebkitTextFillColor: "transparent",
+  WebkitBackgroundClip: 'text',
+  backgroundClip: 'text',
+  WebkitTextFillColor: 'transparent',
   color: homePageVars.bannerTitle,
-  letterSpacing: "-0.02em",
+  letterSpacing: '-0.02em',
 });
 
 export const bannerDescription = style({
@@ -60,24 +61,24 @@ export const bannerDescription = style({
   lineHeight: 1.6,
   marginBottom: homePageVars.descriptionMargin,
   color: homePageVars.bannerDescription,
-  letterSpacing: "-0.02em",
+  letterSpacing: '-0.02em',
 });
 
 export const infoContainer = style({
-  display: "flex",
-  flexDirection: "column",
+  display: 'flex',
+  flexDirection: 'column',
   gap: homePageVars.infoGap,
 });
 
 export const infoItem = style({
-  display: "flex",
-  alignItems: "center",
+  display: 'flex',
+  alignItems: 'center',
   gap: homePageVars.itemGap,
 });
 
 export const infoItemIcon = style({
   color: homePageVars.infoIcon,
-  transition: "color 0.2s ease-in-out",
+  transition: 'color 0.2s ease-in-out',
 });
 
 export const infoItemText = style({
@@ -87,26 +88,26 @@ export const infoItemText = style({
 });
 
 export const infoItemLinkedText = style({
-  textDecoration: "none",
+  textDecoration: 'none',
   color: homePageVars.linkDefault,
-  transition: "color 0.2s ease-in-out",
-  position: "relative",
-  "::after": {
+  transition: 'color 0.2s ease-in-out',
+  position: 'relative',
+  '::after': {
     content: '""',
-    position: "absolute",
-    bottom: "-0.1em",
+    position: 'absolute',
+    bottom: '-0.1em',
     left: 0,
     width: 0,
-    height: "0.075em",
+    height: '0.075em',
     backgroundColor: homePageVars.linkUnderline,
-    transition: "width 0.3s ease-in-out",
+    transition: 'width 0.3s ease-in-out',
   },
-  ":hover": {
+  ':hover': {
     color: homePageVars.linkHover,
   },
   selectors: {
-    "&:hover::after": {
-      width: "100%",
+    '&:hover::after': {
+      width: '100%',
     },
   },
 });
@@ -114,14 +115,14 @@ export const infoItemLinkedText = style({
 // Highlight section styles
 export const highlightSection = style({
   backgroundColor: homePageVars.highlightBackground,
-  width: "100%",
+  width: '100%',
   padding: homePageVars.sectionPadding,
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
 
-  "@media": {
-    "(max-width: 1023px)": {
+  '@media': {
+    '(max-width: 1023px)': {
       padding: homePageVars.sectionPaddingMobile,
     },
   },
@@ -129,7 +130,7 @@ export const highlightSection = style({
 
 export const highlightContainer = style({
   maxWidth: homePageVars.containerMaxWidth,
-  width: "100%",
+  width: '100%',
 });
 
 export const highlightTitle = style({
@@ -147,24 +148,24 @@ export const highlightDescription = style({
 });
 
 export const techList = style({
-  display: "flex",
-  flexWrap: "wrap",
+  display: 'flex',
+  flexWrap: 'wrap',
   gap: homePageVars.techGap,
 });
 
 export const buttons = style({
-  display: "flex",
+  display: 'flex',
   gap: homePageVars.buttonGap,
 });
 
 // Card styles
 export const card = style({
-  width: "100%",
-  display: "flex",
+  width: '100%',
+  display: 'flex',
   gap: homePageVars.cardGap,
-  "@media": {
-    "(max-width: 768px)": {
-      flexDirection: "column",
+  '@media': {
+    '(max-width: 768px)': {
+      flexDirection: 'column',
     },
   },
 });
@@ -173,11 +174,11 @@ export const cardImage = style({
   width: homePageVars.imageWidth,
   backgroundColor: homePageVars.imageBg,
   flexShrink: 0,
-  overflow: "hidden",
+  overflow: 'hidden',
   borderRadius: homePageVars.imageRadius,
-  "@media": {
-    "(max-width: 768px)": {
-      width: "100%",
+  '@media': {
+    '(max-width: 768px)': {
+      width: '100%',
       height: homePageVars.imageHeightMobile,
     },
   },
@@ -185,43 +186,43 @@ export const cardImage = style({
 
 export const cardContent = style({
   flex: 1,
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "space-between",
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
   minHeight: homePageVars.cardMinHeight,
-  "@media": {
-    "(max-width: 768px)": {
-      minHeight: "auto",
+  '@media': {
+    '(max-width: 768px)': {
+      minHeight: 'auto',
     },
   },
 });
 
 export const cardContentTop = style({
-  display: "flex",
-  flexDirection: "column",
+  display: 'flex',
+  flexDirection: 'column',
 });
 
 export const cardContentBottom = style({
-  display: "flex",
-  flexDirection: "column",
+  display: 'flex',
+  flexDirection: 'column',
   gap: homePageVars.cardContentGap,
-  marginTop: "auto",
+  marginTop: 'auto',
 });
 
 export const cardContainer = style({
-  display: "flex",
-  flexDirection: "column",
+  display: 'flex',
+  flexDirection: 'column',
   gap: homePageVars.containerGap,
-  width: "100%",
+  width: '100%',
 });
 
 // Grid layouts
 export const twoColumnGrid = style({
-  display: "grid",
+  display: 'grid',
   gap: homePageVars.gridGap,
-  "@media": {
-    "(min-width: 768px)": {
-      gridTemplateColumns: "repeat(2, 1fr)",
+  '@media': {
+    '(min-width: 768px)': {
+      gridTemplateColumns: 'repeat(2, 1fr)',
     },
   },
 });

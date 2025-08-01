@@ -1,12 +1,13 @@
-import { createTheme } from "@vanilla-extract/css";
-import { primitiveTokens } from "@/styles";
+import { createTheme } from '@vanilla-extract/css';
+
+import { primitiveTokens } from '@/styles';
 
 // Common tokens that don't change between themes
 const common = {
   // Section layout semantics
-  sectionPadding: primitiveTokens.spacing["3xl"],
+  sectionPadding: primitiveTokens.spacing['3xl'],
   sectionPaddingMobile: primitiveTokens.spacing.lg,
-  titleSectionPaddingX: primitiveTokens.spacing["3xl"],
+  titleSectionPaddingX: primitiveTokens.spacing['3xl'],
   titleSectionPaddingY: primitiveTokens.spacing.xl,
   titleSectionPaddingMobile: primitiveTokens.spacing.lg,
   containerMaxWidth: primitiveTokens.maxWidth,
@@ -18,15 +19,15 @@ const common = {
   techPadding: primitiveTokens.spacing.xs,
   techPaddingSide: primitiveTokens.spacing.sm,
   buttonGap: primitiveTokens.spacing.sm,
-  cardGap: primitiveTokens.spacing["2xl"],
+  cardGap: primitiveTokens.spacing['2xl'],
   cardContentGap: primitiveTokens.spacing.md,
-  containerGap: primitiveTokens.spacing["2xl"],
-  gridGap: primitiveTokens.spacing["2xl"],
+  containerGap: primitiveTokens.spacing['2xl'],
+  gridGap: primitiveTokens.spacing['2xl'],
 
   // Typography semantics
   titleSize: primitiveTokens.fontSize.xl,
   titleWeight: primitiveTokens.fontWeight.bold,
-  pageTitle: primitiveTokens.fontSize["2xl"],
+  pageTitle: primitiveTokens.fontSize['2xl'],
   pageTitleWeight: primitiveTokens.fontWeight.bold,
   techSize: primitiveTokens.fontSize.xs,
 
@@ -35,9 +36,9 @@ const common = {
   imageRadius: primitiveTokens.borderRadius.lg,
 
   // Layout semantics
-  imageWidth: "500px",
-  imageHeightMobile: "200px",
-  cardMinHeight: "200px",
+  imageWidth: '500px',
+  imageHeightMobile: '200px',
+  cardMinHeight: '200px',
 };
 
 // Project page semantic tokens - 전체 페이지 테마 관리

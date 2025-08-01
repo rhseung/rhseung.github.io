@@ -1,29 +1,24 @@
-import { Button } from "@/components/ui/button";
-import * as footerStyles from "./footer.css";
-import { footerLightTheme, footerDarkTheme } from "./footer.theme.css";
-import { useTheme } from "@/hooks/use-theme";
-import { IconMail, IconBrandGithub } from "@tabler/icons-react";
+import { IconBrandGithub, IconMail } from '@tabler/icons-react';
+
+import { Button } from '@/components';
 
 export const Footer: React.FC = () => {
-  const { getThemeClass } = useTheme();
-  const themeClass = getThemeClass(footerLightTheme, footerDarkTheme);
-
   const handleGithubClick = () => {
-    window.open("https://github.com/rhseung", "_blank", "noopener,noreferrer");
+    window.open('https://github.com/rhseung', '_blank', 'noopener,noreferrer');
   };
 
   const handleMailClick = () => {
-    window.open("mailto:rhseungg@gmail.com", "_blank", "noopener,noreferrer");
+    window.open('mailto:rhseungg@gmail.com', '_blank', 'noopener,noreferrer');
   };
 
   return (
-    <footer className={themeClass}>
-      <div className={footerStyles.footer}>
-        <div className={footerStyles.footerContainer}>
-          <p className={footerStyles.footerText}>
+    <footer className="bg-neutral-50 dark:bg-neutral-950">
+      <div className="px-6 py-12 text-center">
+        <div className="mx-auto w-full max-w-7xl">
+          <p className="text-neutral-600 dark:text-neutral-400">
             © {new Date().getFullYear()} Hyunseung Ryu. All rights reserved.
           </p>
-          <div className={footerStyles.socialLinks}>
+          <div className="flex justify-center gap-4 mt-4">
             <Button variant="ghost" size="icon" onClick={handleGithubClick}>
               <IconBrandGithub size={20} />
             </Button>

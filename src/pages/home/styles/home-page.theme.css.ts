@@ -1,16 +1,17 @@
-import { createTheme } from "@vanilla-extract/css";
-import { primitiveTokens } from "@/styles";
+import { createTheme } from '@vanilla-extract/css';
+
+import { primitiveTokens } from '@/styles';
 
 // Common tokens that don't change between themes
 const common = {
   // Section layout semantics
-  sectionPadding: primitiveTokens.spacing["3xl"],
+  sectionPadding: primitiveTokens.spacing['3xl'],
   sectionPaddingMobile: primitiveTokens.spacing.lg,
   containerMaxWidth: primitiveTokens.maxWidth,
 
   // Banner section spacing semantics
-  bannerSectionGap: primitiveTokens.spacing["3xl"],
-  profileGap: primitiveTokens.spacing["3xl"],
+  bannerSectionGap: primitiveTokens.spacing['3xl'],
+  profileGap: primitiveTokens.spacing['3xl'],
   titleMargin: primitiveTokens.spacing.lg,
   descriptionMargin: primitiveTokens.spacing.lg,
   infoGap: primitiveTokens.spacing.base,
@@ -23,15 +24,15 @@ const common = {
   techPadding: primitiveTokens.spacing.xs,
   techPaddingSide: primitiveTokens.spacing.sm,
   buttonGap: primitiveTokens.spacing.sm,
-  cardGap: primitiveTokens.spacing["2xl"],
+  cardGap: primitiveTokens.spacing['2xl'],
   cardContentGap: primitiveTokens.spacing.md,
-  containerGap: primitiveTokens.spacing["2xl"],
-  gridGap: primitiveTokens.spacing["2xl"],
+  containerGap: primitiveTokens.spacing['2xl'],
+  gridGap: primitiveTokens.spacing['2xl'],
 
   // Banner typography semantics
-  bannerTitleSize: primitiveTokens.fontSize["4xl"],
+  bannerTitleSize: primitiveTokens.fontSize['4xl'],
   bannerTitleWeight: primitiveTokens.fontWeight.black,
-  bannerDescriptionSize: primitiveTokens.fontSize["4xl"],
+  bannerDescriptionSize: primitiveTokens.fontSize['4xl'],
   bannerDescriptionWeight: primitiveTokens.fontWeight.normal,
   infoSize: primitiveTokens.fontSize.xl,
   infoWeight: primitiveTokens.fontWeight.medium,
@@ -47,9 +48,9 @@ const common = {
   imageRadius: primitiveTokens.borderRadius.lg,
 
   // Layout semantics
-  imageWidth: "500px",
-  imageHeightMobile: "200px",
-  cardMinHeight: "200px",
+  imageWidth: '500px',
+  imageHeightMobile: '200px',
+  cardMinHeight: '200px',
 };
 
 // Home page semantic tokens - 전체 페이지 테마 관리
@@ -57,7 +58,7 @@ export const [homePageLightTheme, homePageVars] = createTheme({
   // Banner section color semantics
   bannerBackground: primitiveTokens.color.neutral[50],
   profileBg: primitiveTokens.color.neutral[100],
-  bannerTitle: "transparent", // uses gradient
+  bannerTitle: 'transparent', // uses gradient
   bannerDescription: primitiveTokens.color.neutral[600],
   infoText: primitiveTokens.color.neutral[900],
   infoIcon: primitiveTokens.color.neutral[600],
@@ -83,7 +84,7 @@ export const homePageDarkTheme = createTheme(homePageVars, {
   // Banner section color semantics
   bannerBackground: primitiveTokens.color.neutral[950],
   profileBg: primitiveTokens.color.neutral[800],
-  bannerTitle: "transparent", // uses gradient
+  bannerTitle: 'transparent', // uses gradient
   bannerDescription: primitiveTokens.color.neutral[400],
   infoText: primitiveTokens.color.neutral[50],
   infoIcon: primitiveTokens.color.neutral[400],
