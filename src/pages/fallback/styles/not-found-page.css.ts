@@ -4,7 +4,7 @@ import { notFoundPageVars } from "./not-found-page.theme.css";
 // 전체 컨테이너 스타일
 export const container = style({
   backgroundColor: notFoundPageVars.background,
-  width: "100vw",
+  width: "100%",
   height: "100vh",
   display: "flex",
   alignItems: "center",
