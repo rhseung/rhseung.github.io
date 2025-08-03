@@ -8,11 +8,11 @@ export const Footer: React.FC = () => {
   };
 
   const handleMailClick = () => {
-    window.open('mailto:rhseungg@gmail.com', '_blank', 'noopener,noreferrer');
+    window.open('mailto:ryu@rhseung.me', '_blank', 'noopener,noreferrer');
   };
 
   return (
-    <footer className="bg-neutral-50 dark:bg-neutral-950">
+    <footer className="bg-neutral-100 dark:bg-neutral-900 border-t border-neutral-200 dark:border-neutral-800">
       <div className="px-6 py-12 text-center">
         <div className="mx-auto w-full max-w-7xl">
           <p className="text-neutral-600 dark:text-neutral-400">

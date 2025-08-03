@@ -1,11 +1,13 @@
 // import { Highlight } from "./components/highlight";
+import { Layout } from '@/components';
+
 import { Banner } from './components/banner';
 
 export const HomePage: React.FC = () => {
   return (
-    <div>
+    <Layout disableHeaderHeight>
       <Banner />
       {/* <Highlight /> */}
-    </div>
+    </Layout>
   );
 };

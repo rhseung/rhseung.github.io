@@ -76,7 +76,7 @@ export const Banner: React.FC = () => {
         </div>
         <div>
           {/* TODO: 수식어 */}
-          <span className="text-4xl font-black leading-relaxed mb-6 bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 dark:from-pink-300 dark:via-purple-300 dark:to-cyan-300 bg-clip-text text-transparent tracking-tight">
+          <span className="text-4xl font-extrabold leading-relaxed mb-6 bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 dark:from-pink-300 dark:via-purple-300 dark:to-cyan-300 bg-clip-text text-transparent tracking-tight">
             안녕하세요, 프로그래머이자 디자이너인 류현승입니다.{' '}
           </span>
           <span className="text-4xl font-normal leading-relaxed mb-6 text-neutral-600 dark:text-neutral-400 tracking-tight">
