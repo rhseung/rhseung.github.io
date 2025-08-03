@@ -37,7 +37,7 @@ export const ProjectCard: React.FC<{
 
   return (
     <div className="w-full flex gap-12 md:flex-row flex-col">
-      <div className="w-full md:w-[500px] bg-neutral-200 dark:bg-neutral-800 flex-shrink-0 overflow-hidden rounded-lg">
+      <div className="w-full md:w-[500px] border border-neutral-200 dark:border-neutral-800 bg-neutral-200 dark:bg-neutral-800 flex-shrink-0 overflow-hidden rounded-lg">
         <img src={image} alt={title} className="w-full h-full object-cover" />
       </div>
       <div className="flex-1 flex flex-col justify-between min-h-[200px] md:min-h-[200px]">

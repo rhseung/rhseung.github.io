@@ -23,7 +23,7 @@ export const CareerPage: React.FC = () => {
               <h2 className="text-2xl font-semibold text-neutral-900 dark:text-neutral-50 mb-8">
                 학력
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="flex gap-6">
                 <CareerCard
                   title="과학영재학교 광주과학고등학교"
                   date="2022.03 - 2025.02"
@@ -39,7 +39,7 @@ export const CareerPage: React.FC = () => {
                   자연과학계열
                 </CareerCard>
                 <CareerCard
-                  title="GIST"
+                  title="GIST (광주과학기술원)"
                   date="2025.03 - 현재"
                   badges={[BadgeStatus.ENROLLED]}
                   logo={<img src={gistLogo} width={28} alt="GIST 로고" />}
@@ -128,7 +128,7 @@ export const CareerPage: React.FC = () => {
               <h2 className="text-2xl font-semibold text-neutral-900 dark:text-neutral-50 mb-8">
                 자격증
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="flex gap-6">
                 {/* 자격증이 없을 때 표시할 메시지 */}
               </div>
               <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-4 m-0">
@@ -140,7 +140,7 @@ export const CareerPage: React.FC = () => {
               <h2 className="text-2xl font-semibold text-neutral-900 dark:text-neutral-50 mb-8">
                 대회 참가
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="flex gap-6">
                 <CareerCard
                   title="AI 창의융합경진대회"
                   date="2025"
