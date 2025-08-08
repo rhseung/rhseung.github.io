@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 
-import { Link, useNavigate } from '@tanstack/react-router';
+import { useNavigate } from '@tanstack/react-router';
 
 import Logo from '@/assets/logo.svg?react';
 import { ThemeToggle } from '@/components/theme-toggle';
@@ -11,6 +11,14 @@ export const Header = forwardRef<HTMLElementTagNameMap['header']>(
 
     const handleLogoClick = async () => {
       await navigate({ to: '/' });
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    };
+
+    const handleNavigate = async (to: string) => {
+      await navigate({ to });
       window.scrollTo({
         top: 0,
         behavior: 'smooth',
@@ -36,31 +44,36 @@ export const Header = forwardRef<HTMLElementTagNameMap['header']>(
               <Logo width={100} />
             </div>
             <nav className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center gap-20">
-              <Link to="/">
-                <span className="hover:text-neutral-600 dark:hover:text-neutral-200">
-                  홈
-                </span>
-              </Link>
-              <Link to="/project">
-                <span className="hover:text-neutral-600 dark:hover:text-neutral-200">
-                  프로젝트
-                </span>
-              </Link>
-              <Link to="/career">
-                <span className="hover:text-neutral-600 dark:hover:text-neutral-200">
-                  이력
-                </span>
-              </Link>
-              <Link to="/link">
-                <span className="hover:text-neutral-600 dark:hover:text-neutral-200">
-                  링크
-                </span>
-              </Link>
-              <Link to="/blog">
-                <span className="hover:text-neutral-600 dark:hover:text-neutral-200">
-                  블로그
-                </span>
-              </Link>
+              <span
+                onClick={() => handleNavigate('/')}
+                className="cursor-pointer hover:text-neutral-600 dark:hover:text-neutral-200"
+              >
+                홈
+              </span>
+              <span
+                onClick={() => handleNavigate('/project')}
+                className="cursor-pointer hover:text-neutral-600 dark:hover:text-neutral-200"
+              >
+                프로젝트
+              </span>
+              <span
+                onClick={() => handleNavigate('/career')}
+                className="cursor-pointer hover:text-neutral-600 dark:hover:text-neutral-200"
+              >
+                이력
+              </span>
+              <span
+                onClick={() => handleNavigate('/link')}
+                className="cursor-pointer hover:text-neutral-600 dark:hover:text-neutral-200"
+              >
+                링크
+              </span>
+              <span
+                onClick={() => handleNavigate('/blog')}
+                className="cursor-pointer hover:text-neutral-600 dark:hover:text-neutral-200"
+              >
+                블로그
+              </span>
             </nav>
             <ThemeToggle />
           </div>
