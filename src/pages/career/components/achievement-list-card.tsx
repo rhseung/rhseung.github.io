@@ -14,7 +14,7 @@ export const AchievementList: React.FC<AchievementListProps> = ({
   return (
     <div
       className={cn(
-        'border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/50 rounded-xl p-6 mt-6',
+        'bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-6 mt-6',
         className,
       )}
     >

@@ -9,7 +9,7 @@ export const BlogPage: React.FC = () => {
 
   return (
     <Layout>
-      <div className="py-16 text-center bg-neutral-50 dark:bg-neutral-950">
+      <div className="py-16 text-center">
         <h1 className="text-5xl font-bold text-neutral-900 dark:text-neutral-50">
           Redirecting to Blog...
         </h1>

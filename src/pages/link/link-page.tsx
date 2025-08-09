@@ -29,13 +29,13 @@ export const LinkPage: React.FC = () => {
 
   return (
     <Layout>
-      <div className="py-16 text-center bg-neutral-50 dark:bg-neutral-950">
+      <div className="py-16 text-center">
         <h1 className="max-w-7xl mx-auto px-16 lg:px-16 max-lg:px-6 text-5xl font-bold text-neutral-900 dark:text-neutral-50">
           링크
         </h1>
       </div>
 
-      <div className="py-16 bg-neutral-50 dark:bg-neutral-950">
+      <div className="py-16">
         <div className="max-w-7xl mx-auto px-16 lg:px-16 max-lg:px-6">
           <div className="space-y-16">
             <div>

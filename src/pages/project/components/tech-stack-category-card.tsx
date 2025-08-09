@@ -89,7 +89,7 @@ export const TechStackCategoryCard: React.FC<TechStackCategoryCardProps> = ({
                 tech={tech}
                 size="md"
                 selected={selectedTechStacks.includes(tech)}
-                className="flex-grow justify-center text-center"
+                className="flex-grow justify-center text-center rounded-md"
                 onClick={() => onTechStackClick(tech)}
               />
             ))}

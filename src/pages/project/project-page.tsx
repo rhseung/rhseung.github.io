@@ -365,15 +365,20 @@ export const ProjectPage: React.FC = () => {
 
   return (
     <Layout>
-      <div className="text-center py-16 bg-neutral-50 dark:bg-neutral-950">
+      <div className="text-center py-16">
         <h1 className="max-w-7xl mx-auto px-16 lg:px-16 max-lg:px-6 text-5xl font-bold text-neutral-900 dark:text-neutral-50">
           프로젝트
         </h1>
       </div>
-      <div className="flex flex-col gap-10 py-16 bg-neutral-100 dark:bg-neutral-925">
-        <h2 className="text-2xl font-bold text-neutral-900 dark:text-neutral-50 justify-center items-center text-center">
-          제가 할 수 있는 기술 스택들
-        </h2>
+      <div className="flex flex-col gap-10 py-16">
+        <div className="flex flex-col gap-3">
+          <h2 className="text-2xl font-bold text-neutral-900 dark:text-neutral-50 justify-center items-center text-center">
+            제가 할 수 있는 기술 스택들
+          </h2>
+          <h3 className="text-md text-neutral-500 dark:text-neutral-500 justify-center items-center text-center">
+            기술 스택을 클릭하여 필터링할 수 있습니다.
+          </h3>
+        </div>
         <div className="max-w-7xl mx-auto px-16 lg:px-16 max-lg:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
             {Object.entries(finalTechStackCategories).map(
@@ -391,7 +396,7 @@ export const ProjectPage: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="py-16 bg-neutral-50 dark:bg-neutral-950">
+      <div className="py-16">
         <div className="max-w-7xl mx-auto px-16 lg:px-16 max-lg:px-6">
           <div className="flex flex-col gap-12 w-full">
             {filteredProjects.map((project, index) => (
