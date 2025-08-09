@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import Autoplay from 'embla-carousel-autoplay';
+
 import datetimeBanner from '@/assets/thumbnails/datetime.png';
 import fliggleBanner from '@/assets/thumbnails/fliggle.png';
 import glanceBanner from '@/assets/thumbnails/glance.png';
@@ -13,6 +15,13 @@ import rhseungBanner from '@/assets/thumbnails/rhseung.png';
 import siunitsBanner from '@/assets/thumbnails/siunits.png';
 import yoloBanner from '@/assets/thumbnails/yolo.png';
 import { Layout } from '@/components';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
 
 import { ProjectCard } from './components/project-card';
 import { type TechStack } from './components/tech-stack-badge';
@@ -38,6 +47,7 @@ const techStacks: Record<string, TechStack> = {
   VanillaExtract: { name: 'Vanilla Extract', color: '#ee80a5' },
   StyledComponents: { name: 'Styled Components', color: '#DB7093' },
   TanstackRouter: { name: 'Tanstack Router', color: '#58af66' },
+  ReactRouter: { name: 'React Router', color: '#CA4245' },
   ReactQuery: { name: 'React Query', color: '#FF4154' },
   I18Next: { name: 'i18next', color: '#26A69A' },
   OpenApiTypeScript: { name: 'OpenAPI TypeScript', color: '#3f76f3' },
@@ -63,11 +73,20 @@ const techStacks: Record<string, TechStack> = {
 
   // Mobile/Desktop UI
   Kotlin: { name: 'Kotlin', color: '#7F52FF' },
-  SWING: { name: 'SWING', color: '#e72d2c' },
+  Swing: { name: 'Swing', color: '#e72d2c' },
 
-  // AI/ML
+  // AI/ML & Data
   PyTorch: { name: 'PyTorch', color: '#e74a2b' },
+  TensorFlow: { name: 'TensorFlow', color: '#ff6f00' },
+  Keras: { name: 'Keras', color: '#d00000' },
   OpenCV: { name: 'OpenCV', color: '#050505' },
+  ScikitLearn: { name: 'Scikit-learn', color: '#f89939' },
+  NumPy: { name: 'NumPy', color: '#4d77cf' },
+  Pandas: { name: 'Pandas', color: '#150458' },
+  Matplotlib: { name: 'Matplotlib', color: '#11557c' },
+  Seaborn: { name: 'Seaborn', color: '#4c72b0' },
+  Altair: { name: 'Altair', color: '#1f77b4' },
+  Jupyter: { name: 'Jupyter', color: '#f37626' },
 
   // Package Managers/Build Tools
   Npm: { name: 'Npm', color: '#CB3837' },
@@ -82,47 +101,71 @@ const techStacks: Record<string, TechStack> = {
 
 const techStackCategories = {
   'Programming Languages': [
+    // Web Languages
     techStacks.TypeScript,
     techStacks.JavaScript,
     techStacks.HTML,
     techStacks.CSS,
+    // General Purpose
     techStacks.Python,
     techStacks.Java,
+    // Systems Programming
     techStacks.C,
     techStacks.Cpp,
+    // Mobile/Modern
     techStacks.Dart,
     techStacks.Kotlin,
   ],
   Frontend: [
+    // Core Framework
     techStacks.React,
     techStacks.Nextjs,
+    // Styling
     techStacks.TailwindCss,
     techStacks.VanillaExtract,
     techStacks.StyledComponents,
+    // Routing
     techStacks.TanstackRouter,
+    techStacks.ReactRouter,
+    // State Management & API
     techStacks.ReactQuery,
+    // Utilities
     techStacks.I18Next,
     techStacks.OpenApiTypeScript,
+    // Build Tools
     techStacks.Vite,
+    // Mobile
+    techStacks.Flutter,
   ],
-  Backend: [
+  'Backend & Database': [
+    // Runtime
     techStacks.NodeJs,
+    // Frameworks
     techStacks.Nestjs,
     techStacks.Flask,
+    // Database & ORM
     techStacks.Prisma,
     techStacks.MySQL,
   ],
-  'Mobile Frontend': [techStacks.Flutter],
-  'Low-level / Systems': [techStacks.SFML],
-  'Mobile/Desktop UI': [techStacks.SWING],
-  'AI/ML': [techStacks.PyTorch, techStacks.OpenCV],
-  'Package Managers': [
-    techStacks.Npm,
-    techStacks.Yarn,
-    techStacks.Bun,
-    techStacks.PyPI,
+  'AI/ML & Data Analysis': [
+    // Deep Learning Frameworks
+    techStacks.PyTorch,
+    techStacks.TensorFlow,
+    techStacks.Keras,
+    // Machine Learning
+    techStacks.ScikitLearn,
+    // Computer Vision
+    techStacks.OpenCV,
+    // Data Processing
+    techStacks.NumPy,
+    techStacks.Pandas,
+    // Visualization
+    techStacks.Matplotlib,
+    techStacks.Seaborn,
+    techStacks.Altair,
+    // Development Environment
+    techStacks.Jupyter,
   ],
-  'Design & Docs': [techStacks.Figma, techStacks.LaTeX],
 };
 
 const projects: Project[] = [
@@ -260,7 +303,7 @@ const projects: Project[] = [
     title: 'NEAT 알고리즘으로 최적화 신경망 구현해보기',
     description:
       'Java의 SPRING 프레임워크를 사용하여 연습 겸 NEAT 알고리즘을 구현한 프로젝트입니다. NEAT 알고리즘을 사용하여 최적화된 신경망을 생성합니다. 아직 미완성인 프로젝트입니다.',
-    techStacks: [techStacks.Java, techStacks.SWING],
+    techStacks: [techStacks.Java, techStacks.Swing],
     links: {
       GitHub: 'https://github.com/gsa-projects/artificial-aquarium',
     },
@@ -365,40 +408,63 @@ export const ProjectPage: React.FC = () => {
 
   return (
     <Layout>
-      <div className="text-center py-16">
-        <h1 className="max-w-7xl mx-auto px-16 lg:px-16 max-lg:px-6 text-5xl font-bold text-neutral-900 dark:text-neutral-50">
+      <div className="text-center py-8 sm:py-12 lg:py-16">
+        <h1 className="max-w-7xl mx-auto text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-neutral-50">
           프로젝트
         </h1>
       </div>
-      <div className="flex flex-col gap-10 py-16">
+      <div className="flex flex-col gap-6 sm:gap-8 lg:gap-10 py-8 sm:py-12 lg:py-16">
         <div className="flex flex-col gap-3">
-          <h2 className="text-2xl font-bold text-neutral-900 dark:text-neutral-50 justify-center items-center text-center">
+          <h2 className="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-neutral-50 justify-center items-center text-center">
             제가 할 수 있는 기술 스택들
           </h2>
-          <h3 className="text-md text-neutral-500 dark:text-neutral-500 justify-center items-center text-center">
+          <h3 className="text-sm sm:text-md text-neutral-500 dark:text-neutral-500 justify-center items-center text-center">
             기술 스택을 클릭하여 필터링할 수 있습니다.
           </h3>
         </div>
-        <div className="max-w-7xl mx-auto px-16 lg:px-16 max-lg:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
-            {Object.entries(finalTechStackCategories).map(
-              ([category, techList]) => (
-                <TechStackCategoryCard
-                  key={category}
-                  category={category}
-                  techList={techList}
-                  selectedTechStacks={selectedTechStacks}
-                  onTechStackClick={handleTechStackClick}
-                  onCategoryToggle={handleCategoryToggle}
-                />
-              ),
-            )}
-          </div>
+        <div className="mx-auto max-w-sm sm:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
+          {/* 모든 화면 크기에서 Carousel 레이아웃 사용 */}
+          <Carousel
+            plugins={[
+              Autoplay({
+                delay: 4000,
+                stopOnInteraction: true,
+                stopOnMouseEnter: true,
+              }),
+            ]}
+            opts={{
+              align: 'start',
+              loop: true,
+              slidesToScroll: 1,
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {Object.entries(finalTechStackCategories).map(
+                ([category, techList]) => (
+                  <CarouselItem
+                    key={category}
+                    className="basis-full sm:basis-1/2 lg:basis-1/3"
+                  >
+                    <TechStackCategoryCard
+                      category={category}
+                      techList={techList}
+                      selectedTechStacks={selectedTechStacks}
+                      onTechStackClick={handleTechStackClick}
+                      onCategoryToggle={handleCategoryToggle}
+                    />
+                  </CarouselItem>
+                ),
+              )}
+            </CarouselContent>
+            <CarouselPrevious className="hidden sm:flex" />
+            <CarouselNext className="hidden sm:flex" />
+          </Carousel>
         </div>
       </div>
-      <div className="py-16">
-        <div className="max-w-7xl mx-auto px-16 lg:px-16 max-lg:px-6">
-          <div className="flex flex-col gap-12 w-full">
+      <div className="py-8 sm:py-12 lg:py-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col gap-8 sm:gap-10 lg:gap-12 w-full">
             {filteredProjects.map((project, index) => (
               <ProjectCard
                 key={index}

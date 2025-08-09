@@ -15,16 +15,16 @@ export const ProjectCard: React.FC<{
   };
 
   return (
-    <div className="w-full flex gap-12 md:flex-row flex-col">
-      <div className="w-full md:w-[500px] border border-neutral-200 dark:border-neutral-800 bg-neutral-200 dark:bg-neutral-800 flex-shrink-0 overflow-hidden rounded-lg">
+    <div className="w-full flex gap-6 sm:gap-8 lg:gap-12 md:flex-row flex-col">
+      <div className="w-full md:w-[400px] lg:w-[500px] border border-neutral-200 dark:border-neutral-800 bg-neutral-200 dark:bg-neutral-800 flex-shrink-0 overflow-hidden rounded-lg">
         <img src={image} alt={title} className="w-full h-full object-cover" />
       </div>
       <div className="flex-1 flex flex-col justify-between min-h-[200px] md:min-h-[200px]">
         <div className="flex flex-col">
-          <div className="text-xl font-bold text-neutral-900 dark:text-neutral-50 mb-3 leading-tight">
+          <div className="text-lg sm:text-xl font-bold text-neutral-900 dark:text-neutral-50 mb-3 leading-tight">
             {title}
           </div>
-          <div className="text-neutral-600 dark:text-neutral-400 mb-4 leading-relaxed">
+          <div className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 mb-4 leading-relaxed">
             {description}
           </div>
         </div>
@@ -34,7 +34,7 @@ export const ProjectCard: React.FC<{
               <TechStackBadge key={tech.name} tech={tech} size="sm" />
             ))}
           </div>
-          <div className="flex gap-3">
+          <div className="flex flex-wrap gap-2 sm:gap-3">
             {Object.entries(links).map(([label, url]) => (
               <Button
                 key={label}
@@ -48,7 +48,7 @@ export const ProjectCard: React.FC<{
                 ) : (
                   <IconLink size={12} />
                 )}
-                <span>{label}</span>
+                <span className="text-xs sm:text-sm">{label}</span>
               </Button>
             ))}
           </div>

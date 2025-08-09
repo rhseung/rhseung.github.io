@@ -10,20 +10,20 @@ import { BadgeStatus, CareerCard } from './components/career-card';
 export const CareerPage: React.FC = () => {
   return (
     <Layout>
-      <div className="py-16 text-center">
-        <h1 className="max-w-7xl mx-auto px-16 lg:px-16 max-lg:px-6 text-5xl font-bold text-neutral-900 dark:text-neutral-50">
+      <div className="py-8 sm:py-12 lg:py-16 text-center">
+        <h1 className="max-w-7xl mx-auto text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-neutral-50">
           이력
         </h1>
       </div>
 
-      <div className="py-16">
-        <div className="max-w-7xl mx-auto px-16 lg:px-16 max-lg:px-6">
-          <div className="space-y-16">
+      <div className="py-8 sm:py-12 lg:py-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="space-y-12 sm:space-y-16">
             <div>
-              <h2 className="text-2xl font-semibold text-neutral-900 dark:text-neutral-50 mb-8">
+              <h2 className="text-xl sm:text-2xl font-semibold text-neutral-900 dark:text-neutral-50 mb-6 sm:mb-8">
                 학력
               </h2>
-              <div className="flex gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 <CareerCard
                   title="과학영재학교 광주과학고등학교"
                   date="2022.03 - 2025.02"
@@ -124,10 +124,10 @@ export const CareerPage: React.FC = () => {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold text-neutral-900 dark:text-neutral-50 mb-8">
+              <h2 className="text-xl sm:text-2xl font-semibold text-neutral-900 dark:text-neutral-50 mb-6 sm:mb-8">
                 자격증
               </h2>
-              <div className="flex gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {/* 자격증이 없을 때 표시할 메시지 */}
               </div>
               <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-4 m-0">
@@ -136,10 +136,10 @@ export const CareerPage: React.FC = () => {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold text-neutral-900 dark:text-neutral-50 mb-8">
+              <h2 className="text-xl sm:text-2xl font-semibold text-neutral-900 dark:text-neutral-50 mb-6 sm:mb-8">
                 대회 참가
               </h2>
-              <div className="flex gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 <CareerCard
                   title="AI 창의융합경진대회"
                   date="2025"

@@ -9,11 +9,26 @@ export function ThemeToggle() {
   const getIcon = () => {
     switch (theme) {
       case 'light':
-        return <IconSun size={20} />;
+        return (
+          <>
+            <IconSun size={16} className="sm:hidden" />
+            <IconSun size={20} className="hidden sm:block" />
+          </>
+        );
       case 'dark':
-        return <IconMoon size={20} />;
+        return (
+          <>
+            <IconMoon size={16} className="sm:hidden" />
+            <IconMoon size={20} className="hidden sm:block" />
+          </>
+        );
       case 'system':
-        return <IconShadow size={20} />;
+        return (
+          <>
+            <IconShadow size={16} className="sm:hidden" />
+            <IconShadow size={20} className="hidden sm:block" />
+          </>
+        );
     }
   };
 
@@ -28,7 +43,8 @@ export function ThemeToggle() {
   return (
     <Button
       variant="ghost"
-      size="icon"
+      size="sm"
+      className="h-8 w-8 sm:h-10 sm:w-10"
       onClick={toggleTheme}
       aria-label={getAriaLabel()}
     >

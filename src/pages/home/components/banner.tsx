@@ -14,20 +14,20 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/';
 
 export const Banner: React.FC = () => {
   return (
-    <div className="flex flex-col gap-16 bg-neutral-50 dark:bg-neutral-950 w-full min-h-screen px-16 py-16 lg:px-16 max-lg:px-6 items-center justify-center">
-      <div className="max-w-6xl w-full flex flex-col gap-16">
-        <div className="flex gap-16 items-center">
-          <Avatar className="w-32 h-32 rounded-full block">
+    <div className="flex flex-col gap-8 sm:gap-12 lg:gap-16 bg-neutral-50 dark:bg-neutral-950 w-full h-screen px-4 sm:px-6 lg:px-16 py-8 sm:py-12 lg:py-16 items-center justify-center">
+      <div className="max-w-6xl w-full flex flex-col gap-8 sm:gap-12 lg:gap-16">
+        <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 lg:gap-16 items-center">
+          <Avatar className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full block flex-shrink-0">
             <AvatarImage src={profileImage} />
             <AvatarFallback>Rhseung</AvatarFallback>
           </Avatar>
-          <div className="flex flex-col gap-5">
-            <div className="flex items-center gap-6">
+          <div className="flex flex-col gap-3 sm:gap-4 lg:gap-5 text-center sm:text-left">
+            <div className="flex items-center gap-4 sm:gap-6">
               <IconAt
-                className="text-neutral-600 dark:text-neutral-400 transition-colors duration-200"
-                size={28}
+                className="text-neutral-600 dark:text-neutral-400 transition-colors duration-200 flex-shrink-0"
+                size={24}
               />
-              <span className="text-xl font-medium text-neutral-900 dark:text-neutral-50">
+              <span className="text-lg sm:text-xl font-medium text-neutral-900 dark:text-neutral-50 break-all">
                 <a
                   href="mailto:ryu@rhseung.me"
                   target="_blank"
@@ -38,12 +38,12 @@ export const Banner: React.FC = () => {
                 </a>
               </span>
             </div>
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-4 sm:gap-6">
               <IconBackpack
-                className="text-neutral-600 dark:text-neutral-400 transition-colors duration-200"
-                size={28}
+                className="text-neutral-600 dark:text-neutral-400 transition-colors duration-200 flex-shrink-0"
+                size={24}
               />
-              <span className="text-xl font-medium text-neutral-900 dark:text-neutral-50">
+              <span className="text-lg sm:text-xl font-medium text-neutral-900 dark:text-neutral-50 text-left">
                 <a
                   href="https://gsa.gen.hs.kr:453/main/main.php"
                   target="_blank"
@@ -55,12 +55,12 @@ export const Banner: React.FC = () => {
                 39기 졸업
               </span>
             </div>
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-4 sm:gap-6">
               <IconSchool
-                className="text-neutral-600 dark:text-neutral-400 transition-colors duration-200"
-                size={28}
+                className="text-neutral-600 dark:text-neutral-400 transition-colors duration-200 flex-shrink-0"
+                size={24}
               />
-              <span className="text-xl font-medium text-neutral-900 dark:text-neutral-50">
+              <span className="text-lg sm:text-xl font-medium text-neutral-900 dark:text-neutral-50 text-left">
                 <a
                   href="https://ewww.gist.ac.kr/kr/main.html"
                   target="_blank"
@@ -76,10 +76,10 @@ export const Banner: React.FC = () => {
         </div>
         <div>
           {/* TODO: 수식어 */}
-          <span className="text-4xl font-extrabold leading-relaxed mb-6 bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 dark:from-pink-300 dark:via-purple-300 dark:to-cyan-300 bg-clip-text text-transparent tracking-tight">
-            안녕하세요, 프로그래머이자 디자이너인 류현승입니다.{' '}
-          </span>
-          <span className="text-4xl font-normal leading-relaxed mb-6 text-neutral-600 dark:text-neutral-400 tracking-tight">
+          <span className="text-2xl sm:text-3xl lg:text-4xl font-normal leading-relaxed mb-4 sm:mb-6 text-neutral-600 dark:text-neutral-400 tracking-tight block text-pretty">
+            <span className="font-extrabold bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 dark:from-pink-300 dark:via-purple-300 dark:to-cyan-300 bg-clip-text text-transparent">
+              안녕하세요, 프로그래머이자 디자이너인 류현승입니다.
+            </span>{' '}
             분야를 막론하고, 하고 싶은 것이 생기면 깊게 몰두해 반드시
             해결해내려고 노력하는 프로그래머입니다. 제가 만들어내는 창작물들을
             사용하는 사람들에게 긍정적인 영향을 주고자 노력합니다.

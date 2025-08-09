@@ -7,7 +7,7 @@ export const Layout: React.FC<
   PropsWithChildren<{ disableHeaderHeight?: boolean }>
 > = ({ children, disableHeaderHeight }) => {
   const headerRef = useRef<HTMLElementTagNameMap['header']>(null);
-  const [headerHeight, setHeaderHeight] = useState(93);
+  const [headerHeight, setHeaderHeight] = useState(0);
 
   useEffect(() => {
     const headerEl = headerRef.current;
@@ -24,7 +24,10 @@ export const Layout: React.FC<
   return (
     <div className="min-h-screen w-full bg-neutral-50 dark:bg-neutral-950">
       <Header ref={headerRef} />
-      <main style={{ paddingTop: disableHeaderHeight ? 0 : headerHeight }}>
+      <main
+        style={{ paddingTop: disableHeaderHeight ? 0 : headerHeight }}
+        className="px-4 sm:px-6 lg:px-8"
+      >
         {children}
       </main>
       <Footer />

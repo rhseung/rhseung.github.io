@@ -9,13 +9,15 @@ export const BlogPage: React.FC = () => {
 
   return (
     <Layout>
-      <div className="py-16 text-center">
-        <h1 className="text-5xl font-bold text-neutral-900 dark:text-neutral-50">
-          Redirecting to Blog...
-        </h1>
-        <p className="text-neutral-600 dark:text-neutral-400">
-          잠시만 기다려주세요. 블로그로 이동 중입니다.
-        </p>
+      <div className="py-16 sm:py-20 lg:py-24 text-center min-h-screen flex flex-col items-center justify-center">
+        <div>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-neutral-50 mb-4">
+            Redirecting to Blog...
+          </h1>
+          <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400">
+            잠시만 기다려주세요. 블로그로 이동 중입니다.
+          </p>
+        </div>
       </div>
     </Layout>
   );

@@ -29,20 +29,20 @@ export const LinkPage: React.FC = () => {
 
   return (
     <Layout>
-      <div className="py-16 text-center">
-        <h1 className="max-w-7xl mx-auto px-16 lg:px-16 max-lg:px-6 text-5xl font-bold text-neutral-900 dark:text-neutral-50">
+      <div className="py-8 sm:py-12 lg:py-16 text-center">
+        <h1 className="max-w-7xl mx-auto text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-neutral-50">
           링크
         </h1>
       </div>
 
-      <div className="py-16">
-        <div className="max-w-7xl mx-auto px-16 lg:px-16 max-lg:px-6">
-          <div className="space-y-16">
+      <div className="py-8 sm:py-12 lg:py-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="space-y-12 sm:space-y-16">
             <div>
-              <h2 className="text-2xl font-semibold text-neutral-900 dark:text-neutral-50 mb-8">
+              <h2 className="text-xl sm:text-2xl font-semibold text-neutral-900 dark:text-neutral-50 mb-6 sm:mb-8">
                 연락처
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 <LinkCard
                   title="이메일"
                   username="ryu@rhseung.me"
@@ -75,10 +75,10 @@ export const LinkPage: React.FC = () => {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold text-neutral-900 dark:text-neutral-50 mb-8">
+              <h2 className="text-xl sm:text-2xl font-semibold text-neutral-900 dark:text-neutral-50 mb-6 sm:mb-8">
                 개발 플랫폼
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 <LinkCard
                   title="Stack Overflow"
                   username="Rhseung"
@@ -125,10 +125,10 @@ export const LinkPage: React.FC = () => {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold text-neutral-900 dark:text-neutral-50 mb-8">
+              <h2 className="text-xl sm:text-2xl font-semibold text-neutral-900 dark:text-neutral-50 mb-6 sm:mb-8">
                 코딩 테스트 & 알고리즘
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 <LinkCard
                   title="백준 OJ"
                   username="rhseung"
@@ -147,10 +147,10 @@ export const LinkPage: React.FC = () => {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold text-neutral-900 dark:text-neutral-50 mb-8">
+              <h2 className="text-xl sm:text-2xl font-semibold text-neutral-900 dark:text-neutral-50 mb-6 sm:mb-8">
                 게임 & 음악
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 <LinkCard
                   title="Steam"
                   username="Rhseung"

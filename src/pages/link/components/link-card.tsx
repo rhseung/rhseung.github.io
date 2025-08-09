@@ -34,7 +34,7 @@ export const LinkCard: React.FC<LinkCardProps> = ({
 
   return (
     <div
-      className="flex flex-col gap-3 group bg-white dark:bg-neutral-900 border rounded-xl p-4 cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+      className="flex gap-4 items-center group bg-white dark:bg-neutral-900 border rounded-xl p-4 cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
       onClick={handleClick}
       role="button"
       tabIndex={0}
@@ -61,7 +61,7 @@ export const LinkCard: React.FC<LinkCardProps> = ({
       >
         {icon || <ExternalLink />}
       </div>
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-row md:flex-col md:justify-start justify-between items-center md:items-start gap-1 w-full">
         <div className="text-lg font-semibold text-neutral-900 dark:text-neutral-50">
           {title}
         </div>

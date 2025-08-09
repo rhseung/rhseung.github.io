@@ -63,7 +63,7 @@ export const TechStackCategoryCard: React.FC<TechStackCategoryCardProps> = ({
   );
 
   return (
-    <div className="flex flex-col bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 h-fit">
+    <div className="flex flex-col bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-4 transition-all duration-300 hover:shadow-lg h-fit">
       <Button
         variant="ghost"
         onClick={() => onCategoryToggle(techList)}

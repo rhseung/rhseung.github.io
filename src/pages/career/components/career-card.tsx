@@ -73,43 +73,43 @@ export const CareerCard: React.FC<CareerCardProps> = ({
   badges,
 }) => {
   return (
-    <div className="flex flex-col justify-between bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-      <div className="flex justify-between items-start gap-6">
-        <div className="flex items-center gap-3 flex-1 min-w-0">
-          {logo && (
-            <div className="size-10 flex items-center justify-center rounded-lg bg-transparent border border-neutral-200 dark:border-neutral-800 flex-shrink-0">
-              {logo}
-            </div>
-          )}
-          <h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-50 m-0 whitespace-nowrap overflow-hidden text-ellipsis">
-            {title}
-          </h3>
-        </div>
-        <Badge
-          variant="outline"
-          className="bg-white dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200 border-neutral-300 dark:border-neutral-600 flex-shrink-0"
-        >
-          {date}
-        </Badge>
+    <div className="flex flex-col justify-between bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 w-full h-full">
+      <div className="flex items-center gap-3 flex-1 min-w-0">
+        {logo && (
+          <div className="size-8 sm:size-10 flex items-center justify-center rounded-lg bg-transparent border border-neutral-200 dark:border-neutral-800 flex-shrink-0">
+            {logo}
+          </div>
+        )}
+        <h3 className="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-50 m-0 truncate">
+          {title}
+        </h3>
       </div>
 
-      <div className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed my-3">
+      <div className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed my-3">
         {children}
       </div>
 
-      <div className="flex flex-wrap gap-2">
-        {badges.map((badge, index) => {
-          const config = getBadgeConfig(badge);
-          return (
-            <Badge
-              key={index}
-              variant={config.variant}
-              className={config.className}
-            >
-              {badge}
-            </Badge>
-          );
-        })}
+      <div className="flex flex-wrap justify-between items-center gap-2">
+        <div className="flex flex-wrap gap-2">
+          {badges.map((badge, index) => {
+            const config = getBadgeConfig(badge);
+            return (
+              <Badge
+                key={index}
+                variant={config.variant}
+                className={`${config.className} text-xs`}
+              >
+                {badge}
+              </Badge>
+            );
+          })}
+        </div>
+        <Badge
+          variant="outline"
+          className="bg-white dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200 border-neutral-300 dark:border-neutral-600 flex-shrink-0 text-xs sm:text-sm whitespace-nowrap"
+        >
+          {date}
+        </Badge>
       </div>
     </div>
   );
