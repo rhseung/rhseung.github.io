@@ -31,11 +31,13 @@ export interface TechStackBadgeProps
     VariantProps<typeof badgeVariants> {
   tech: TechStack;
   size?: 'sm' | 'md' | 'lg';
+  selected?: boolean;
 }
 
 const TechStackBadge: React.FC<TechStackBadgeProps> = ({
   tech,
   size = 'md',
+  selected = false,
   className,
   ...props
 }) => {
@@ -51,7 +53,15 @@ const TechStackBadge: React.FC<TechStackBadgeProps> = ({
     <Badge
       variant="default"
       className={cn(
-        'shadow-xs transition-all duration-200 hover:shadow-sm',
+        'shadow-xs transition-all duration-200 cursor-pointer',
+        'hover:shadow-md hover:brightness-110',
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400',
+        selected && [
+          'ring-2',
+          'ring-neutral-800 dark:ring-neutral-200',
+          'shadow-md',
+          'brightness-110',
+        ],
         sizeClasses[size],
         className,
       )}

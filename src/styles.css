@@ -110,6 +110,7 @@ export const title = style({
   --color-neutral-700: oklch(0.37 0 0);
   --color-neutral-800: oklch(0.27 0 0);
   --color-neutral-900: oklch(0.2 0 0);
+  --color-neutral-925: oklch(0.16 0 0);
   --color-neutral-950: oklch(0.14 0 0);
 
   /* Primary colors */

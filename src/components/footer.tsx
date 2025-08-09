@@ -12,7 +12,7 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-neutral-100 dark:bg-neutral-900 border-t border-neutral-200 dark:border-neutral-800">
+    <footer className="bg-neutral-100 dark:bg-neutral-950">
       <div className="px-6 py-12 text-center">
         <div className="mx-auto w-full max-w-7xl">
           <p className="text-neutral-600 dark:text-neutral-400">

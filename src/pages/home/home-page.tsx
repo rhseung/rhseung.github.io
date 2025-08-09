@@ -6,7 +6,9 @@ import { Banner } from './components/banner';
 export const HomePage: React.FC = () => {
   return (
     <Layout disableHeaderHeight>
-      <Banner />
+      <div className="bg-neutral-50 dark:bg-neutral-950">
+        <Banner />
+      </div>
       {/* <Highlight /> */}
     </Layout>
   );
