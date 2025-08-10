@@ -151,6 +151,14 @@ export const CareerPage: React.FC = () => {
                     <div>부문: 탁구로봇 트랙</div>
                   </div>
                 </CareerCard>
+                <CareerCard
+                  title="JUNCTION ASIA 2025"
+                  date="2025"
+                  badges={[BadgeStatus.PARTICIPATED]}
+                  logo={<IconCode size={20} />}
+                >
+                  주최: 앙트비 (ENTBE)
+                </CareerCard>
               </div>
               <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-4 m-0">
                 * 추가 대회 참가 이력은 지속적으로 업데이트됩니다.
