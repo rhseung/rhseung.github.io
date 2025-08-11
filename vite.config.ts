@@ -18,4 +18,14 @@ export default defineConfig({
       '@': resolve(__dirname, './src'),
     },
   },
+  server: {
+    proxy: {
+      '/api/solvedac': {
+        target: 'https://solved.ac',
+        changeOrigin: true,
+        rewrite: (path) =>
+          path.replace(/^\/api\/solvedac/, '/api/v3/search/user'),
+      },
+    },
+  },
 });

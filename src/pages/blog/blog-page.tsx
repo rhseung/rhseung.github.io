@@ -4,7 +4,11 @@ import { Layout } from '@/components';
 
 export const BlogPage: React.FC = () => {
   useEffect(() => {
-    window.location.href = 'https://velog.io/@rhseung224/posts';
+    window.open(
+      'https://velog.io/@rhseung224/posts',
+      '_blank',
+      'noopener,noreferrer',
+    );
   }, []);
 
   return (

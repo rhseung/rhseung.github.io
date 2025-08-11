@@ -51,6 +51,7 @@ export const LinkPage: React.FC = () => {
                   iconColor="#EA4335"
                 />
                 <LinkCard
+                  service="instagram"
                   title="Instagram"
                   username="r._hseung"
                   url="https://www.instagram.com/r._hseung/#"
@@ -87,13 +88,15 @@ export const LinkPage: React.FC = () => {
                   iconColor="#F58025"
                 />
                 <LinkCard
+                  service="github"
                   title="GitHub"
-                  username="@rhseung"
+                  username="rhseung"
                   url="https://github.com/rhseung"
                   icon={<IconBrandGithub size={30} />}
                   iconColor={theme === 'dark' ? '#fafafa' : '#333333'}
                 />
                 <LinkCard
+                  service="npm"
                   title="NPM"
                   username="~rhseung"
                   url="https://www.npmjs.com/~rhseung"
@@ -101,6 +104,7 @@ export const LinkPage: React.FC = () => {
                   iconColor="#CB3837"
                 />
                 <LinkCard
+                  service="pypi"
                   title="PyPI"
                   username="rhseung"
                   url="https://pypi.org/user/rhseung/"
@@ -108,6 +112,7 @@ export const LinkPage: React.FC = () => {
                   iconColor="#3775A9"
                 />
                 <LinkCard
+                  service="modrinth"
                   title="Modrinth"
                   username="Rhseung"
                   url="https://modrinth.com/user/Rhseung"
@@ -115,6 +120,7 @@ export const LinkPage: React.FC = () => {
                   iconColor="#66d676"
                 />
                 <LinkCard
+                  service="velog"
                   title="Velog"
                   username="@rhseung224"
                   url="https://velog.io/@rhseung224/posts"
@@ -130,6 +136,7 @@ export const LinkPage: React.FC = () => {
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 <LinkCard
+                  service="baekjoon"
                   title="백준 OJ"
                   username="rhseung"
                   url="https://www.acmicpc.net/user/rhseung"
@@ -137,6 +144,7 @@ export const LinkPage: React.FC = () => {
                   iconColor="#0076C0"
                 />
                 <LinkCard
+                  service="solvedac"
                   title="Solved.ac"
                   username="rhseung"
                   url="https://solved.ac/profile/rhseung"

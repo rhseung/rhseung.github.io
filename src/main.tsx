@@ -20,6 +20,7 @@ const router = createRouter({
   defaultStructuralSharing: true,
   defaultPreloadStaleTime: 0,
   defaultNotFoundComponent: () => <NotFoundPage />,
+  defaultViewTransition: true,
 });
 
 // Register the router instance for type safety
