@@ -1,9 +1,7 @@
 import { cn } from '@/utils/cn';
 
-// solvedac.ts
-// Fetcher for Solved.ac profile extra info (mock)
+const API_BASE = '/api/solvedac';
 
-// solved.ac tier mapping (1~31)
 const tierMap = [
   undefined,
   'Bronze V',
@@ -79,31 +77,27 @@ export const solvedacFetcher = async (
 ): Promise<React.ReactNode | undefined> => {
   try {
     const res = await fetch(
-      `/api/solvedac?query=${encodeURIComponent(username)}`,
+      `${API_BASE}/user/show?handle=${encodeURIComponent(username)}`,
     );
     if (!res.ok) return undefined;
-    const data = await res.json();
-    if (data && data.items && data.items.length > 0) {
-      const user = data.items[0];
+    const user = await res.json();
+
+    if (user) {
       const tier = tierMap[user.tier] || 'Unrated';
-      const rating = user.rating;
-      // 뱃지 스타일 tailwind + cn 적용
       const color = tierColor(user.tier);
+
       return (
         <span
           className={cn(
-            'inline-block font-semibold text-[0.95em] px-2 py-[2px] rounded-full align-middle',
-            'leading-[1.3] tracking-[0.01em] select-none',
+            'inline-flex items-center gap-1 font-semibold',
+            'px-2 py-0.5 rounded-full font-bold text-xs',
           )}
           style={{
             color,
-            background: color ? `${color}20` : '#f3f4f6',
+            background: color ? color + '22' : 'rgba(0,0,0,0.07)',
           }}
         >
           {tier}
-          <span className={cn('ml-1 font-normal text-[0.92em] opacity-70')}>
-            ({rating})
-          </span>
         </span>
       );
     }

@@ -26,62 +26,6 @@
   opacity: 0;
 }
 
-/* // Global styles
-globalStyle("*", {
-  boxSizing: "border-box",
-});
-
-globalStyle("html", {
-  backgroundColor: primitiveTokens.color.neutral[50],
-  transition: "background-color 0.2s ease-in-out",
-  minHeight: "100%",
-  overscrollBehavior: "none",
-});
-
-globalStyle("html.dark", {
-  backgroundColor: primitiveTokens.color.neutral[950],
-});
-
-globalStyle("body", {
-  margin: 0,
-  fontFamily:
-    '"Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
-  WebkitFontSmoothing: "antialiased",
-  MozOsxFontSmoothing: "grayscale",
-  // 텍스트 색상만 설정
-  color: primitiveTokens.color.neutral[900],
-  transition: "color 0.2s ease-in-out",
-  minHeight: "100vh",
-  position: "relative",
-  overscrollBehavior: "none",
-});
-
-// 다크 모드용 body 스타일
-globalStyle("body.dark", {
-  color: primitiveTokens.color.neutral[50],
-});
-
-export const titleContainer = style({
-  width: "100%",
-  padding: primitiveTokens.spacing["3xl"],
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  "@media": {
-    "(max-width: 1023px)": {
-      padding: primitiveTokens.spacing.lg,
-    },
-  },
-});
-
-export const title = style({
-  maxWidth: primitiveTokens.maxWidth,
-  width: "100%",
-  display: "flex",
-  flexDirection: "column",
-  gap: primitiveTokens.spacing["3xl"],
-}); */
-
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -201,6 +145,24 @@ export const title = style({
   --color-info-800: oklch(0.42 0.18 266);
   --color-info-900: oklch(0.38 0.14 266);
   --color-info-950: oklch(0.28 0.09 268);
+
+  --color-so-gold: #ffd700;
+  --color-so-silver: #c0c0c0;
+  --color-so-bronze: #cd7f32;
+  --color-github: var(--github);
+  --color-instagram: #e4405f;
+  --color-discord: #5865f2;
+  --color-linkedin: #0a66c2;
+  --color-npm: #cb3837;
+  --color-python: #3775a9;
+  --color-modrinth: #66d676;
+  --color-velog: #5dc096;
+  --color-steam: var(--steam);
+  --color-spotify: #1db954;
+  --color-stackoverflow: #f58025;
+  --color-mail: #ea4335;
+  --color-solvedac: #17ce3a;
+  --color-baekjoon: #0076c0;
 }
 
 :root {
@@ -242,6 +204,9 @@ export const title = style({
     rgba(153, 103, 239, 1) 50%,
     rgba(74, 205, 232, 1) 100%
   );
+
+  --github: #333333;
+  --steam: #172138;
 }
 
 .dark {
@@ -282,6 +247,9 @@ export const title = style({
     rgb(180, 145, 255) 50%,
     rgb(124, 249, 255) 100%
   );
+
+  --github: #fafafa;
+  --steam: #1f72a1;
 }
 
 @layer base {

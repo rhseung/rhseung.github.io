@@ -1,0 +1,20 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/reddit/(.*)",
+      "destination": "https://www.reddit.com/$1"
+    },
+    {
+      "source": "/api/solvedac/(.*)",
+      "destination": "https://solved.ac/api/v3/$1"
+    },
+    {
+      "source": "/api/boj/(.*)",
+      "destination": "https://www.acmicpc.net/$1"
+    },
+    {
+      "source": "/api/stackexchange/(.*)",
+      "destination": "https://api.stackexchange.com/2.3/$1"
+    }
+  ]
+}

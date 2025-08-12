@@ -20,11 +20,41 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      '/api/solvedac': {
-        target: 'https://solved.ac',
+      '/api/reddit': {
+        target: 'https://www.reddit.com',
         changeOrigin: true,
-        rewrite: (path) =>
-          path.replace(/^\/api\/solvedac/, '/api/v3/search/user'),
+        rewrite: (path) => path.replace(/^\/api\/reddit/, ''),
+        headers: {
+          'User-Agent':
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+        },
+      },
+      '/api/solvedac': {
+        target: 'https://solved.ac/api/v3',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/solvedac/, ''),
+        headers: {
+          'User-Agent': 'portfolio-app/1.0',
+        },
+      },
+      '/api/boj': {
+        target: 'https://www.acmicpc.net',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/boj/, ''),
+        headers: {
+          'User-Agent':
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+          'Sec-Fetch-Dest': 'document',
+        },
+      },
+      '/api/stackexchange': {
+        target: 'https://api.stackexchange.com/2.3',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/stackexchange/, ''),
+        headers: {
+          'User-Agent':
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+        },
       },
     },
   },

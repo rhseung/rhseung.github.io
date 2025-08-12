@@ -1,5 +1,3 @@
-// github.ts
-// Fetcher for GitHub profile extra info
 import { cn } from '@/utils/cn';
 
 export function grassColor(n: number): string {

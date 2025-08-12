@@ -16,17 +16,12 @@ import {
 } from '@tabler/icons-react';
 
 import { Layout } from '@/components';
-import { useTheme } from '@/hooks';
 
 import { LinkCard } from './components/link-card';
 
 export const LinkPage: React.FC = () => {
   // TODO: api 사용해서 팔로워 같은 거 보면 좋을 듯
   // TODO: 호버 시 막 아래에 콘텐츠 더 떠서 깃허브면 레포개수, 커밋 잔디 등 버라이어티한 인터랙션
-
-  const { getActualTheme } = useTheme();
-  const theme = getActualTheme();
-
   return (
     <Layout>
       <div className="py-8 sm:py-12 lg:py-16 text-center">
@@ -48,29 +43,28 @@ export const LinkPage: React.FC = () => {
                   username="ryu@rhseung.me"
                   url="mailto:ryu@rhseung.me"
                   icon={<IconMail size={30} />}
-                  iconColor="#EA4335"
+                  iconColor="var(--color-mail)"
                 />
                 <LinkCard
-                  service="instagram"
                   title="Instagram"
                   username="r._hseung"
                   url="https://www.instagram.com/r._hseung/#"
                   icon={<IconBrandInstagram size={30} />}
-                  iconColor="#E4405F"
+                  iconColor="var(--color-instagram)"
                 />
                 <LinkCard
                   title="Discord"
                   username="rhseung"
                   url="https://discord.com/users/1056154758337015828"
                   icon={<IconBrandDiscord size={30} />}
-                  iconColor="#5865F2"
+                  iconColor="var(--color-discord)"
                 />
                 <LinkCard
                   title="LinkedIn"
                   username="류현승"
                   url="https://www.linkedin.com/in/%ED%98%84%EC%8A%B9-%EB%A5%98-a340b02a7/"
                   icon={<IconBrandLinkedin size={30} />}
-                  iconColor="#0A66C2"
+                  iconColor="var(--color-linkedin)"
                 />
               </div>
             </div>
@@ -81,11 +75,12 @@ export const LinkPage: React.FC = () => {
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 <LinkCard
+                  service="stackoverflow"
                   title="Stack Overflow"
-                  username="Rhseung"
+                  username="rhseung"
                   url="https://stackoverflow.com/users/20864379/rhseung"
                   icon={<IconBrandStackoverflow size={30} />}
-                  iconColor="#F58025"
+                  iconColor="var(--color-stackoverflow)"
                 />
                 <LinkCard
                   service="github"
@@ -93,39 +88,35 @@ export const LinkPage: React.FC = () => {
                   username="rhseung"
                   url="https://github.com/rhseung"
                   icon={<IconBrandGithub size={30} />}
-                  iconColor={theme === 'dark' ? '#fafafa' : '#333333'}
+                  iconColor="var(--color-github)"
                 />
                 <LinkCard
-                  service="npm"
                   title="NPM"
                   username="~rhseung"
                   url="https://www.npmjs.com/~rhseung"
                   icon={<IconBrandNpm size={30} />}
-                  iconColor="#CB3837"
+                  iconColor="var(--color-npm)"
                 />
                 <LinkCard
-                  service="pypi"
                   title="PyPI"
                   username="rhseung"
                   url="https://pypi.org/user/rhseung/"
                   icon={<IconBrandPython size={30} />}
-                  iconColor="#3775A9"
+                  iconColor="var(--color-python)"
                 />
                 <LinkCard
-                  service="modrinth"
                   title="Modrinth"
                   username="Rhseung"
                   url="https://modrinth.com/user/Rhseung"
                   icon={<IconBox size={30} />}
-                  iconColor="#66d676"
+                  iconColor="var(--color-modrinth)"
                 />
                 <LinkCard
-                  service="velog"
                   title="Velog"
                   username="@rhseung224"
                   url="https://velog.io/@rhseung224/posts"
                   icon={<IconBlockquote size={30} />}
-                  iconColor="#5dc096"
+                  iconColor="var(--color-velog)"
                 />
               </div>
             </div>
@@ -141,7 +132,7 @@ export const LinkPage: React.FC = () => {
                   username="rhseung"
                   url="https://www.acmicpc.net/user/rhseung"
                   icon={<IconCode size={30} />}
-                  iconColor="#0076C0"
+                  iconColor="var(--color-baekjoon)"
                 />
                 <LinkCard
                   service="solvedac"
@@ -149,7 +140,7 @@ export const LinkPage: React.FC = () => {
                   username="rhseung"
                   url="https://solved.ac/profile/rhseung"
                   icon={<IconTrophy size={30} />}
-                  iconColor="#17CE3A"
+                  iconColor="var(--color-solvedac)"
                 />
               </div>
             </div>
@@ -164,14 +155,14 @@ export const LinkPage: React.FC = () => {
                   username="Rhseung"
                   url="https://steamcommunity.com/profiles/76561198370925344/"
                   icon={<IconBrandSteam size={30} />}
-                  iconColor={theme === 'dark' ? '#1f72a1' : '#172138'}
+                  iconColor="var(--color-steam)"
                 />
                 <LinkCard
                   title="Spotify"
                   username="Rhseung"
                   url="https://open.spotify.com/user/0ql7swrx5cap6f8ozxxnqmolx"
                   icon={<IconBrandSpotify size={30} />}
-                  iconColor="#1DB954"
+                  iconColor="var(--color-spotify)"
                 />
               </div>
             </div>
