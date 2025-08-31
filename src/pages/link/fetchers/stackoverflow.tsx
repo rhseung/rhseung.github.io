@@ -3,7 +3,7 @@ import { toast } from 'sonner';
 
 import { cn } from '@/utils/cn';
 
-const API_BASE = '/api/stackexchange';
+const API_BASE = '/api/stackexchange/2.3';
 
 interface StackOverflowResponse {
   items: {
@@ -19,7 +19,7 @@ export const stackoverflowFetcher = async (): Promise<
 > => {
   try {
     const res = await axios.get<StackOverflowResponse>(
-      `${API_BASE}/users/20864379?site=stackoverflow`,
+      `${API_BASE}/users/20864379?order=desc&sort=reputation&site=stackoverflow`,
     );
     if (!res.data) return undefined;
 

@@ -5,6 +5,15 @@ import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 import svgr from 'vite-plugin-svgr';
 
+/**
+ TODO: Implement VitePluginRadar
+ VitePluginRadar({
+    analytics: {
+      id: 'G-696XF00H9P',
+    },
+  }),
+ */
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -48,7 +57,7 @@ export default defineConfig({
         },
       },
       '/api/stackexchange': {
-        target: 'https://api.stackexchange.com/2.3',
+        target: 'https://api.stackexchange.com',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api\/stackexchange/, ''),
         headers: {

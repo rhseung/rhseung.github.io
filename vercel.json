@@ -14,7 +14,11 @@
     },
     {
       "source": "/api/stackexchange/(.*)",
-      "destination": "https://api.stackexchange.com/2.3/$1"
+      "destination": "https://api.stackexchange.com/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/"
     }
   ]
 }
