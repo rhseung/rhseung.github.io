@@ -164,6 +164,31 @@
   --color-mail: #ea4335;
   --color-solvedac: #17ce3a;
   --color-baekjoon: #0076c0;
+
+  --color-nav-blue-solid: var(--color-blue-500);
+  --color-nav-blue-0: rgba(59, 130, 246, 0.15);
+  --color-nav-blue-1: rgba(37, 99, 235, 0.06);
+  --color-nav-blue-2: rgba(29, 78, 216, 0);
+
+  --color-nav-violet-solid: var(--color-violet-500);
+  --color-nav-violet-0: rgba(139, 92, 246, 0.15);
+  --color-nav-violet-1: rgba(124, 58, 237, 0.06);
+  --color-nav-violet-2: rgba(109, 40, 217, 0);
+
+  --color-nav-orange-solid: var(--color-orange-500);
+  --color-nav-orange-0: rgba(249, 115, 22, 0.15);
+  --color-nav-orange-1: rgba(234, 88, 12, 0.06);
+  --color-nav-orange-2: rgba(194, 65, 12, 0);
+
+  --color-nav-green-solid: var(--color-green-500);
+  --color-nav-green-0: rgba(34, 197, 94, 0.15);
+  --color-nav-green-1: rgba(22, 163, 74, 0.06);
+  --color-nav-green-2: rgba(21, 128, 61, 0);
+
+  --color-nav-red-solid: var(--color-red-500);
+  --color-nav-red-0: rgba(239, 68, 68, 0.15);
+  --color-nav-red-1: rgba(220, 38, 38, 0.06);
+  --color-nav-red-2: rgba(185, 28, 28, 0);
 }
 
 :root {

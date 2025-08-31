@@ -26,49 +26,48 @@ interface MenuItem {
   coloredIcon: React.ReactNode;
   label: string;
   href: string;
-  gradient: string;
+  background: string;
 }
 
 const menus: MenuItem[] = [
   {
     icon: <IconHome />,
-    coloredIcon: <IconHome className="text-blue-500" />,
+    coloredIcon: <IconHome className="text-nav-blue-solid" />,
     label: '홈',
     href: '/',
-    gradient:
-      'radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(37,99,235,0.06) 50%, rgba(29,78,216,0) 100%)',
+    background: cn('bg-radial from-nav-blue-0 via-nav-blue-1 to-nav-blue-2'),
   },
   {
     icon: <IconLayoutList />,
-    coloredIcon: <IconLayoutList className="text-violet-500" />,
+    coloredIcon: <IconLayoutList className="text-nav-violet-solid" />,
     label: '프로젝트',
     href: '/project',
-    gradient:
-      'radial-gradient(circle, rgba(139,92,246,0.15) 0%, rgba(124,58,237,0.06) 50%, rgba(109,40,217,0) 100%)',
+    background: cn(
+      'bg-radial from-nav-violet-0 via-nav-violet-1 to-nav-violet-2',
+    ),
   },
   {
     icon: <IconCertificate />,
-    coloredIcon: <IconCertificate className="text-orange-500" />,
+    coloredIcon: <IconCertificate className="text-nav-orange-solid" />,
     label: '이력',
     href: '/career',
-    gradient:
-      'radial-gradient(circle, rgba(249,115,22,0.15) 0%, rgba(234,88,12,0.06) 50%, rgba(194,65,12,0) 100%)',
+    background: cn(
+      'bg-radial from-nav-orange-0 via-nav-orange-1 to-nav-orange-2',
+    ),
   },
   {
     icon: <IconLink />,
-    coloredIcon: <IconLink className="text-green-500" />,
+    coloredIcon: <IconLink className="text-nav-green-solid" />,
     label: '링크',
     href: '/link',
-    gradient:
-      'radial-gradient(circle, rgba(34,197,94,0.15) 0%, rgba(22,163,74,0.06) 50%, rgba(21,128,61,0) 100%)',
+    background: cn('bg-radial from-nav-green-0 via-nav-green-1 to-nav-green-2'),
   },
   {
     icon: <IconNotebook />,
-    coloredIcon: <IconNotebook className="text-red-500" />,
+    coloredIcon: <IconNotebook className="text-nav-red-solid" />,
     label: '블로그',
     href: '/blog',
-    gradient:
-      'radial-gradient(circle, rgba(239,68,68,0.15) 0%, rgba(220,38,38,0.06) 50%, rgba(185,28,28,0) 100%)',
+    background: cn('bg-radial from-nav-red-0 via-nav-red-1 to-nav-red-2'),
   },
 ];
 
@@ -166,8 +165,10 @@ export const Header = forwardRef<
                 >
                   <span
                     aria-hidden
-                    className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
-                    style={{ background: m.gradient }}
+                    className={cn(
+                      'pointer-events-none absolute left-1/2 top-1/2 -z-10 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100',
+                      m.background,
+                    )}
                   />
                   <span className="relative inline-flex items-center shrink-0 w-5 h-5">
                     <span className="absolute inset-0 flex items-center justify-center text-neutral-400 dark:text-neutral-500">
