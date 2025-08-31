@@ -10,7 +10,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-  ThemeToggle,
+  ThemeSwitch,
 } from '@/components';
 import { cn } from '@/utils/cn';
 
@@ -174,7 +174,7 @@ export const Header = forwardRef<
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
-            <ThemeToggle />
+            <ThemeSwitch />
           </div>
         </div>
       </div>

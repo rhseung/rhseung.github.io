@@ -5,7 +5,7 @@ import { useTheme } from 'next-themes';
 
 import { Button } from '@/components';
 
-export const ThemeToggle: React.FC = () => {
+export const ThemeSwitch: React.FC = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme, resolvedTheme } = useTheme();
 
@@ -20,10 +20,12 @@ export const ThemeToggle: React.FC = () => {
   };
 
   const toggleTheme = () => {
-    if (theme === 'system') {
-      setTheme(resolvedTheme === 'light' ? 'dark' : 'light');
+    if (theme === 'light') {
+      setTheme('dark');
+    } else if (theme === 'dark') {
+      setTheme('system');
     } else {
-      setTheme(theme === 'light' ? 'dark' : 'light');
+      setTheme('light');
     }
   };
 
