@@ -14,7 +14,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className="bg-neutral-100 dark:bg-neutral-925">
       <div className="px-4 sm:px-6 py-8 sm:py-12 text-center">
-        <div className="mx-auto w-full max-w-7xl">
+        <div className="mx-auto w-full max-w-6xl">
           <p className="text-neutral-600 dark:text-neutral-400 text-sm sm:text-base">
             © {new Date().getFullYear()} Hyunseung Ryu. All rights reserved.
           </p>

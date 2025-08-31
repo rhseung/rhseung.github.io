@@ -409,7 +409,7 @@ export const ProjectPage: React.FC = () => {
   return (
     <Layout>
       <div className="text-center py-8 sm:py-12 lg:py-16">
-        <h1 className="max-w-7xl mx-auto text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-neutral-50">
+        <h1 className="max-w-6xl mx-auto text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-neutral-50">
           프로젝트
         </h1>
       </div>
@@ -463,7 +463,7 @@ export const ProjectPage: React.FC = () => {
         </div>
       </div>
       <div className="py-8 sm:py-12 lg:py-16">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="flex flex-col gap-8 sm:gap-10 lg:gap-12 w-full">
             {filteredProjects.map((project, index) => (
               <ProjectCard
