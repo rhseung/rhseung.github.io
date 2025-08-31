@@ -1,6 +1,13 @@
-import { forwardRef } from 'react';
+import React, { forwardRef, useEffect, useRef, useState } from 'react';
 
-import { IconMenu2 } from '@tabler/icons-react';
+import {
+  IconCertificate,
+  IconHome,
+  IconLayoutList,
+  IconLink,
+  IconMenu2,
+  IconNotebook,
+} from '@tabler/icons-react';
 import { useLocation, useNavigate } from '@tanstack/react-router';
 
 import Logo from '@/assets/logo.svg?react';
@@ -14,15 +21,100 @@ import {
 } from '@/components';
 import { cn } from '@/utils/cn';
 
+interface MenuItem {
+  icon: React.ReactNode;
+  coloredIcon: React.ReactNode;
+  label: string;
+  href: string;
+  gradient: string;
+}
+
+const menus: MenuItem[] = [
+  {
+    icon: <IconHome />,
+    coloredIcon: <IconHome className="text-blue-500" />,
+    label: '홈',
+    href: '/',
+    gradient:
+      'radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(37,99,235,0.06) 50%, rgba(29,78,216,0) 100%)',
+  },
+  {
+    icon: <IconLayoutList />,
+    coloredIcon: <IconLayoutList className="text-violet-500" />,
+    label: '프로젝트',
+    href: '/project',
+    gradient:
+      'radial-gradient(circle, rgba(139,92,246,0.15) 0%, rgba(124,58,237,0.06) 50%, rgba(109,40,217,0) 100%)',
+  },
+  {
+    icon: <IconCertificate />,
+    coloredIcon: <IconCertificate className="text-orange-500" />,
+    label: '이력',
+    href: '/career',
+    gradient:
+      'radial-gradient(circle, rgba(249,115,22,0.15) 0%, rgba(234,88,12,0.06) 50%, rgba(194,65,12,0) 100%)',
+  },
+  {
+    icon: <IconLink />,
+    coloredIcon: <IconLink className="text-green-500" />,
+    label: '링크',
+    href: '/link',
+    gradient:
+      'radial-gradient(circle, rgba(34,197,94,0.15) 0%, rgba(22,163,74,0.06) 50%, rgba(21,128,61,0) 100%)',
+  },
+  {
+    icon: <IconNotebook />,
+    coloredIcon: <IconNotebook className="text-red-500" />,
+    label: '블로그',
+    href: '/blog',
+    gradient:
+      'radial-gradient(circle, rgba(239,68,68,0.15) 0%, rgba(220,38,38,0.06) 50%, rgba(185,28,28,0) 100%)',
+  },
+];
+
 export const Header = forwardRef<
   HTMLElementTagNameMap['header'],
   React.HTMLAttributes<HTMLElementTagNameMap['header']>
->((_, ref) => {
-  // TODO: 탭 간 전환 애니메이션 추가
-
+>(({}, ref) => {
   const navigate = useNavigate();
   const location = useLocation();
   const currentPath = location.pathname;
+
+  const headerRef = useRef<HTMLElementTagNameMap['header']>(null);
+  const [headerHeight, setHeaderHeight] = useState(0);
+
+  useEffect(() => {
+    const el = headerRef.current;
+    if (!el || typeof ResizeObserver === 'undefined') return;
+    const obs = new ResizeObserver(() => setHeaderHeight(el.offsetHeight));
+    obs.observe(el);
+    setHeaderHeight(el.offsetHeight);
+    return () => obs.disconnect();
+  }, []);
+
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY || document.documentElement.scrollTop;
+      setIsVisible(y <= 0);
+    };
+
+    const onMouseMove = (e: MouseEvent) => {
+      const y = window.scrollY || document.documentElement.scrollTop;
+      setIsVisible(e.clientY <= headerHeight || y <= 0);
+    };
+
+    onScroll();
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('mousemove', onMouseMove);
+
+    return () => {
+      window.removeEventListener('scroll', onScroll as any);
+      window.removeEventListener('mousemove', onMouseMove as any);
+    };
+  }, [headerHeight]);
 
   const handleNavigate = async (to: string) => {
     await navigate({ to });
@@ -32,79 +124,72 @@ export const Header = forwardRef<
     });
   };
 
-  // 네비게이션/드롭다운 공통 스타일 상수
-  const navBase = cn('cursor-pointer relative transition-colors duration-150');
-  const navActive = cn(
-    'text-primary-600 dark:text-primary-400 after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:rounded-full after:content-[""] after:transition-all after:duration-300 hover:text-primary-700 dark:hover:text-primary-300 hover:after:bg-primary-700 dark:hover:after:bg-primary-300 after:bg-primary-600 dark:after:bg-primary-400',
+  const navBase = cn(
+    'group relative isolate z-0 inline-flex items-center gap-2 whitespace-nowrap cursor-pointer rounded-md px-4 py-2 leading-none transition-colors duration-150',
   );
+  const navActive = cn('text-neutral-900 dark:text-neutral-50');
   const navInactive = cn(
-    'text-neutral-900 dark:text-neutral-50 hover:text-primary-500 dark:hover:text-primary-300',
+    'text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-50',
   );
-  const dropdownBase = cn('');
-  const dropdownActive = cn(
-    'text-primary-600 dark:text-primary-400 font-semibold',
+  const dropdownBase = cn('group flex items-center gap-2');
+  const dropdownActive = cn('text-neutral-900 dark:text-neutral-50');
+  const dropdownInactive = cn(
+    'text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-neutral-50',
   );
-  const dropdownInactive = cn('text-neutral-900 dark:text-neutral-50');
 
   return (
     <header
-      ref={ref}
-      className="fixed top-0 right-0 left-0 z-50 px-4 sm:px-6 lg:px-8 py-2 sm:py-4 bg-neutral-50/85 dark:bg-neutral-950/85 backdrop-blur-md transition-transform duration-300"
+      ref={(node) => {
+        headerRef.current = node;
+        if (typeof ref === 'function') ref(node);
+        else if (ref && 'current' in ref) ref.current = node;
+      }}
+      className={cn(
+        'fixed top-0 right-0 left-0 z-50 px-4 sm:px-6 lg:px-8 py-1.5 sm:py-3 bg-neutral-50/85 dark:bg-neutral-950/85 backdrop-blur-md transition-transform duration-300 overflow-hidden will-change-transform',
+        isVisible ? 'translate-y-0' : '-translate-y-full',
+      )}
     >
       <div className="mx-auto w-full max-w-6xl">
-        <div className="flex w-full items-center justify-between">
+        <div className="flex w-full items-center justify-between gap-6 sm:gap-10">
           <div className="flex items-center">
             <Logo width={90} className="hidden sm:block" />
             <Logo width={70} className="sm:hidden" />
           </div>
-          <nav className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 items-center justify-center gap-20">
-            <span
-              onClick={() => handleNavigate('/')}
-              className={cn(
-                navBase,
-                currentPath === '/' ? navActive : navInactive,
-              )}
-            >
-              홈
-            </span>
-            <span
-              onClick={() => handleNavigate('/project')}
-              className={cn(
-                navBase,
-                currentPath === '/project' ? navActive : navInactive,
-              )}
-            >
-              프로젝트
-            </span>
-            <span
-              onClick={() => handleNavigate('/career')}
-              className={cn(
-                navBase,
-                currentPath === '/career' ? navActive : navInactive,
-              )}
-            >
-              이력
-            </span>
-            <span
-              onClick={() => handleNavigate('/link')}
-              className={cn(
-                navBase,
-                currentPath === '/link' ? navActive : navInactive,
-              )}
-            >
-              링크
-            </span>
-            <span
-              onClick={() => handleNavigate('/blog')}
-              className={cn(
-                navBase,
-                currentPath === '/blog' ? navActive : navInactive,
-              )}
-            >
-              블로그
-            </span>
+          <nav className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 items-center justify-center gap-10">
+            {menus.map((m) => {
+              const isActive = currentPath === m.href;
+              return (
+                <span
+                  key={m.href}
+                  onClick={() => handleNavigate(m.href)}
+                  className={cn(navBase, isActive ? navActive : navInactive)}
+                >
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
+                    style={{ background: m.gradient }}
+                  />
+                  <span className="relative inline-flex items-center shrink-0 w-5 h-5">
+                    <span className="absolute inset-0 flex items-center justify-center text-neutral-400 dark:text-neutral-500">
+                      {m.icon}
+                    </span>
+                    <span
+                      className={cn(
+                        'absolute inset-0 flex items-center justify-center transition-opacity duration-150',
+                        isActive
+                          ? 'opacity-100'
+                          : 'opacity-0 group-hover:opacity-100',
+                      )}
+                    >
+                      {m.coloredIcon}
+                    </span>
+                  </span>
+                  {m.label}
+                </span>
+              );
+            })}
           </nav>
-          <div className="flex items-center gap-1 sm:gap-2">
+          <div className="flex items-center gap-3 sm:gap-4">
             <div className="lg:hidden">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -118,59 +203,36 @@ export const Header = forwardRef<
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-48">
-                  <DropdownMenuItem
-                    onClick={() => handleNavigate('/')}
-                    className={cn(
-                      dropdownBase,
-                      currentPath === '/' ? dropdownActive : dropdownInactive,
-                    )}
-                  >
-                    홈
-                  </DropdownMenuItem>
-                  <DropdownMenuItem
-                    onClick={() => handleNavigate('/project')}
-                    className={cn(
-                      dropdownBase,
-                      currentPath === '/project'
-                        ? dropdownActive
-                        : dropdownInactive,
-                    )}
-                  >
-                    프로젝트
-                  </DropdownMenuItem>
-                  <DropdownMenuItem
-                    onClick={() => handleNavigate('/career')}
-                    className={cn(
-                      dropdownBase,
-                      currentPath === '/career'
-                        ? dropdownActive
-                        : dropdownInactive,
-                    )}
-                  >
-                    이력
-                  </DropdownMenuItem>
-                  <DropdownMenuItem
-                    onClick={() => handleNavigate('/link')}
-                    className={cn(
-                      dropdownBase,
-                      currentPath === '/link'
-                        ? dropdownActive
-                        : dropdownInactive,
-                    )}
-                  >
-                    링크
-                  </DropdownMenuItem>
-                  <DropdownMenuItem
-                    onClick={() => handleNavigate('/blog')}
-                    className={cn(
-                      dropdownBase,
-                      currentPath === '/blog'
-                        ? dropdownActive
-                        : dropdownInactive,
-                    )}
-                  >
-                    블로그
-                  </DropdownMenuItem>
+                  {menus.map((m) => {
+                    const isActive = currentPath === m.href;
+                    return (
+                      <DropdownMenuItem
+                        key={m.href}
+                        onClick={() => handleNavigate(m.href)}
+                        className={cn(
+                          dropdownBase,
+                          isActive ? dropdownActive : dropdownInactive,
+                        )}
+                      >
+                        <span className="relative inline-flex items-center shrink-0 w-5 h-5">
+                          <span className="absolute inset-0 flex items-center justify-center text-neutral-400 dark:text-neutral-500">
+                            {m.icon}
+                          </span>
+                          <span
+                            className={cn(
+                              'absolute inset-0 flex items-center justify-center transition-opacity duration-150',
+                              isActive
+                                ? 'opacity-100'
+                                : 'opacity-0 group-hover:opacity-100',
+                            )}
+                          >
+                            {m.coloredIcon}
+                          </span>
+                        </span>
+                        {m.label}
+                      </DropdownMenuItem>
+                    );
+                  })}
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
