@@ -1,8 +1,27 @@
+import axios, { AxiosError } from 'axios';
+import { toast } from 'sonner';
+
 import { cn } from '@/utils/cn';
 
 const API_BASE = '/api/solvedac';
 
-const tierMap = [
+export interface SolvedacResponse {
+  handle: string;
+  bio: string;
+  verified: boolean;
+  solvedCount: number;
+  voteCount: number;
+  class: number;
+  classDecoration: string;
+  rivalCount: number;
+  reverseRivalCount: number;
+  tier: number;
+  rating: number;
+  overRating: number;
+  rank: number;
+}
+
+const tierName = [
   undefined,
   'Bronze V',
   'Bronze IV',
@@ -37,54 +56,53 @@ const tierMap = [
   'Master',
 ];
 
-const tierColor = (tier: number) => {
-  if (tier == 1) return '#9d4900';
-  if (tier == 2) return '#a54f00';
-  if (tier == 3) return '#ad5600';
-  if (tier == 4) return '#b55d0a';
-  if (tier == 5) return '#c67739';
-  if (tier == 6) return '#38546e';
-  if (tier == 7) return '#3d5a74';
-  if (tier == 8) return '#435f7a';
-  if (tier == 9) return '#496580';
-  if (tier == 10) return '#4e6a86';
-  if (tier == 11) return '#d28500';
-  if (tier == 12) return '#df8f00';
-  if (tier == 13) return '#ec9a00';
-  if (tier == 14) return '#f9a518';
-  if (tier == 15) return '#ffb028';
-  if (tier == 16) return '#00c78b';
-  if (tier == 17) return '#00d497';
-  if (tier == 18) return '#27e2a4';
-  if (tier == 19) return '#3ef0b1';
-  if (tier == 20) return '#51fdbd';
-  if (tier == 21) return '#009ee5';
-  if (tier == 22) return '#00a9f0';
-  if (tier == 23) return '#00b4fc';
-  if (tier == 24) return '#2bbfff';
-  if (tier == 25) return '#41caff';
-  if (tier == 26) return '#e0004c';
-  if (tier == 27) return '#ea0053';
-  if (tier == 28) return '#f5005a';
-  if (tier == 29) return '#ff0062';
-  if (tier == 30) return '#ff3071';
-  if (tier == 31) return '#b300e0';
-  return undefined;
-};
+const tierColor = [
+  undefined,
+  '#9d4900',
+  '#a54f00',
+  '#ad5600',
+  '#b55d0a',
+  '#c67739',
+  '#38546e',
+  '#3d5a74',
+  '#435f7a',
+  '#496580',
+  '#4e6a86',
+  '#d28500',
+  '#df8f00',
+  '#ec9a00',
+  '#f9a518',
+  '#ffb028',
+  '#00c78b',
+  '#00d497',
+  '#27e2a4',
+  '#3ef0b1',
+  '#51fdbd',
+  '#009ee5',
+  '#00a9f0',
+  '#00b4fc',
+  '#2bbfff',
+  '#41caff',
+  '#e0004c',
+  '#ea0053',
+  '#f5005a',
+  '#ff0062',
+  '#ff3071',
+  '#b300e0',
+];
 
 export const solvedacFetcher = async (
   username: string,
 ): Promise<React.ReactNode | undefined> => {
   try {
-    const res = await fetch(
+    const res = await axios.get<SolvedacResponse>(
       `${API_BASE}/user/show?handle=${encodeURIComponent(username)}`,
     );
-    if (!res.ok) return undefined;
-    const user = await res.json();
 
+    const user = res.data;
     if (user) {
-      const tier = tierMap[user.tier] || 'Unrated';
-      const color = tierColor(user.tier);
+      const tier = tierName[user.tier] || 'Unrated';
+      const color = tierColor[user.tier] || '#000000';
 
       return (
         <span
@@ -98,11 +116,15 @@ export const solvedacFetcher = async (
           }}
         >
           {tier}
+          <span className="font-normal opacity-85">{user.rating}</span>
         </span>
       );
     }
     return undefined;
-  } catch {
+  } catch (err) {
+    toast.error('Failed to fetch Solvedac data', {
+      description: (err as AxiosError).message,
+    });
     return undefined;
   }
 };

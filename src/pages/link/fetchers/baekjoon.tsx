@@ -1,4 +1,9 @@
+import axios, { AxiosError } from 'axios';
+import { toast } from 'sonner';
+
 import { cn } from '@/utils';
+
+import { SolvedacResponse } from './solvedac';
 
 const API_BASE = '/api/solvedac';
 
@@ -6,14 +11,12 @@ export const baekjoonFetcher = async (
   username: string,
 ): Promise<React.ReactNode | undefined> => {
   try {
-    const res = await fetch(
+    const res = await axios.get<SolvedacResponse>(
       `${API_BASE}/user/show?handle=${encodeURIComponent(username)}`,
     );
-    if (!res.ok) return undefined;
-    const user = await res.json();
 
-    if (user) {
-      const solvedCount = user.solvedCount;
+    const { solvedCount } = res.data;
+    if (solvedCount) {
       return (
         <span
           className={cn(
@@ -26,8 +29,9 @@ export const baekjoonFetcher = async (
         </span>
       );
     }
-    return undefined;
-  } catch {
-    return undefined;
+  } catch (err) {
+    toast.error('Failed to fetch Baekjoon data', {
+      description: (err as AxiosError).message,
+    });
   }
 };
