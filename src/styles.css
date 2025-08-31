@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:is(.dark *, [data-theme="dark"] *));
 
 /* View transition for tanstack router */
 .slide-view-transition {
@@ -150,6 +150,7 @@
   --color-so-silver: #c0c0c0;
   --color-so-bronze: #cd7f32;
   --color-github: var(--github);
+  --color-github-inverse: var(--github-inverse);
   --color-instagram: #e4405f;
   --color-discord: #5865f2;
   --color-linkedin: #0a66c2;
@@ -206,10 +207,11 @@
   );
 
   --github: #333333;
+  --github-inverse: #fafafa;
   --steam: #172138;
 }
 
-.dark {
+[data-theme='dark'] {
   --background: oklch(0.141 0.005 285.823);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.21 0.006 285.885);
@@ -249,6 +251,7 @@
   );
 
   --github: #fafafa;
+  --github-inverse: #333333;
   --steam: #1f72a1;
 }
 

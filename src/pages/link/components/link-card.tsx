@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { ExternalLink } from 'lucide-react';
-
-import { useTheme } from '@/hooks/use-theme';
+import { useTheme } from 'next-themes';
 
 import { linkFetchers } from '../fetchers';
 import type { LinkService } from '../fetchers';
@@ -30,8 +29,8 @@ export const LinkCard: React.FC<LinkCardProps> = ({
 }) => {
   const [fetchedInfo, setFetchedInfo] = useState<React.ReactNode | undefined>();
 
-  const { getActualTheme } = useTheme();
-  const actualTheme = getActualTheme();
+  const { resolvedTheme } = useTheme();
+  const actualTheme = resolvedTheme;
 
   useEffect(() => {
     if (service && !extraInfo) {

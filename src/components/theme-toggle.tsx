@@ -1,10 +1,31 @@
+import { useEffect, useState } from 'react';
+
 import { IconMoon, IconShadow, IconSun } from '@tabler/icons-react';
+import { useTheme } from 'next-themes';
 
 import { Button } from '@/components';
-import { useTheme } from '@/hooks';
 
-export function ThemeToggle() {
-  const { theme, toggleTheme, getActualTheme } = useTheme();
+export const ThemeToggle: React.FC = () => {
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme, resolvedTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
+  const getActualTheme = () => {
+    return theme === 'system' ? resolvedTheme : theme;
+  };
+
+  const toggleTheme = () => {
+    if (theme === 'system') {
+      setTheme(resolvedTheme === 'light' ? 'dark' : 'light');
+    } else {
+      setTheme(theme === 'light' ? 'dark' : 'light');
+    }
+  };
 
   const getIcon = () => {
     switch (theme) {
@@ -29,6 +50,8 @@ export function ThemeToggle() {
             <IconShadow size={20} className="hidden sm:block" />
           </>
         );
+      default:
+        return null;
     }
   };
 
@@ -51,4 +74,4 @@ export function ThemeToggle() {
       {getIcon()}
     </Button>
   );
-}
+};

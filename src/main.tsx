@@ -2,7 +2,9 @@ import { StrictMode } from 'react';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { RouterProvider, createRouter } from '@tanstack/react-router';
+import { ThemeProvider } from 'next-themes';
 import { createRoot } from 'react-dom/client';
+import { Toaster } from 'sonner';
 
 import '@/styles.css';
 
@@ -37,7 +39,10 @@ if (rootElement && !rootElement.innerHTML) {
   root.render(
     <StrictMode>
       <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
+        <ThemeProvider>
+          <RouterProvider router={router} />
+          <Toaster />
+        </ThemeProvider>
       </QueryClientProvider>
     </StrictMode>,
   );
