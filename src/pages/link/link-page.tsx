@@ -20,8 +20,8 @@ import { Layout } from '@/components';
 import { LinkCard } from './components/link-card';
 
 export const LinkPage: React.FC = () => {
-  // TODO: api 사용해서 팔로워 같은 거 보면 좋을 듯
-  // TODO: 호버 시 막 아래에 콘텐츠 더 떠서 깃허브면 레포개수, 커밋 잔디 등 버라이어티한 인터랙션
+  // TODO: 호버 시 막 아래에 콘텐츠 더 떠서 깃허브면 커밋 잔디, 솔브드면 티어 및 현재 프로그레스 등 버라이어티한 인터랙션
+
   return (
     <Layout>
       <div className="py-8 sm:py-12 lg:py-16 text-center">

@@ -71,6 +71,111 @@ const menus: MenuItem[] = [
   },
 ];
 
+/**
+ * Collapsible Header Hook
+ * - 스크롤 다운 누적이 일정 임계치(=downThreshold) 이상이고 헤더 높이보다 충분히 내려오면 숨김
+ * - 스크롤 업 누적(=upThreshold) 시 즉시 표시
+ * - 상단 근접(=nearTopPx) 시 표시
+ * - 포인터가 화면 상단(헤더 높이 + 8px) 이내로 오면 표시
+ * - requestAnimationFrame으로 스로틀하여 자연스러운 애니메이션과 성능 보장
+ */
+function useCollapsibleHeader(opts: {
+  headerHeight: number;
+  upThreshold?: number;
+  downThreshold?: number;
+  nearTopPx?: number;
+}) {
+  const {
+    headerHeight,
+    upThreshold = 20,
+    downThreshold = 20,
+    nearTopPx = 4,
+  } = opts;
+
+  const [isVisible, setIsVisible] = useState(true);
+
+  const lastYRef = useRef<number>(0);
+  const tickingRef = useRef<boolean>(false);
+  const upAccumRef = useRef<number>(0);
+  const downAccumRef = useRef<number>(0);
+
+  // 스크롤 방향 누적 관리
+  const handleProgress = (currY: number) => {
+    const lastY = lastYRef.current;
+    const delta = currY - lastY;
+
+    // 상단 근접 시 무조건 보이기
+    if (currY <= Math.max(nearTopPx, 1)) {
+      upAccumRef.current = 0;
+      downAccumRef.current = 0;
+      if (!isVisible) setIsVisible(true);
+      return;
+    }
+
+    if (delta < 0) {
+      // UP
+      upAccumRef.current += -delta;
+      downAccumRef.current = 0;
+
+      if (upAccumRef.current >= upThreshold) {
+        if (!isVisible) setIsVisible(true);
+        upAccumRef.current = 0; // 트리거 후 리셋
+      }
+    } else if (delta > 0) {
+      // DOWN
+      downAccumRef.current += delta;
+      upAccumRef.current = 0;
+
+      // 충분히 내려왔고(헤더 높이 + 16px), 누적이 임계치 도달 시 숨김
+      if (currY > headerHeight + 16 && downAccumRef.current >= downThreshold) {
+        if (isVisible) setIsVisible(false);
+        downAccumRef.current = 0;
+      }
+    }
+
+    lastYRef.current = currY;
+  };
+
+  useEffect(() => {
+    lastYRef.current = window.scrollY;
+
+    const onScroll = () => {
+      if (tickingRef.current) return;
+      tickingRef.current = true;
+      requestAnimationFrame(() => {
+        tickingRef.current = false;
+        handleProgress(window.scrollY);
+      });
+    };
+
+    const onTouchMove = onScroll; // 모바일 제스처도 동일 처리
+
+    // 포인터가 상단(헤더 높이 + 8px)이내로 오면 즉시 표시
+    const onMouseMove = (e: MouseEvent) => {
+      const proximity = headerHeight + 8;
+      if (e.clientY <= proximity && !isVisible) {
+        setIsVisible(true);
+        // 방향 누적 리셋 (사용자 의지 반영)
+        upAccumRef.current = 0;
+        downAccumRef.current = 0;
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('touchmove', onTouchMove, { passive: true });
+    window.addEventListener('mousemove', onMouseMove, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('touchmove', onTouchMove);
+      window.removeEventListener('mousemove', onMouseMove);
+    };
+    // headerHeight에 반응 (리사이즈 시 proximity/조건 업데이트)
+  }, [headerHeight, isVisible]);
+
+  return isVisible;
+}
+
 export const Header = forwardRef<
   HTMLElementTagNameMap['header'],
   React.HTMLAttributes<HTMLElementTagNameMap['header']>
@@ -83,58 +188,31 @@ export const Header = forwardRef<
   const [headerHeight, setHeaderHeight] = useState(0);
 
   useEffect(() => {
-    const el = headerRef.current;
-    if (!el || typeof ResizeObserver === 'undefined') return;
-    const obs = new ResizeObserver(() => setHeaderHeight(el.offsetHeight));
-    obs.observe(el);
-    setHeaderHeight(el.offsetHeight);
-    return () => obs.disconnect();
+    const headerEl = headerRef.current;
+    if (!headerEl) return;
+
+    const observer = new ResizeObserver(() => {
+      setHeaderHeight(headerEl.offsetHeight);
+    });
+
+    setHeaderHeight(headerEl.offsetHeight);
+    observer.observe(headerEl);
+    return () => observer.disconnect();
   }, []);
 
-  const [isVisible, setIsVisible] = useState(true);
-
-  useEffect(() => {
-    const onScroll = () => {
-      const y = window.scrollY || document.documentElement.scrollTop;
-      setIsVisible(y <= 0);
-    };
-
-    const onMouseMove = (e: MouseEvent) => {
-      const y = window.scrollY || document.documentElement.scrollTop;
-      setIsVisible(e.clientY <= headerHeight || y <= 0);
-    };
-
-    onScroll();
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('mousemove', onMouseMove);
-
-    return () => {
-      window.removeEventListener('scroll', onScroll as any);
-      window.removeEventListener('mousemove', onMouseMove as any);
-    };
-  }, [headerHeight]);
+  // 핵심: 가시성 판정 훅
+  const isVisible = useCollapsibleHeader({
+    headerHeight,
+    upThreshold: 20, // 느린 스크롤에서도 잘 포착되도록 작은 임계치
+    downThreshold: 24,
+    nearTopPx: 4,
+  });
 
   const handleNavigate = async (to: string) => {
     await navigate({ to });
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+    // 라우팅 시 헤더는 바로 보여주고 스크롤은 상단으로
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-
-  const navBase = cn(
-    'group relative isolate z-0 inline-flex items-center gap-2 whitespace-nowrap cursor-pointer rounded-md px-4 py-2 leading-none transition-colors duration-150',
-  );
-  const navActive = cn('text-neutral-900 dark:text-neutral-50');
-  const navInactive = cn(
-    'text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-50',
-  );
-  const dropdownBase = cn('group flex items-center gap-2');
-  const dropdownActive = cn('text-neutral-900 dark:text-neutral-50');
-  const dropdownInactive = cn(
-    'text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-neutral-50',
-  );
 
   return (
     <header
@@ -147,6 +225,8 @@ export const Header = forwardRef<
         'fixed top-0 right-0 left-0 z-50 px-4 sm:px-6 lg:px-8 py-1.5 sm:py-3 bg-neutral-50/85 dark:bg-neutral-950/85 backdrop-blur-md transition-transform duration-300 overflow-hidden will-change-transform',
         isVisible ? 'translate-y-0' : '-translate-y-full',
       )}
+      // iOS 사파리에서 스크롤 중 레이어 프로모션 안정화
+      style={{ WebkitBackdropFilter: 'blur(8px)' }}
     >
       <div className="mx-auto w-full max-w-6xl">
         <div className="flex w-full items-center justify-between gap-6 sm:gap-10">
@@ -154,42 +234,46 @@ export const Header = forwardRef<
             <Logo width={90} className="hidden sm:block" />
             <Logo width={70} className="sm:hidden" />
           </div>
+
           <nav className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 items-center justify-center gap-10">
-            {menus.map((m) => {
-              const isActive = currentPath === m.href;
-              return (
+            {menus.map((m) => (
+              <span
+                key={m.href}
+                onClick={() => handleNavigate(m.href)}
+                className={cn(
+                  'group relative isolate z-0 inline-flex items-center gap-2 whitespace-nowrap cursor-pointer rounded-md px-4 py-2 leading-none transition-colors duration-150',
+                  currentPath === m.href
+                    ? 'text-neutral-900 dark:text-neutral-50'
+                    : 'text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-50',
+                )}
+              >
                 <span
-                  key={m.href}
-                  onClick={() => handleNavigate(m.href)}
-                  className={cn(navBase, isActive ? navActive : navInactive)}
-                >
-                  <span
-                    aria-hidden
-                    className={cn(
-                      'pointer-events-none absolute left-1/2 top-1/2 -z-10 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100',
-                      m.background,
-                    )}
-                  />
-                  <span className="relative inline-flex items-center shrink-0 w-5 h-5">
-                    <span className="absolute inset-0 flex items-center justify-center text-neutral-400 dark:text-neutral-500">
-                      {m.icon}
-                    </span>
-                    <span
-                      className={cn(
-                        'absolute inset-0 flex items-center justify-center transition-opacity duration-150',
-                        isActive
-                          ? 'opacity-100'
-                          : 'opacity-0 group-hover:opacity-100',
-                      )}
-                    >
-                      {m.coloredIcon}
-                    </span>
+                  aria-hidden
+                  className={cn(
+                    'pointer-events-none absolute left-1/2 top-1/2 -z-10 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100',
+                    m.background,
+                  )}
+                />
+                <span className="relative inline-flex items-center shrink-0 w-5 h-5">
+                  <span className="absolute inset-0 flex items-center justify-center text-neutral-400 dark:text-neutral-500">
+                    {m.icon}
                   </span>
-                  {m.label}
+                  <span
+                    className={cn(
+                      'absolute inset-0 flex items-center justify-center transition-opacity duration-150',
+                      currentPath === m.href
+                        ? 'opacity-100'
+                        : 'opacity-0 group-hover:opacity-100',
+                    )}
+                  >
+                    {m.coloredIcon}
+                  </span>
                 </span>
-              );
-            })}
+                {m.label}
+              </span>
+            ))}
           </nav>
+
           <div className="flex items-center gap-3 sm:gap-4">
             <div className="lg:hidden">
               <DropdownMenu>
@@ -198,42 +282,42 @@ export const Header = forwardRef<
                     variant="ghost"
                     size="sm"
                     className="h-8 w-8 sm:h-10 sm:w-10"
+                    aria-label="Open navigation menu"
                   >
                     <IconMenu2 size={16} className="sm:hidden" />
                     <IconMenu2 size={20} className="hidden sm:block" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-48">
-                  {menus.map((m) => {
-                    const isActive = currentPath === m.href;
-                    return (
-                      <DropdownMenuItem
-                        key={m.href}
-                        onClick={() => handleNavigate(m.href)}
-                        className={cn(
-                          dropdownBase,
-                          isActive ? dropdownActive : dropdownInactive,
-                        )}
-                      >
-                        <span className="relative inline-flex items-center shrink-0 w-5 h-5">
-                          <span className="absolute inset-0 flex items-center justify-center text-neutral-400 dark:text-neutral-500">
-                            {m.icon}
-                          </span>
-                          <span
-                            className={cn(
-                              'absolute inset-0 flex items-center justify-center transition-opacity duration-150',
-                              isActive
-                                ? 'opacity-100'
-                                : 'opacity-0 group-hover:opacity-100',
-                            )}
-                          >
-                            {m.coloredIcon}
-                          </span>
+                  {menus.map((m) => (
+                    <DropdownMenuItem
+                      key={m.href}
+                      onClick={() => handleNavigate(m.href)}
+                      className={cn(
+                        'group flex items-center gap-2',
+                        currentPath === m.href
+                          ? 'text-neutral-900 dark:text-neutral-50'
+                          : 'text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-neutral-50',
+                      )}
+                    >
+                      <span className="relative inline-flex items-center shrink-0 w-5 h-5">
+                        <span className="absolute inset-0 flex items-center justify-center text-neutral-400 dark:text-neutral-500">
+                          {m.icon}
                         </span>
-                        {m.label}
-                      </DropdownMenuItem>
-                    );
-                  })}
+                        <span
+                          className={cn(
+                            'absolute inset-0 flex items-center justify-center transition-opacity duration-150',
+                            currentPath === m.href
+                              ? 'opacity-100'
+                              : 'opacity-0 group-hover:opacity-100',
+                          )}
+                        >
+                          {m.coloredIcon}
+                        </span>
+                      </span>
+                      {m.label}
+                    </DropdownMenuItem>
+                  ))}
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
