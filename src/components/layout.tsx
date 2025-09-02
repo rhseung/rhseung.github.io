@@ -1,11 +1,13 @@
 import { type PropsWithChildren, useEffect, useRef, useState } from 'react';
 
+import { cn } from '@/utils';
+
 import { Footer } from './footer';
 import { Header } from './header';
 
 export const Layout: React.FC<
-  PropsWithChildren<{ disableHeaderHeight?: boolean }>
-> = ({ children, disableHeaderHeight }) => {
+  PropsWithChildren<{ disableHeaderHeight?: boolean; className?: string }>
+> = ({ children, disableHeaderHeight, className }) => {
   const headerRef = useRef<HTMLElementTagNameMap['header']>(null);
   const [headerHeight, setHeaderHeight] = useState(0);
 
@@ -26,7 +28,7 @@ export const Layout: React.FC<
       <Header ref={headerRef} />
       <main
         style={{ paddingTop: disableHeaderHeight ? 0 : headerHeight }}
-        className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto"
+        className={cn('px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto', className)}
       >
         {children}
       </main>

@@ -42,6 +42,7 @@ import {
   SiVite,
 } from 'react-icons/si';
 
+import campassBanner from '@/assets/thumbnails/campass.webp';
 import datetimeBanner from '@/assets/thumbnails/datetime.png';
 import fliggleBanner from '@/assets/thumbnails/fliggle.png';
 import glanceBanner from '@/assets/thumbnails/glance.png';
@@ -68,7 +69,7 @@ interface Project {
   image: string;
 }
 
-const techStacks: Record<string, TechStack> = {
+const techStacks = {
   // Frontend
   React: {
     name: 'React',
@@ -513,6 +514,28 @@ const projects: Project[] = [
     },
     image: fliggleBanner,
   },
+  {
+    title: '스마트 학교 생활 도우미, Campass',
+    description:
+      '학생들의 학교 생활을 Upstage의 Solar LLM을 활용한 AI Agent가 접목된 스마트 학교 생활 도우미입니다. 또한, Junction Asia 2025의 Upstage 트랙의 출품작입니다.',
+    techStacks: [
+      techStacks.React,
+      techStacks.TailwindCss,
+      techStacks.TanstackRouter,
+      techStacks.Vite,
+      techStacks.Bun,
+      techStacks.TypeScript,
+      techStacks.Nestjs,
+      techStacks.Prisma,
+      techStacks.Figma,
+    ],
+    links: {
+      Frontend: 'https://campass-fe.vercel.app/',
+      Backend: 'https://campass-be.vercel.app',
+      Swagger: 'https://campass-be.vercel.app/api/',
+    },
+    image: campassBanner,
+  },
 ];
 
 export const ProjectPage: React.FC = () => {
@@ -537,7 +560,6 @@ export const ProjectPage: React.FC = () => {
         );
 
   // TODO: https://ui.shadcn.com/docs/components/pagination 이거로 페이지 늘리기
-  // TODO: https://ui.shadcn.com/docs/components/select 이거로 필터링 기능 추가 및 테크 스택 자랑 섹션을 위에 달아두기
   // TODO: 각 프로젝트 카드마다 자세히 보기 기능 및 페이지 추가
 
   return (
