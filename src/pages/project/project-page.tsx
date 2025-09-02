@@ -1,6 +1,3 @@
-import { useState } from 'react';
-
-import Autoplay from 'embla-carousel-autoplay';
 import {
   FaCss3Alt,
   FaFigma,
@@ -57,13 +54,6 @@ import siunitsBanner from '@/assets/thumbnails/siunits.png';
 import yoloBanner from '@/assets/thumbnails/yolo.png';
 import { Layout } from '@/components';
 import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel';
-import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
@@ -71,7 +61,6 @@ import {
 
 import { ProjectCard } from './components/project-card';
 import { TechStack, TechStackCircle } from './components/tech-stack';
-import { TechStackCategoryCard } from './components/tech-stack-category-card';
 
 interface Project {
   title: string;
@@ -535,58 +524,58 @@ export const ProjectPage: React.FC = () => {
   // TODO: https://ui.shadcn.com/docs/components/select 이거로 필터링 기능 추가 및 테크 스택 자랑 섹션을 위에 달아두기
   // TODO: 각 프로젝트 카드마다 자세히 보기 기능 및 페이지 추가
 
-  const [selectedTechStacks, setSelectedTechStacks] = useState<TechStack[]>([]);
+  // const [selectedTechStacks, setSelectedTechStacks] = useState<TechStack[]>([]);
 
-  const handleTechStackClick = (techStack: TechStack) => {
-    setSelectedTechStacks((prev) =>
-      prev.includes(techStack)
-        ? prev.filter((key) => key !== techStack)
-        : [...prev, techStack],
-    );
-  };
+  // const handleTechStackClick = (techStack: TechStack) => {
+  //   setSelectedTechStacks((prev) =>
+  //     prev.includes(techStack)
+  //       ? prev.filter((key) => key !== techStack)
+  //       : [...prev, techStack],
+  //   );
+  // };
 
-  const handleCategoryToggle = (categoryTechs: TechStack[]) => {
-    // 카테고리의 모든 배지가 선택되어 있는지 확인
-    const allSelected = categoryTechs.every((tech) =>
-      selectedTechStacks.includes(tech),
-    );
+  // const handleCategoryToggle = (categoryTechs: TechStack[]) => {
+  //   // 카테고리의 모든 배지가 선택되어 있는지 확인
+  //   const allSelected = categoryTechs.every((tech) =>
+  //     selectedTechStacks.includes(tech),
+  //   );
 
-    if (allSelected) {
-      // 모두 선택되어 있으면 모두 해제
-      setSelectedTechStacks((prev) =>
-        prev.filter((tech) => !categoryTechs.includes(tech)),
-      );
-    } else {
-      // 일부 또는 전부 해제되어 있으면 모두 선택
-      setSelectedTechStacks((prev) => {
-        const newSet = new Set([...prev, ...categoryTechs]);
-        return Array.from(newSet);
-      });
-    }
-  };
+  //   if (allSelected) {
+  //     // 모두 선택되어 있으면 모두 해제
+  //     setSelectedTechStacks((prev) =>
+  //       prev.filter((tech) => !categoryTechs.includes(tech)),
+  //     );
+  //   } else {
+  //     // 일부 또는 전부 해제되어 있으면 모두 선택
+  //     setSelectedTechStacks((prev) => {
+  //       const newSet = new Set([...prev, ...categoryTechs]);
+  //       return Array.from(newSet);
+  //     });
+  //   }
+  // };
 
-  const categorizedTechStacks = new Set(
-    Object.values(techStackCategories).flat(),
-  );
+  // const categorizedTechStacks = new Set(
+  //   Object.values(techStackCategories).flat(),
+  // );
 
-  const miscTechStacks = Object.values(techStacks).filter(
-    (tech) => !categorizedTechStacks.has(tech),
-  );
+  // const miscTechStacks = Object.values(techStacks).filter(
+  //   (tech) => !categorizedTechStacks.has(tech),
+  // );
 
-  const finalTechStackCategories = {
-    ...techStackCategories,
-    ...(miscTechStacks.length > 0 && { Misc: miscTechStacks }),
-  };
+  // const finalTechStackCategories = {
+  //   ...techStackCategories,
+  //   ...(miscTechStacks.length > 0 && { Misc: miscTechStacks }),
+  // };
 
   // 필터링 로직: 선택된 tech stack이 없으면 모든 프로젝트, 있으면 선택된 tech stack을 포함하는 프로젝트만
-  const filteredProjects =
-    selectedTechStacks.length === 0
-      ? projects
-      : projects.filter((project) =>
-          selectedTechStacks.some((selectedTechStack) =>
-            project.techStacks.includes(selectedTechStack),
-          ),
-        );
+  // const filteredProjects =
+  //   selectedTechStacks.length === 0
+  //     ? projects
+  //     : projects.filter((project) =>
+  //         selectedTechStacks.some((selectedTechStack) =>
+  //           project.techStacks.includes(selectedTechStack),
+  //         ),
+  //       );
 
   return (
     <Layout>
@@ -666,7 +655,7 @@ export const ProjectPage: React.FC = () => {
       <div className="py-8 sm:py-12 lg:py-16">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col gap-8 sm:gap-10 lg:gap-12 w-full">
-            {filteredProjects.map((project, index) => (
+            {projects.map((project, index) => (
               <ProjectCard
                 key={index}
                 title={project.title}
