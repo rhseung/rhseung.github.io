@@ -1,4 +1,4 @@
-import { IconExternalLink, IconTool } from '@tabler/icons-react';
+import { IconExternalLink } from '@tabler/icons-react';
 
 import { Button, Layout } from '@/components';
 
