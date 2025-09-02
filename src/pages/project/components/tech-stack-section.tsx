@@ -24,7 +24,7 @@ export const TechStackSection: React.FC<{
       </div>
       <div className="mx-auto max-w-sm sm:max-w-2xl lg:max-w-4xl xl:max-w-6xl flex flex-col gap-8">
         {Object.entries(techStackCategories).map(([category, techList]) => (
-          <div key={category} className="flex flex-col gap-2">
+          <div key={category} className="flex flex-col gap-4">
             <h4 className="text-lg font-medium text-neutral-900 dark:text-neutral-50 text-center">
               {category}
             </h4>
