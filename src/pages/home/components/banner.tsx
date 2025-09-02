@@ -78,11 +78,12 @@ export const Banner: React.FC = () => {
           {/* TODO: 수식어 */}
           <span className="text-2xl sm:text-3xl lg:text-4xl font-normal leading-relaxed mb-4 sm:mb-6 text-neutral-600 dark:text-neutral-400 tracking-tight block text-pretty">
             <span className="font-extrabold bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 dark:from-pink-300 dark:via-purple-300 dark:to-cyan-300 bg-clip-text text-transparent">
-              안녕하세요, 프로그래머이자 디자이너인 류현승입니다.
+              안녕하세요, 류현승입니다.
             </span>{' '}
-            분야를 막론하고, 하고 싶은 것이 생기면 깊게 몰두해 반드시
-            해결해내려고 노력하는 프로그래머입니다. 제가 만들어내는 창작물들을
-            사용하는 사람들에게 긍정적인 영향을 주고자 노력합니다.
+            저는 프로그래밍과 디자인을 통해 아이디어를 현실로 구현하며,
+            사람들에게 의미 있는 경험을 전달하는 창작자입니다. 제 작품이
+            누군가의 일상에 영감을 주고, 긍정적인 변화를 이끌어내는 순간을
+            꿈꿉니다.
           </span>
         </div>
       </div>

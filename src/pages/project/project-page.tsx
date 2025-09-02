@@ -1,6 +1,47 @@
 import { useState } from 'react';
 
 import Autoplay from 'embla-carousel-autoplay';
+import {
+  FaCss3Alt,
+  FaFigma,
+  FaFlask,
+  FaHtml5,
+  FaJava,
+  FaNodeJs,
+  FaNpm,
+  FaPython,
+  FaReact,
+  FaYarn,
+} from 'react-icons/fa';
+import { RiNextjsFill, RiTailwindCssFill } from 'react-icons/ri';
+import {
+  SiC,
+  SiCplusplus,
+  SiDart,
+  SiFlutter,
+  SiI18Next,
+  SiJavascript,
+  SiJupyter,
+  SiKeras,
+  SiKotlin,
+  SiLatex,
+  SiMysql,
+  SiNestjs,
+  SiNumpy,
+  SiOpencv,
+  SiPandas,
+  SiPrisma,
+  SiPypi,
+  SiPytorch,
+  SiReactquery,
+  SiReactrouter,
+  SiScikitlearn,
+  SiSfml,
+  SiStyledcomponents,
+  SiTensorflow,
+  SiTypescript,
+  SiVite,
+} from 'react-icons/si';
 
 import datetimeBanner from '@/assets/thumbnails/datetime.png';
 import fliggleBanner from '@/assets/thumbnails/fliggle.png';
@@ -22,9 +63,14 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 import { ProjectCard } from './components/project-card';
-import { type TechStack } from './components/tech-stack-badge';
+import { TechStack, TechStackCircle } from './components/tech-stack';
 import { TechStackCategoryCard } from './components/tech-stack-category-card';
 
 interface Project {
@@ -37,66 +83,202 @@ interface Project {
 
 const techStacks: Record<string, TechStack> = {
   // Frontend
-  React: { name: 'React', color: '#58C4DC' },
-  Nextjs: { name: 'Next.js', color: '#000000' },
-  TypeScript: { name: 'TypeScript', color: '#3178C6' },
-  JavaScript: { name: 'JavaScript', color: '#f3e14f' },
-  HTML: { name: 'HTML', color: '#d35836' },
-  CSS: { name: 'CSS', color: '#447ebe' },
-  TailwindCss: { name: 'Tailwind CSS', color: '#38BDF8' },
-  VanillaExtract: { name: 'Vanilla Extract', color: '#ee80a5' },
-  StyledComponents: { name: 'Styled Components', color: '#DB7093' },
-  TanstackRouter: { name: 'Tanstack Router', color: '#58af66' },
-  ReactRouter: { name: 'React Router', color: '#CA4245' },
-  ReactQuery: { name: 'React Query', color: '#FF4154' },
-  I18Next: { name: 'i18next', color: '#26A69A' },
-  OpenApiTypeScript: { name: 'OpenAPI TypeScript', color: '#3f76f3' },
-  Vite: { name: 'Vite', color: '#7895f7' },
+  React: {
+    name: 'React',
+    color: '#58C4DC',
+    icon: <FaReact className="size-8" />,
+  },
+  Nextjs: {
+    name: 'Next.js',
+    color: '#000000',
+    icon: <RiNextjsFill className="size-8" />,
+  },
+  TypeScript: {
+    name: 'TypeScript',
+    color: '#3178C6',
+    icon: <SiTypescript className="size-8" />,
+  },
+  JavaScript: {
+    name: 'JavaScript',
+    color: '#f3e14f',
+    icon: <SiJavascript className="size-8" />,
+  },
+  HTML: {
+    name: 'HTML',
+    color: '#d35836',
+    icon: <FaHtml5 className="size-8" />,
+  },
+  CSS: {
+    name: 'CSS',
+    color: '#447ebe',
+    icon: <FaCss3Alt className="size-8" />,
+  },
+  TailwindCss: {
+    name: 'Tailwind CSS',
+    color: '#38BDF8',
+    icon: <RiTailwindCssFill className="size-8" />,
+  },
+  VanillaExtract: {
+    name: 'Vanilla Extract',
+    color: '#ee80a5',
+    icon: null,
+  },
+  StyledComponents: {
+    name: 'Styled Components',
+    color: '#DB7093',
+    icon: <SiStyledcomponents className="size-8" />,
+  },
+  TanstackRouter: {
+    name: 'Tanstack Router',
+    color: '#58af66',
+    icon: null,
+  },
+  ReactRouter: {
+    name: 'React Router',
+    color: '#CA4245',
+    icon: <SiReactrouter className="size-8" />,
+  },
+  ReactQuery: {
+    name: 'React Query',
+    color: '#FF4154',
+    icon: <SiReactquery className="size-8" />,
+  },
+  I18Next: {
+    name: 'i18next',
+    color: '#26A69A',
+    icon: <SiI18Next className="size-8" />,
+  },
+  OpenApiTypeScript: {
+    name: 'OpenAPI TypeScript',
+    color: '#3f76f3',
+    icon: null,
+  },
+  Vite: { name: 'Vite', color: '#7895f7', icon: <SiVite className="size-8" /> },
 
   // Backend
-  NodeJs: { name: 'Node.js', color: '#3E863D' },
-  Nestjs: { name: 'Nest.js', color: '#EA2845' },
-  Python: { name: 'Python', color: '#3776AB' },
-  Flask: { name: 'Flask', color: '#000000' },
-  Java: { name: 'Java', color: '#ED8B00' },
-  Prisma: { name: 'Prisma', color: '#16A394' },
-  MySQL: { name: 'MySQL', color: '#4479A1' },
+  NodeJs: {
+    name: 'Node.js',
+    color: '#3E863D',
+    icon: <FaNodeJs className="size-8" />,
+  },
+  Nestjs: {
+    name: 'Nest.js',
+    color: '#EA2845',
+    icon: <SiNestjs className="size-8" />,
+  },
+  Python: {
+    name: 'Python',
+    color: '#3776AB',
+    icon: <FaPython className="size-8" />,
+  },
+  Flask: {
+    name: 'Flask',
+    color: '#000000',
+    icon: <FaFlask className="size-8" />,
+  },
+  Java: { name: 'Java', color: '#ED8B00', icon: <FaJava className="size-8" /> },
+  Prisma: {
+    name: 'Prisma',
+    color: '#16A394',
+    icon: <SiPrisma className="size-8" />,
+  },
+  MySQL: {
+    name: 'MySQL',
+    color: '#4479A1',
+    icon: <SiMysql className="size-8" />,
+  },
 
   // Mobile Frontend
-  Flutter: { name: 'Flutter', color: '#135C9C' },
-  Dart: { name: 'Dart', color: '#2678BC' },
+  Flutter: {
+    name: 'Flutter',
+    color: '#135C9C',
+    icon: <SiFlutter className="size-8" />,
+  },
+  Dart: { name: 'Dart', color: '#2678BC', icon: <SiDart className="size-8" /> },
 
   // Low-level / Systems
-  C: { name: 'C', color: '#34475C' },
-  Cpp: { name: 'C++', color: '#00599C' },
-  SFML: { name: 'SFML', color: '#92d23e' },
+  C: { name: 'C', color: '#34475C', icon: <SiC className="size-8" /> },
+  Cpp: {
+    name: 'C++',
+    color: '#00599C',
+    icon: <SiCplusplus className="size-8" />,
+  },
+  SFML: { name: 'SFML', color: '#92d23e', icon: <SiSfml className="size-8" /> },
 
   // Mobile/Desktop UI
-  Kotlin: { name: 'Kotlin', color: '#7F52FF' },
-  Swing: { name: 'Swing', color: '#e72d2c' },
+  Kotlin: {
+    name: 'Kotlin',
+    color: '#7F52FF',
+    icon: <SiKotlin className="size-8" />,
+  },
+  Swing: { name: 'Swing', color: '#e72d2c', icon: null },
 
   // AI/ML & Data
-  PyTorch: { name: 'PyTorch', color: '#e74a2b' },
-  TensorFlow: { name: 'TensorFlow', color: '#ff6f00' },
-  Keras: { name: 'Keras', color: '#d00000' },
-  OpenCV: { name: 'OpenCV', color: '#050505' },
-  ScikitLearn: { name: 'Scikit-learn', color: '#f89939' },
-  NumPy: { name: 'NumPy', color: '#4d77cf' },
-  Pandas: { name: 'Pandas', color: '#150458' },
-  Matplotlib: { name: 'Matplotlib', color: '#11557c' },
-  Seaborn: { name: 'Seaborn', color: '#4c72b0' },
-  Altair: { name: 'Altair', color: '#1f77b4' },
-  Jupyter: { name: 'Jupyter', color: '#f37626' },
+  PyTorch: {
+    name: 'PyTorch',
+    color: '#e74a2b',
+    icon: <SiPytorch className="size-8" />,
+  },
+  TensorFlow: {
+    name: 'TensorFlow',
+    color: '#ff6f00',
+    icon: <SiTensorflow className="size-8" />,
+  },
+  Keras: {
+    name: 'Keras',
+    color: '#d00000',
+    icon: <SiKeras className="size-8" />,
+  },
+  OpenCV: {
+    name: 'OpenCV',
+    color: '#050505',
+    icon: <SiOpencv className="size-8" />,
+  },
+  ScikitLearn: {
+    name: 'Scikit-learn',
+    color: '#f89939',
+    icon: <SiScikitlearn className="size-8" />,
+  },
+  NumPy: {
+    name: 'NumPy',
+    color: '#4d77cf',
+    icon: <SiNumpy className="size-8" />,
+  },
+  Pandas: {
+    name: 'Pandas',
+    color: '#150458',
+    icon: <SiPandas className="size-8" />,
+  },
+  Matplotlib: {
+    name: 'Matplotlib',
+    color: '#11557c',
+    icon: null,
+  },
+  Seaborn: {
+    name: 'Seaborn',
+    color: '#4c72b0',
+    icon: null,
+  },
+  Altair: {
+    name: 'Altair',
+    color: '#1f77b4',
+    icon: null,
+  },
+  Jupyter: {
+    name: 'Jupyter',
+    color: '#f37626',
+    icon: <SiJupyter className="size-8" />,
+  },
 
   // Package Managers/Build Tools
-  Npm: { name: 'Npm', color: '#CB3837' },
-  Yarn: { name: 'Yarn', color: '#4F8DB5' },
-  Bun: { name: 'Bun', color: '#F9F0E1' },
-  PyPI: { name: 'PyPI', color: '#3375aa' },
+  Npm: { name: 'Npm', color: '#CB3837', icon: <FaNpm /> },
+  Yarn: { name: 'Yarn', color: '#4F8DB5', icon: <FaYarn /> },
+  Bun: { name: 'Bun', color: '#F9F0E1', icon: null },
+  PyPI: { name: 'PyPI', color: '#3375aa', icon: <SiPypi /> },
 
   // Design/Documentation
-  Figma: { name: 'Figma', color: '#FF7237' },
-  LaTeX: { name: 'LaTeX', color: '#008080' },
+  Figma: { name: 'Figma', color: '#FF7237', icon: <FaFigma /> },
+  LaTeX: { name: 'LaTeX', color: '#008080', icon: <SiLatex /> },
 } as const;
 
 const techStackCategories = {
@@ -422,9 +604,9 @@ export const ProjectPage: React.FC = () => {
             기술 스택을 클릭하여 필터링할 수 있습니다.
           </h3>
         </div>
-        <div className="mx-auto max-w-sm sm:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
+        <div className="mx-auto max-w-sm sm:max-w-2xl lg:max-w-4xl xl:max-w-6xl flex flex-col gap-4">
           {/* 모든 화면 크기에서 Carousel 레이아웃 사용 */}
-          <Carousel
+          {/* <Carousel
             plugins={[
               Autoplay({
                 delay: 4000,
@@ -459,7 +641,26 @@ export const ProjectPage: React.FC = () => {
             </CarouselContent>
             <CarouselPrevious className="hidden sm:flex" />
             <CarouselNext className="hidden sm:flex" />
-          </Carousel>
+          </Carousel> */}
+          {Object.entries(techStackCategories).map(([category, techList]) => (
+            <div key={category} className="flex flex-col gap-2">
+              <h4 className="text-lg font-semibold text-neutral-900 dark:text-neutral-50">
+                {category}
+              </h4>
+              <div className="flex gap-2">
+                {techList.map((tech) => (
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <TechStackCircle key={tech.name} tech={tech} />
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>{tech.name}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
       <div className="py-8 sm:py-12 lg:py-16">
