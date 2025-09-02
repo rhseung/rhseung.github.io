@@ -183,6 +183,7 @@ export const Header = forwardRef<
   const navigate = useNavigate();
   const location = useLocation();
   const currentPath = location.pathname;
+  const currentIdx = menus.findIndex((m) => m.href === currentPath);
 
   const headerRef = useRef<HTMLElementTagNameMap['header']>(null);
   const [headerHeight, setHeaderHeight] = useState(0);
@@ -221,7 +222,16 @@ export const Header = forwardRef<
   });
 
   const handleNavigate = async (to: string) => {
-    await navigate({ to });
+    const toIdx = menus.findIndex((m) => m.href === to);
+
+    await navigate({
+      to,
+      viewTransition: {
+        types: () => {
+          return [toIdx < currentIdx ? 'backwards' : 'forwards'];
+        },
+      },
+    });
     // 라우팅 시 헤더는 바로 보여주고 스크롤은 상단으로
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -234,7 +244,7 @@ export const Header = forwardRef<
         else if (ref && 'current' in ref) ref.current = node;
       }}
       className={cn(
-        'fixed top-4 left-4 right-4 z-50 mx-auto sm:py-1 bg-neutral-50/60 dark:bg-neutral-950/60 backdrop-blur-md transition-all duration-300 overflow-hidden will-change-transform rounded-xl max-w-[calc(theme(maxWidth.6xl)+3rem)]',
+        'no-transition fixed top-4 left-4 right-4 z-50 mx-auto sm:py-1 bg-neutral-50/60 dark:bg-neutral-950/60 backdrop-blur-md transition-all duration-300 overflow-hidden will-change-transform rounded-xl max-w-[calc(theme(maxWidth.6xl)+3rem)]',
         isScrolled
           ? 'shadow-lg shadow-neutral-200/20 dark:shadow-neutral-900/30 border border-neutral-200/50 dark:border-neutral-800/50'
           : 'shadow-none border-transparent',

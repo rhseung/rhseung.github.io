@@ -569,14 +569,16 @@ export const ProjectPage: React.FC = () => {
           프로젝트
         </h1>
       </div>
-      <div className="flex flex-col gap-6 sm:gap-8 lg:gap-10 py-8 sm:py-12 lg:py-16">
+
+      <div className="flex flex-col gap-6 sm:gap-8 lg:gap-10 mb-8 sm:mb-12 lg:mb-16">
         <TechStackSection
           techStackCategories={techStackCategories}
           selectedTechStacks={selectedTechStacks}
           onTechStackClick={handleTechStackClick}
         />
       </div>
-      <div className="py-8 sm:py-12 lg:py-16">
+
+      <div className="pb-8 sm:pb-12 lg:pb-16">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col gap-8 sm:gap-10 lg:gap-12 w-full">
             {filteredProjects.map((project, index) => (

@@ -16,7 +16,7 @@ export const CareerPage: React.FC = () => {
         </h1>
       </div>
 
-      <div className="py-8 sm:py-12 lg:py-16">
+      <div className="pb-8 sm:pb-12 lg:pb-16">
         <div className="max-w-6xl mx-auto">
           <div className="space-y-12 sm:space-y-16">
             <div>
