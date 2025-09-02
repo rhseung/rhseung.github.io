@@ -73,7 +73,7 @@ export const CareerCard: React.FC<CareerCardProps> = ({
   badges,
 }) => {
   return (
-    <div className="flex flex-col justify-between bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 w-full h-full">
+    <div className="flex flex-col justify-between bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl p-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 w-full h-fit">
       <div className="flex items-center gap-3 flex-1 min-w-0">
         {logo && (
           <div className="size-8 sm:size-10 flex items-center justify-center rounded-lg bg-transparent border border-neutral-200 dark:border-neutral-800 flex-shrink-0">

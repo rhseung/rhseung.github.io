@@ -1,11 +1,14 @@
 import * as React from 'react';
 
+import { useTheme } from 'next-themes';
+
 import { cn } from '@/utils';
 
 export interface TechStack {
   name: string;
   color: string;
-  icon: React.ReactNode;
+  darkColor?: string;
+  icon?: React.ComponentType<{ className?: string }>;
 }
 
 const getTextColor = (hexColor: string): string => {
@@ -31,16 +34,28 @@ export const TechStackCircle: React.FC<TechStackCircleProps> = ({
   className,
   ...props
 }) => {
+  const { resolvedTheme } = useTheme();
+  const Icon = tech.icon;
+
   return (
     <div
       className={cn(
-        'flex items-center justify-center rounded-full shrink-0 size-16 bg-background border',
+        'flex items-center justify-center rounded-full shrink-0 size-16 bg-background border border-border',
         className,
       )}
-      style={{ color: tech.color }}
+      style={{
+        color:
+          resolvedTheme === 'dark'
+            ? (tech.darkColor ?? tech.color)
+            : tech.color,
+      }}
       {...props}
     >
-      {tech.icon ? tech.icon : tech.name.charAt(0)}
+      {Icon ? (
+        <Icon className="size-8" />
+      ) : (
+        <span className="text-2xl">{tech.name.charAt(0)}</span>
+      )}
     </div>
   );
 };
@@ -53,13 +68,15 @@ export const TechStackBadge: React.FC<TechStackBadgeProps> = ({
   tech,
   ...props
 }) => {
+  const Icon = tech.icon;
+
   return (
     <div
-      className="flex items-center gap-2 px-3 py-1.5 border rounded-md text-sm"
+      className="flex items-center gap-2 px-2.5 py-1 border border-border rounded-md text-sm"
       style={{ backgroundColor: tech.color, color: getTextColor(tech.color) }}
       {...props}
     >
-      {tech.icon}
+      {Icon && <Icon className="size-3" />}
       <span>{tech.name}</span>
     </div>
   );

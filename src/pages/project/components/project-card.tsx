@@ -1,7 +1,8 @@
 import { IconBrandGithub, IconLink } from '@tabler/icons-react';
 
 import { Button } from '@/components';
-import { type TechStack, TechStackBadge } from '@/pages/project';
+
+import { TechStack, TechStackBadge } from './tech-stack';
 
 export const ProjectCard: React.FC<{
   title: string;
@@ -31,7 +32,7 @@ export const ProjectCard: React.FC<{
         <div className="flex flex-col gap-4 mt-auto">
           <div className="flex flex-wrap gap-2">
             {techStacks.map((tech) => (
-              <TechStackBadge key={tech.name} tech={tech} size="sm" />
+              <TechStackBadge key={tech.name} tech={tech} />
             ))}
           </div>
           <div className="flex flex-wrap gap-2 sm:gap-3">

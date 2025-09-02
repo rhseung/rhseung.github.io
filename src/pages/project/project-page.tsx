@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import {
   FaCss3Alt,
   FaFigma,
@@ -53,14 +55,10 @@ import rhseungBanner from '@/assets/thumbnails/rhseung.png';
 import siunitsBanner from '@/assets/thumbnails/siunits.png';
 import yoloBanner from '@/assets/thumbnails/yolo.png';
 import { Layout } from '@/components';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from '@/components/ui/tooltip';
 
 import { ProjectCard } from './components/project-card';
-import { TechStack, TechStackCircle } from './components/tech-stack';
+import { TechStack } from './components/tech-stack';
+import { TechStackSection } from './components/tech-stack-section';
 
 interface Project {
   title: string;
@@ -75,199 +73,197 @@ const techStacks: Record<string, TechStack> = {
   React: {
     name: 'React',
     color: '#58C4DC',
-    icon: <FaReact className="size-8" />,
+    icon: FaReact,
   },
   Nextjs: {
     name: 'Next.js',
     color: '#000000',
-    icon: <RiNextjsFill className="size-8" />,
+    darkColor: '#FFFFFF',
+    icon: RiNextjsFill,
   },
   TypeScript: {
     name: 'TypeScript',
     color: '#3178C6',
-    icon: <SiTypescript className="size-8" />,
+    icon: SiTypescript,
   },
   JavaScript: {
     name: 'JavaScript',
     color: '#f3e14f',
-    icon: <SiJavascript className="size-8" />,
+    icon: SiJavascript,
   },
   HTML: {
     name: 'HTML',
     color: '#d35836',
-    icon: <FaHtml5 className="size-8" />,
+    icon: FaHtml5,
   },
   CSS: {
     name: 'CSS',
     color: '#447ebe',
-    icon: <FaCss3Alt className="size-8" />,
+    icon: FaCss3Alt,
   },
   TailwindCss: {
     name: 'Tailwind CSS',
     color: '#38BDF8',
-    icon: <RiTailwindCssFill className="size-8" />,
+    icon: RiTailwindCssFill,
   },
   VanillaExtract: {
     name: 'Vanilla Extract',
     color: '#ee80a5',
-    icon: null,
   },
   StyledComponents: {
     name: 'Styled Components',
     color: '#DB7093',
-    icon: <SiStyledcomponents className="size-8" />,
+    icon: SiStyledcomponents,
   },
   TanstackRouter: {
     name: 'Tanstack Router',
     color: '#58af66',
-    icon: null,
   },
   ReactRouter: {
     name: 'React Router',
     color: '#CA4245',
-    icon: <SiReactrouter className="size-8" />,
+    icon: SiReactrouter,
   },
   ReactQuery: {
     name: 'React Query',
     color: '#FF4154',
-    icon: <SiReactquery className="size-8" />,
+    icon: SiReactquery,
   },
   I18Next: {
     name: 'i18next',
     color: '#26A69A',
-    icon: <SiI18Next className="size-8" />,
+    icon: SiI18Next,
   },
   OpenApiTypeScript: {
     name: 'OpenAPI TypeScript',
     color: '#3f76f3',
-    icon: null,
   },
-  Vite: { name: 'Vite', color: '#7895f7', icon: <SiVite className="size-8" /> },
+  Vite: { name: 'Vite', color: '#7895f7', icon: SiVite },
 
   // Backend
   NodeJs: {
     name: 'Node.js',
     color: '#3E863D',
-    icon: <FaNodeJs className="size-8" />,
+    icon: FaNodeJs,
   },
   Nestjs: {
     name: 'Nest.js',
     color: '#EA2845',
-    icon: <SiNestjs className="size-8" />,
+    icon: SiNestjs,
   },
   Python: {
     name: 'Python',
     color: '#3776AB',
-    icon: <FaPython className="size-8" />,
+    icon: FaPython,
   },
   Flask: {
     name: 'Flask',
     color: '#000000',
-    icon: <FaFlask className="size-8" />,
+    darkColor: '#FFFFFF',
+    icon: FaFlask,
   },
-  Java: { name: 'Java', color: '#ED8B00', icon: <FaJava className="size-8" /> },
+  Java: { name: 'Java', color: '#ED8B00', icon: FaJava },
   Prisma: {
     name: 'Prisma',
     color: '#16A394',
-    icon: <SiPrisma className="size-8" />,
+    icon: SiPrisma,
   },
   MySQL: {
     name: 'MySQL',
     color: '#4479A1',
-    icon: <SiMysql className="size-8" />,
+    icon: SiMysql,
   },
 
   // Mobile Frontend
   Flutter: {
     name: 'Flutter',
     color: '#135C9C',
-    icon: <SiFlutter className="size-8" />,
+    icon: SiFlutter,
   },
-  Dart: { name: 'Dart', color: '#2678BC', icon: <SiDart className="size-8" /> },
+  Dart: { name: 'Dart', color: '#2678BC', icon: SiDart },
 
   // Low-level / Systems
-  C: { name: 'C', color: '#34475C', icon: <SiC className="size-8" /> },
+  C: { name: 'C', color: '#34475C', icon: SiC },
   Cpp: {
     name: 'C++',
     color: '#00599C',
-    icon: <SiCplusplus className="size-8" />,
+    icon: SiCplusplus,
   },
-  SFML: { name: 'SFML', color: '#92d23e', icon: <SiSfml className="size-8" /> },
+  SFML: { name: 'SFML', color: '#92d23e', icon: SiSfml },
 
   // Mobile/Desktop UI
   Kotlin: {
     name: 'Kotlin',
     color: '#7F52FF',
-    icon: <SiKotlin className="size-8" />,
+    icon: SiKotlin,
   },
-  Swing: { name: 'Swing', color: '#e72d2c', icon: null },
+  Swing: { name: 'Swing', color: '#e72d2c' },
 
   // AI/ML & Data
   PyTorch: {
     name: 'PyTorch',
     color: '#e74a2b',
-    icon: <SiPytorch className="size-8" />,
+    icon: SiPytorch,
   },
   TensorFlow: {
     name: 'TensorFlow',
     color: '#ff6f00',
-    icon: <SiTensorflow className="size-8" />,
+    icon: SiTensorflow,
   },
   Keras: {
     name: 'Keras',
     color: '#d00000',
-    icon: <SiKeras className="size-8" />,
+    icon: SiKeras,
   },
   OpenCV: {
     name: 'OpenCV',
     color: '#050505',
-    icon: <SiOpencv className="size-8" />,
+    darkColor: '#FFFFFF',
+    icon: SiOpencv,
   },
   ScikitLearn: {
     name: 'Scikit-learn',
     color: '#f89939',
-    icon: <SiScikitlearn className="size-8" />,
+    icon: SiScikitlearn,
   },
   NumPy: {
     name: 'NumPy',
     color: '#4d77cf',
-    icon: <SiNumpy className="size-8" />,
+    icon: SiNumpy,
   },
   Pandas: {
     name: 'Pandas',
     color: '#150458',
-    icon: <SiPandas className="size-8" />,
+    darkColor: '#FFFFFF',
+    icon: SiPandas,
   },
   Matplotlib: {
     name: 'Matplotlib',
     color: '#11557c',
-    icon: null,
   },
   Seaborn: {
     name: 'Seaborn',
     color: '#4c72b0',
-    icon: null,
   },
   Altair: {
     name: 'Altair',
     color: '#1f77b4',
-    icon: null,
   },
   Jupyter: {
     name: 'Jupyter',
     color: '#f37626',
-    icon: <SiJupyter className="size-8" />,
+    icon: SiJupyter,
   },
 
   // Package Managers/Build Tools
-  Npm: { name: 'Npm', color: '#CB3837', icon: <FaNpm /> },
-  Yarn: { name: 'Yarn', color: '#4F8DB5', icon: <FaYarn /> },
-  Bun: { name: 'Bun', color: '#F9F0E1', icon: null },
-  PyPI: { name: 'PyPI', color: '#3375aa', icon: <SiPypi /> },
+  Npm: { name: 'Npm', color: '#CB3837', icon: FaNpm },
+  Yarn: { name: 'Yarn', color: '#4F8DB5', icon: FaYarn },
+  Bun: { name: 'Bun', color: '#F9F0E1' },
+  PyPI: { name: 'PyPI', color: '#3375aa', icon: SiPypi },
 
   // Design/Documentation
-  Figma: { name: 'Figma', color: '#FF7237', icon: <FaFigma /> },
-  LaTeX: { name: 'LaTeX', color: '#008080', icon: <SiLatex /> },
+  Figma: { name: 'Figma', color: '#FF7237', icon: FaFigma },
+  LaTeX: { name: 'LaTeX', color: '#008080', icon: SiLatex },
 } as const;
 
 const techStackCategories = {
@@ -520,62 +516,29 @@ const projects: Project[] = [
 ];
 
 export const ProjectPage: React.FC = () => {
+  const [selectedTechStacks, setSelectedTechStacks] = useState<TechStack[]>([]);
+
+  const handleTechStackClick = (techStack: TechStack) => {
+    setSelectedTechStacks((prev) =>
+      prev.includes(techStack)
+        ? prev.filter((key) => key !== techStack)
+        : [...prev, techStack],
+    );
+  };
+
+  // 필터링 로직: 선택된 tech stack이 없으면 모든 프로젝트, 있으면 선택된 tech stack을 포함하는 프로젝트만
+  const filteredProjects =
+    selectedTechStacks.length === 0
+      ? projects
+      : projects.filter((project) =>
+          selectedTechStacks.some((selectedTechStack) =>
+            project.techStacks.includes(selectedTechStack),
+          ),
+        );
+
   // TODO: https://ui.shadcn.com/docs/components/pagination 이거로 페이지 늘리기
   // TODO: https://ui.shadcn.com/docs/components/select 이거로 필터링 기능 추가 및 테크 스택 자랑 섹션을 위에 달아두기
   // TODO: 각 프로젝트 카드마다 자세히 보기 기능 및 페이지 추가
-
-  // const [selectedTechStacks, setSelectedTechStacks] = useState<TechStack[]>([]);
-
-  // const handleTechStackClick = (techStack: TechStack) => {
-  //   setSelectedTechStacks((prev) =>
-  //     prev.includes(techStack)
-  //       ? prev.filter((key) => key !== techStack)
-  //       : [...prev, techStack],
-  //   );
-  // };
-
-  // const handleCategoryToggle = (categoryTechs: TechStack[]) => {
-  //   // 카테고리의 모든 배지가 선택되어 있는지 확인
-  //   const allSelected = categoryTechs.every((tech) =>
-  //     selectedTechStacks.includes(tech),
-  //   );
-
-  //   if (allSelected) {
-  //     // 모두 선택되어 있으면 모두 해제
-  //     setSelectedTechStacks((prev) =>
-  //       prev.filter((tech) => !categoryTechs.includes(tech)),
-  //     );
-  //   } else {
-  //     // 일부 또는 전부 해제되어 있으면 모두 선택
-  //     setSelectedTechStacks((prev) => {
-  //       const newSet = new Set([...prev, ...categoryTechs]);
-  //       return Array.from(newSet);
-  //     });
-  //   }
-  // };
-
-  // const categorizedTechStacks = new Set(
-  //   Object.values(techStackCategories).flat(),
-  // );
-
-  // const miscTechStacks = Object.values(techStacks).filter(
-  //   (tech) => !categorizedTechStacks.has(tech),
-  // );
-
-  // const finalTechStackCategories = {
-  //   ...techStackCategories,
-  //   ...(miscTechStacks.length > 0 && { Misc: miscTechStacks }),
-  // };
-
-  // 필터링 로직: 선택된 tech stack이 없으면 모든 프로젝트, 있으면 선택된 tech stack을 포함하는 프로젝트만
-  // const filteredProjects =
-  //   selectedTechStacks.length === 0
-  //     ? projects
-  //     : projects.filter((project) =>
-  //         selectedTechStacks.some((selectedTechStack) =>
-  //           project.techStacks.includes(selectedTechStack),
-  //         ),
-  //       );
 
   return (
     <Layout>
@@ -585,77 +548,16 @@ export const ProjectPage: React.FC = () => {
         </h1>
       </div>
       <div className="flex flex-col gap-6 sm:gap-8 lg:gap-10 py-8 sm:py-12 lg:py-16">
-        <div className="flex flex-col gap-3">
-          <h2 className="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-neutral-50 justify-center items-center text-center">
-            제가 할 수 있는 기술 스택들
-          </h2>
-          <h3 className="text-sm sm:text-md text-neutral-500 dark:text-neutral-500 justify-center items-center text-center">
-            기술 스택을 클릭하여 필터링할 수 있습니다.
-          </h3>
-        </div>
-        <div className="mx-auto max-w-sm sm:max-w-2xl lg:max-w-4xl xl:max-w-6xl flex flex-col gap-4">
-          {/* 모든 화면 크기에서 Carousel 레이아웃 사용 */}
-          {/* <Carousel
-            plugins={[
-              Autoplay({
-                delay: 4000,
-                stopOnInteraction: true,
-                stopOnMouseEnter: true,
-              }),
-            ]}
-            opts={{
-              align: 'start',
-              loop: true,
-              slidesToScroll: 1,
-            }}
-            className="w-full"
-          >
-            <CarouselContent>
-              {Object.entries(finalTechStackCategories).map(
-                ([category, techList]) => (
-                  <CarouselItem
-                    key={category}
-                    className="basis-full sm:basis-1/2 lg:basis-1/3"
-                  >
-                    <TechStackCategoryCard
-                      category={category}
-                      techList={techList}
-                      selectedTechStacks={selectedTechStacks}
-                      onTechStackClick={handleTechStackClick}
-                      onCategoryToggle={handleCategoryToggle}
-                    />
-                  </CarouselItem>
-                ),
-              )}
-            </CarouselContent>
-            <CarouselPrevious className="hidden sm:flex" />
-            <CarouselNext className="hidden sm:flex" />
-          </Carousel> */}
-          {Object.entries(techStackCategories).map(([category, techList]) => (
-            <div key={category} className="flex flex-col gap-2">
-              <h4 className="text-lg font-semibold text-neutral-900 dark:text-neutral-50">
-                {category}
-              </h4>
-              <div className="flex gap-2">
-                {techList.map((tech) => (
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <TechStackCircle key={tech.name} tech={tech} />
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>{tech.name}</p>
-                    </TooltipContent>
-                  </Tooltip>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+        <TechStackSection
+          techStackCategories={techStackCategories}
+          selectedTechStacks={selectedTechStacks}
+          onTechStackClick={handleTechStackClick}
+        />
       </div>
       <div className="py-8 sm:py-12 lg:py-16">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col gap-8 sm:gap-10 lg:gap-12 w-full">
-            {projects.map((project, index) => (
+            {filteredProjects.map((project, index) => (
               <ProjectCard
                 key={index}
                 title={project.title}
