@@ -275,6 +275,7 @@ export const Header = forwardRef<
           </nav>
 
           <div className="flex items-center gap-3 sm:gap-4">
+            <ThemeSwitch />
             <div className="lg:hidden">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -321,7 +322,6 @@ export const Header = forwardRef<
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
-            <ThemeSwitch />
           </div>
         </div>
       </div>
