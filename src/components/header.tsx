@@ -186,6 +186,7 @@ export const Header = forwardRef<
 
   const headerRef = useRef<HTMLElementTagNameMap['header']>(null);
   const [headerHeight, setHeaderHeight] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const headerEl = headerRef.current;
@@ -198,6 +199,17 @@ export const Header = forwardRef<
     setHeaderHeight(headerEl.offsetHeight);
     observer.observe(headerEl);
     return () => observer.disconnect();
+  }, []);
+
+  // 스크롤 상태 감지
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    handleScroll(); // 초기값 설정
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // 핵심: 가시성 판정 훅
@@ -222,13 +234,16 @@ export const Header = forwardRef<
         else if (ref && 'current' in ref) ref.current = node;
       }}
       className={cn(
-        'fixed top-0 right-0 left-0 z-50 px-4 sm:px-6 lg:px-8 py-1.5 sm:py-3 bg-neutral-50/85 dark:bg-neutral-950/85 backdrop-blur-md transition-transform duration-300 overflow-hidden will-change-transform',
-        isVisible ? 'translate-y-0' : '-translate-y-full',
+        'fixed top-4 left-4 right-4 z-50 mx-auto sm:py-1 bg-neutral-50/60 dark:bg-neutral-950/60 backdrop-blur-md transition-all duration-300 overflow-hidden will-change-transform rounded-xl max-w-[calc(theme(maxWidth.6xl)+3rem)]',
+        isScrolled
+          ? 'shadow-lg shadow-neutral-200/20 dark:shadow-neutral-900/30 border border-neutral-200/50 dark:border-neutral-800/50'
+          : 'shadow-none border-transparent',
+        isVisible ? 'translate-y-0' : '-translate-y-[calc(100%+1rem)]',
       )}
       // iOS 사파리에서 스크롤 중 레이어 프로모션 안정화
       style={{ WebkitBackdropFilter: 'blur(8px)' }}
     >
-      <div className="mx-auto w-full max-w-6xl">
+      <div className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full">
         <div className="flex w-full items-center justify-between gap-6 sm:gap-10">
           <div className="flex items-center">
             <Logo width={90} className="hidden sm:block" />

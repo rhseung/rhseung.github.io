@@ -26,7 +26,7 @@ export const Layout: React.FC<
       <Header ref={headerRef} />
       <main
         style={{ paddingTop: disableHeaderHeight ? 0 : headerHeight }}
-        className="px-4 sm:px-6 lg:px-8"
+        className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto"
       >
         {children}
       </main>
