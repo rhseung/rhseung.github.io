@@ -2,6 +2,7 @@ import { IconCode } from '@tabler/icons-react';
 
 import gistLogo from '@/assets/logos/gist.svg';
 import gsaLogo from '@/assets/logos/gsa.webp';
+import junctionLogo from '@/assets/logos/junction.png';
 import { Layout } from '@/components';
 
 import { AchievementList } from './components/achievement-list-card';
@@ -110,7 +111,7 @@ export const CareerPage: React.FC = () => {
                     <b className="text-warning-500 dark:text-warning-400">
                       1st
                     </b>{' '}
-                    (241점/240점)
+                    (240점/240점)
                   </>,
                   <>
                     GIST GS1401 컴퓨터 프로그래밍{' '}
@@ -155,7 +156,13 @@ export const CareerPage: React.FC = () => {
                   title="JUNCTION ASIA 2025"
                   date="2025"
                   badges={[BadgeStatus.PARTICIPATED]}
-                  logo={<IconCode size={20} />}
+                  logo={
+                    <img
+                      src={junctionLogo}
+                      width={28}
+                      alt="JUNCTION ASIA 2025 로고"
+                    />
+                  }
                 >
                   주최: 앙트비 (ENTBE)
                 </CareerCard>
