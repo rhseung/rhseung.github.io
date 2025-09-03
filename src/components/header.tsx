@@ -213,7 +213,6 @@ export const Header = forwardRef<
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // 핵심: 가시성 판정 훅
   const isVisible = useCollapsibleHeader({
     headerHeight,
     upThreshold: 20, // 느린 스크롤에서도 잘 포착되도록 작은 임계치
@@ -228,7 +227,10 @@ export const Header = forwardRef<
       to,
       viewTransition: {
         types: () => {
-          return [toIdx < currentIdx ? 'backwards' : 'forwards'];
+          if (!(0 <= currentIdx && currentIdx < menus.length))
+            return ['reload'];
+          else if (currentIdx > toIdx) return ['backwards'];
+          else return ['forwards'];
         },
       },
     });

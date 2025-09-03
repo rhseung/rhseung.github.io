@@ -28,7 +28,10 @@ export const Layout: React.FC<
       <Header ref={headerRef} />
       <main
         style={{ paddingTop: disableHeaderHeight ? 0 : headerHeight }}
-        className={cn('px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto', className)}
+        className={cn(
+          'px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto select-none',
+          className,
+        )}
       >
         {children}
       </main>

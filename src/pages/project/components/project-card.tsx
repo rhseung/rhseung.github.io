@@ -30,9 +30,9 @@ export const ProjectCard: React.FC<{
           </div>
         </div>
         <div className="flex flex-col gap-4 mt-auto">
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1.5">
             {techStacks.map((tech) => (
-              <TechStackBadge key={tech.name} tech={tech} />
+              <TechStackBadge key={tech.name} tech={tech} size="sm" />
             ))}
           </div>
           <div className="flex flex-wrap gap-2 sm:gap-3">

@@ -3,7 +3,6 @@ import { useState } from 'react';
 import {
   FaCss3Alt,
   FaFigma,
-  FaFlask,
   FaHtml5,
   FaJava,
   FaNodeJs,
@@ -17,6 +16,7 @@ import {
   SiC,
   SiCplusplus,
   SiDart,
+  SiFlask,
   SiFlutter,
   SiI18Next,
   SiJavascript,
@@ -55,7 +55,7 @@ import pingpongBanner from '@/assets/thumbnails/pingpong.png';
 import rhseungBanner from '@/assets/thumbnails/rhseung.png';
 import siunitsBanner from '@/assets/thumbnails/siunits.png';
 import yoloBanner from '@/assets/thumbnails/yolo.png';
-import { Layout } from '@/components';
+import { Layout, SectionSeparator } from '@/components';
 
 import { ProjectCard } from './components/project-card';
 import { TechStack } from './components/tech-stack';
@@ -161,7 +161,7 @@ const techStacks = {
     name: 'Flask',
     color: '#000000',
     darkColor: '#FFFFFF',
-    icon: FaFlask,
+    icon: SiFlask,
   },
   Java: { name: 'Java', color: '#ED8B00', icon: FaJava },
   Prisma: {
@@ -530,8 +530,8 @@ const projects: Project[] = [
       techStacks.Figma,
     ],
     links: {
-      Frontend: 'https://campass-fe.vercel.app/',
-      Backend: 'https://campass-be.vercel.app',
+      Site: 'https://campass-fe.vercel.app/',
+      API: 'https://campass-be.vercel.app',
       Swagger: 'https://campass-be.vercel.app/api/',
     },
     image: campassBanner,
@@ -575,6 +575,17 @@ export const ProjectPage: React.FC = () => {
           techStackCategories={techStackCategories}
           selectedTechStacks={selectedTechStacks}
           onTechStackClick={handleTechStackClick}
+        />
+      </div>
+
+      <div>
+        <SectionSeparator
+          title={
+            selectedTechStacks.length > 0
+              ? `${filteredProjects.length}개의 필터된 프로젝트`
+              : `총 ${projects.length}개의 프로젝트`
+          }
+          className="mb-8 sm:mb-12 lg:mb-16"
         />
       </div>
 

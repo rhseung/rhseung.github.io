@@ -16,7 +16,7 @@ export const NotFoundPage: React.FC = () => {
 
   return (
     <Layout disableHeaderHeight>
-      <div className="w-full h-screen flex items-center justify-center px-4 bg-gradient-to-br from-neutral-50 via-neutral-100 to-neutral-200 dark:from-neutral-950 dark:via-neutral-900 dark:to-neutral-800">
+      <div className="w-full h-screen flex items-center justify-center px-4">
         <div className="max-w-lg mx-auto text-center">
           <div className="relative mb-8">
             <div className="absolute inset-0 blur-3xl opacity-30">
@@ -51,7 +51,7 @@ export const NotFoundPage: React.FC = () => {
               className="group bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 text-base font-medium transition-all duration-200 hover:scale-105"
               size="lg"
             >
-              <IconHome size={18} className="mr-2" />
+              <IconHome size={18} />
               홈으로 가기
             </Button>
 
@@ -63,7 +63,7 @@ export const NotFoundPage: React.FC = () => {
             >
               <IconArrowLeft
                 size={18}
-                className="mr-2 transition-transform group-hover:-translate-x-1"
+                className="transition-transform group-hover:-translate-x-1"
               />
               뒤로 가기
             </Button>
