@@ -6,8 +6,6 @@ import { useTheme } from 'next-themes';
 import { linkFetchers } from '../fetchers';
 import type { LinkService } from '../fetchers';
 
-// TODO: @tabler/icons-react로 변경할 것
-
 export interface LinkCardProps {
   title: string;
   username: string;
