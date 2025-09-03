@@ -109,7 +109,7 @@ const techStacks = {
   },
   VanillaExtract: {
     name: 'Vanilla Extract',
-    color: '#ee80a5',
+    color: '#8bf2e0',
   },
   StyledComponents: {
     name: 'Styled Components',
