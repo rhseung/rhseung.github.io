@@ -223,19 +223,21 @@ export const Header = forwardRef<
   const handleNavigate = async (to: string) => {
     const toIdx = menus.findIndex((m) => m.href === to);
 
-    await navigate({
-      to,
-      viewTransition: {
-        types: () => {
-          if (!(0 <= currentIdx && currentIdx < menus.length))
-            return ['reload'];
-          else if (currentIdx > toIdx) return ['backwards'];
-          else return ['forwards'];
+    if (currentIdx !== toIdx) {
+      await navigate({
+        to,
+        viewTransition: {
+          types: () => {
+            if (!(0 <= currentIdx && currentIdx < menus.length))
+              return ['reload'];
+            else if (currentIdx > toIdx) return ['backwards'];
+            else return ['forwards'];
+          },
         },
-      },
-    });
-    // 라우팅 시 헤더는 바로 보여주고 스크롤은 상단으로
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   return (
