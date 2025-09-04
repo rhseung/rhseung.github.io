@@ -4,10 +4,10 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { RouterProvider, createRouter } from '@tanstack/react-router';
 import { ThemeProvider } from 'next-themes';
 import { createRoot } from 'react-dom/client';
-import { Toaster } from 'sonner';
 
 import '@/styles.css';
 
+import { Toaster } from './components/ui/sonner';
 import { NotFoundPage } from './pages/fallback';
 import { routeTree } from './routeTree.gen';
 
