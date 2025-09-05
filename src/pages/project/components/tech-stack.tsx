@@ -2,37 +2,33 @@ import * as React from 'react';
 
 import { useTheme } from 'next-themes';
 
+import { TechStack } from '@/data/tech-stacks';
 import { cn } from '@/utils';
 
-export interface TechStack {
-  name: string;
-  color: string;
-  darkColor?: string;
-  icon?: React.ComponentType<{ className?: string }>;
-}
-
 interface TechStackCardProps extends React.HTMLAttributes<HTMLDivElement> {
-  tech: TechStack;
+  techStack: TechStack;
   isSelected?: boolean;
 }
 
 export const TechStackCard: React.FC<TechStackCardProps> = ({
-  tech,
+  techStack,
   isSelected = false,
   className,
   ...props
 }) => {
   const { resolvedTheme } = useTheme();
-  const Icon = tech.icon;
+  const Icon = techStack.icon;
 
   const currentColor =
-    resolvedTheme === 'dark' ? (tech.darkColor ?? tech.color) : tech.color;
+    resolvedTheme === 'dark'
+      ? (techStack.darkColor ?? techStack.color)
+      : techStack.color;
 
   return (
     <div
       className={cn(
         'group relative flex flex-col items-center gap-2 p-3 rounded-xl transition-all duration-300 cursor-pointer',
-        'bg-white dark:bg-neutral-900 border-2 border-transparent',
+        'bg-white dark:bg-neutral-900 border-2 border-transparent shadow-sm',
         'hover:shadow-lg hover:shadow-neutral-200/50 dark:hover:shadow-neutral-800/50',
         'hover:-translate-y-1 active:translate-y-0 active:scale-95',
         isSelected && 'border-2 shadow-lg -translate-y-1 scale-105',
@@ -83,83 +79,48 @@ export const TechStackCard: React.FC<TechStackCardProps> = ({
         className="flex items-center justify-center size-10 rounded-lg transition-all duration-300"
         style={{
           color: currentColor,
-          backgroundColor: `${currentColor}15`,
+          backgroundColor: `${currentColor}25`,
         }}
       >
         {Icon ? (
           <Icon className="size-6" />
         ) : (
-          <span className="text-lg font-bold">{tech.name.charAt(0)}</span>
+          <span className="text-lg font-bold">{techStack.name.charAt(0)}</span>
         )}
       </div>
 
       {/* 텍스트 */}
       <span className="text-xs font-medium text-neutral-700 dark:text-neutral-300 text-center leading-tight">
-        {tech.name}
+        {techStack.name}
       </span>
 
       {/* 호버 효과 */}
       <div
-        className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-5 transition-opacity duration-300"
+        className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-10 transition-opacity duration-300"
         style={{ backgroundColor: currentColor }}
       />
     </div>
   );
 };
 
-interface TechStackCircleProps extends React.HTMLAttributes<HTMLDivElement> {
-  tech: TechStack;
-  size?: 'sm' | 'md' | 'lg';
-}
-
-export const TechStackCircle: React.FC<TechStackCircleProps> = ({
-  tech,
-  size = 'lg',
-  className,
-  ...props
-}) => {
-  const { resolvedTheme } = useTheme();
-  const Icon = tech.icon;
-
-  return (
-    <div
-      className={cn(
-        'flex items-center justify-center rounded-full shrink-0 size-16 bg-background border border-border',
-        className,
-      )}
-      style={{
-        color:
-          resolvedTheme === 'dark'
-            ? (tech.darkColor ?? tech.color)
-            : tech.color,
-      }}
-      {...props}
-    >
-      {Icon ? (
-        <Icon className="size-8" />
-      ) : (
-        <span className="text-2xl">{tech.name.charAt(0)}</span>
-      )}
-    </div>
-  );
-};
-
 interface TechStackBadgeProps extends React.HTMLAttributes<HTMLDivElement> {
-  tech: TechStack;
+  techStack: TechStack;
   size?: 'sm' | 'md';
 }
 
 export const TechStackBadge: React.FC<TechStackBadgeProps> = ({
-  tech,
+  techStack,
   size = 'md',
   className,
   ...props
 }) => {
   const { resolvedTheme } = useTheme();
-  const Icon = tech.icon;
+  const Icon = techStack.icon;
 
   const currentColor =
-    resolvedTheme === 'dark' ? (tech.darkColor ?? tech.color) : tech.color;
+    resolvedTheme === 'dark'
+      ? (techStack.darkColor ?? techStack.color)
+      : techStack.color;
 
   return (
     <div
@@ -171,21 +132,21 @@ export const TechStackBadge: React.FC<TechStackBadgeProps> = ({
       )}
       style={{
         color: currentColor,
-        backgroundColor: `${currentColor}15`,
-        borderColor: `${currentColor}30`,
+        backgroundColor: `${currentColor}20`,
+        borderColor: `${currentColor}40`,
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.backgroundColor = `${currentColor}25`;
-        e.currentTarget.style.boxShadow = `0 4px 12px ${currentColor}20`;
+        e.currentTarget.style.backgroundColor = `${currentColor}30`;
+        e.currentTarget.style.boxShadow = `0 4px 12px ${currentColor}25`;
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.backgroundColor = `${currentColor}15`;
+        e.currentTarget.style.backgroundColor = `${currentColor}20`;
         e.currentTarget.style.boxShadow = 'none';
       }}
       {...props}
     >
       {Icon && <Icon className={size === 'sm' ? 'size-3' : 'size-4'} />}
-      <span>{tech.name}</span>
+      <span>{techStack.name}</span>
     </div>
   );
 };

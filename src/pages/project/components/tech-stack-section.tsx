@@ -1,15 +1,85 @@
-import { TechStack, TechStackBadge, TechStackCard } from './tech-stack';
+import { TechStack, techStacks } from '@/data/tech-stacks';
+
+import { TechStackBadge, TechStackCard } from './tech-stack';
+
+const techStackCategories = {
+  'Programming Languages': [
+    // Web Languages
+    techStacks.TypeScript,
+    techStacks.JavaScript,
+    techStacks.HTML,
+    techStacks.CSS,
+    // General Purpose
+    techStacks.Python,
+    techStacks.Java,
+    // Systems Programming
+    techStacks.C,
+    techStacks.Cpp,
+    // Mobile/Modern
+    techStacks.Dart,
+    techStacks.Kotlin,
+  ],
+  Frontend: [
+    // Core Framework
+    techStacks.React,
+    techStacks.Nextjs,
+    // Styling
+    techStacks.TailwindCss,
+    techStacks.VanillaExtract,
+    techStacks.StyledComponents,
+    // Routing
+    techStacks.TanstackRouter,
+    techStacks.ReactRouter,
+    // State Management & API
+    techStacks.ReactQuery,
+    // Utilities
+    techStacks.I18Next,
+    techStacks.OpenApiTypeScript,
+    // Build Tools
+    techStacks.Vite,
+    // Mobile
+    techStacks.Flutter,
+  ],
+  'Backend & Database': [
+    // Runtime
+    techStacks.NodeJs,
+    // Frameworks
+    techStacks.Nestjs,
+    techStacks.Flask,
+    // Database & ORM
+    techStacks.Prisma,
+    techStacks.MySQL,
+  ],
+  'AI/ML & Data Analysis': [
+    // Deep Learning Frameworks
+    techStacks.PyTorch,
+    techStacks.TensorFlow,
+    techStacks.Keras,
+    // Machine Learning
+    techStacks.ScikitLearn,
+    // Computer Vision
+    techStacks.OpenCV,
+    // Data Processing
+    techStacks.NumPy,
+    techStacks.Pandas,
+    // Visualization
+    techStacks.Matplotlib,
+    techStacks.Seaborn,
+    techStacks.Altair,
+    // Development Environment
+    techStacks.Jupyter,
+  ],
+};
 
 export const TechStackSection: React.FC<{
-  techStackCategories: Record<string, TechStack[]>;
   selectedTechStacks: TechStack[];
   onTechStackClick: (techStack: TechStack) => void;
-}> = ({ techStackCategories, selectedTechStacks, onTechStackClick }) => {
+}> = ({ selectedTechStacks, onTechStackClick }) => {
   return (
     <>
       <div className="flex flex-col gap-4 text-center">
         <div className="space-y-2">
-          <h2 className="text-2xl sm:text-3xl font-bold text-neutral-900 dark:text-neutral-50">
+          <h2 className="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-neutral-50">
             기술 스택
           </h2>
           <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
@@ -25,7 +95,7 @@ export const TechStackSection: React.FC<{
             </span>
             {selectedTechStacks.map((tech) => (
               <div key={tech.name} className="relative group">
-                <TechStackBadge tech={tech} size="sm" className="pr-6" />
+                <TechStackBadge techStack={tech} size="sm" className="pr-6" />
                 <button
                   onClick={() => onTechStackClick(tech)}
                   className="absolute right-1 top-1/2 -translate-y-1/2 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-full p-0.5 transition-colors opacity-60 hover:opacity-100"
@@ -66,7 +136,7 @@ export const TechStackSection: React.FC<{
                 {techList.map((tech) => (
                   <div key={tech.name} onClick={() => onTechStackClick(tech)}>
                     <TechStackCard
-                      tech={tech}
+                      techStack={tech}
                       isSelected={selectedTechStacks.includes(tech)}
                     />
                   </div>

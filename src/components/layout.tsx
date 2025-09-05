@@ -16,7 +16,7 @@ export const Layout: React.FC<
     if (!headerEl) return;
 
     const observer = new ResizeObserver(() => {
-      setHeaderHeight(headerEl.offsetHeight);
+      setHeaderHeight(16 + headerEl.offsetHeight); // top-4 가 헤더에 있음
     });
 
     observer.observe(headerEl);
