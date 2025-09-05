@@ -17,13 +17,8 @@ export const ProjectCard: React.FC<{
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
-  const handleCardClick = () => {
-    // 프로젝트 상세 페이지로 이동하기 전에 스크롤 위치 저장
-    sessionStorage.setItem('projectPageScrollPosition', window.scrollY.toString());
-  };
-
   return (
-    <Link to="/project/$id" params={{ id }} className="block" onClick={handleCardClick}>
+    <Link to="/project/$id" params={{ id }} className="block">
       <div className="w-full flex gap-6 sm:gap-8 lg:gap-12 md:flex-row flex-col cursor-pointer group transition-all duration-300 hover:shadow-xl hover:shadow-neutral-900/10 dark:hover:shadow-black/20 rounded-2xl p-6 -m-6 hover:-translate-y-1 hover:bg-neutral-50/50 dark:hover:bg-neutral-800/30">
         <div className="w-full md:w-[400px] lg:w-[500px] border border-neutral-200 dark:border-neutral-800 bg-neutral-200 dark:bg-neutral-800 flex-shrink-0 overflow-hidden rounded-xl transition-all duration-300 group-hover:scale-[1.01] group-hover:shadow-lg group-hover:shadow-neutral-900/5 dark:group-hover:shadow-black/10">
           <img
