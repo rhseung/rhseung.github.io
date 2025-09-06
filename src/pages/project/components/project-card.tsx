@@ -18,8 +18,8 @@ export const ProjectCard: React.FC<{
   };
 
   return (
-    <Link to="/project/$id" params={{ id }} className="block">
-      <div className="w-full flex gap-6 sm:gap-8 lg:gap-12 md:flex-row flex-col cursor-pointer group transition-all duration-300 hover:shadow-xl hover:shadow-neutral-900/10 dark:hover:shadow-black/20 rounded-2xl p-6 -m-6 hover:-translate-y-1 hover:bg-neutral-50/50 dark:hover:bg-neutral-800/30">
+    <Link to="/project/$id" params={{ id }} className="block w-full">
+      <div className="flex gap-6 sm:gap-8 lg:gap-12 md:flex-row flex-col cursor-pointer group transition-all duration-300 hover:shadow-xl hover:shadow-neutral-900/10 dark:hover:shadow-black/20 rounded-2xl p-6 -m-6 hover:-translate-y-1 hover:bg-neutral-50/50 dark:hover:bg-neutral-800/30">
         <div className="w-full md:w-[400px] lg:w-[500px] border border-neutral-200 dark:border-neutral-800 bg-neutral-200 dark:bg-neutral-800 flex-shrink-0 overflow-hidden rounded-xl transition-all duration-300 group-hover:scale-[1.01] group-hover:shadow-lg group-hover:shadow-neutral-900/5 dark:group-hover:shadow-black/10">
           <img
             src={image}
@@ -27,8 +27,8 @@ export const ProjectCard: React.FC<{
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102"
           />
         </div>
-        <div className="flex-1 flex flex-col justify-between min-h-[200px] md:min-h-[200px]">
-          <div className="flex flex-col">
+        <div className="flex-1 flex flex-col justify-between min-h-[200px] md:min-h-[200px] min-w-0">
+          <div className="flex flex-col min-w-0">
             <div className="text-lg sm:text-xl font-bold text-neutral-900 dark:text-neutral-50 mb-3 leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
               {title}
             </div>
