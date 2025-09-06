@@ -10,13 +10,13 @@ import {
 } from '@tabler/icons-react';
 import { useLocation, useNavigate } from '@tanstack/react-router';
 
-import Logo from '@/assets/logo.svg?react';
 import {
   Button,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  Logo,
   ThemeSwitch,
 } from '@/components';
 import { cn } from '@/utils/cn';
@@ -260,8 +260,16 @@ export const Header = forwardRef<
       <div className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full">
         <div className="flex w-full items-center justify-between gap-6 sm:gap-10">
           <div className="flex items-center">
-            <Logo width={90} className="hidden sm:block" />
-            <Logo width={70} className="sm:hidden" />
+            <Logo
+              size="lg"
+              className="hidden sm:block"
+              onClick={() => handleNavigate('/')}
+            />
+            <Logo
+              size="md"
+              className="sm:hidden"
+              onClick={() => handleNavigate('/')}
+            />
           </div>
 
           <nav className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 items-center justify-center gap-10">

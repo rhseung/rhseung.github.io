@@ -8,6 +8,7 @@ export * from '@/components/ui/carousel';
 export * from '@/components/ui/dropdown-menu';
 
 export * from '@/components/theme-switch';
+export * from '@/components/logo';
 export * from '@/components/header';
 export * from '@/components/footer';
 export * from '@/components/layout';
