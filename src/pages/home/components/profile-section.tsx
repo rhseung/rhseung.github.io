@@ -5,12 +5,12 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/';
 
 export const ProfileSection: React.FC = () => {
   return (
-    <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 lg:gap-16 items-center">
+    <div className="max-w-6xl w-full flex flex-col sm:flex-row gap-6 sm:gap-8 lg:gap-16 items-center">
       <Avatar className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full block flex-shrink-0">
         <AvatarImage src={profileImage} />
         <AvatarFallback>Rhseung</AvatarFallback>
       </Avatar>
-      <div className="flex flex-col gap-3 sm:gap-4 lg:gap-5 text-center sm:text-left">
+      <div className="flex flex-col gap-3 sm:gap-4 lg:gap-5 text-center sm:text-left w-full">
         <div className="flex items-center gap-4 sm:gap-6">
           <IconAt
             className="text-neutral-600 dark:text-neutral-400 transition-colors duration-200 flex-shrink-0"

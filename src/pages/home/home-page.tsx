@@ -17,7 +17,7 @@ export const HomePage: React.FC = () => {
       <div className="flex flex-col w-full h-screen items-center justify-center">
         <div className="max-w-6xl w-full flex flex-col gap-8 sm:gap-12 lg:gap-16">
           <ProfileSection />
-          <div>
+          <div className="max-w-6xl w-full">
             <span className="text-2xl sm:text-3xl lg:text-4xl font-normal leading-relaxed mb-4 sm:mb-6 text-neutral-600 dark:text-neutral-400 tracking-tight block text-pretty">
               <span className="font-extrabold bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 dark:from-pink-300 dark:via-purple-300 dark:to-cyan-300 bg-clip-text text-transparent">
                 안녕하세요, 류현승입니다.
