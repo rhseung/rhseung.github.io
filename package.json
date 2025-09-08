@@ -7,7 +7,7 @@
     "dev": "bun run prebuild && vite --port 3000",
     "start": "vite --port 3000",
     "prebuild": "node scripts/generate-blog-posts.js",
-    "build": "bun run prebuild && vite build && tsc",
+    "build": "vite build && tsc",
     "serve": "vite preview",
     "test": "vitest run",
     "lint": "eslint",
