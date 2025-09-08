@@ -4,16 +4,18 @@
   "type": "module",
   "homepage": "https://rhseung.github.io",
   "scripts": {
-    "dev": "vite --port 3000",
+    "dev": "bun run prebuild && vite --port 3000",
     "start": "vite --port 3000",
-    "build": "vite build && tsc",
+    "prebuild": "bun run generate-blog",
+    "build": "bun run prebuild && vite build && tsc",
     "serve": "vite preview",
     "test": "vitest run",
     "lint": "eslint",
     "format": "prettier",
     "check": "prettier --write . && eslint --fix",
     "add": "bunx --bun shadcn@latest add",
-    "deploy": "bun run build && gh-pages -d build"
+    "deploy": "bun run build && gh-pages -d build",
+    "generate-blog": "node scripts/generate-blog-posts.js"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.10",
