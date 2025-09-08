@@ -11,3 +11,6 @@ count.txt
 
 # 빌드 타임에 생성되는 파일들
 src/data/blog-posts.ts
+
+# 임시 파일들
+temp/

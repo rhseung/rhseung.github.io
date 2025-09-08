@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "bun run prebuild && vite --port 3000",
     "start": "vite --port 3000",
-    "prebuild": "bun run generate-blog",
+    "prebuild": "node scripts/generate-blog-posts.js",
     "build": "bun run prebuild && vite build && tsc",
     "serve": "vite preview",
     "test": "vitest run",
@@ -15,7 +15,8 @@
     "check": "prettier --write . && eslint --fix",
     "add": "bunx --bun shadcn@latest add",
     "deploy": "bun run build && gh-pages -d build",
-    "generate-blog": "node scripts/generate-blog-posts.js"
+    "generate-blog": "node scripts/generate-blog-posts.js",
+    "generate-blog:local": "node scripts/generate-blog-posts.js --skip-git"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.10",
