@@ -14,3 +14,4 @@ src/data/blog-posts.ts
 
 # 임시 파일들
 temp/
+src/data/blog/

@@ -1,8 +1,8 @@
-import { IconCode } from '@tabler/icons-react';
-
+import gistAiLogo from '@/assets/logos/gist-ai.png';
 import gistLogo from '@/assets/logos/gist.svg';
 import gsaLogo from '@/assets/logos/gsa.webp';
 import junctionLogo from '@/assets/logos/junction.png';
+import launchLogo from '@/assets/logos/launch.png';
 import { BadgeStatus } from '@/pages/career/components/career-card';
 
 export interface CareerItem {
@@ -47,6 +47,20 @@ export const careerData: CareerSection[] = [
         badges: [BadgeStatus.ENROLLED],
         logo: <img src={gistLogo} width={28} alt="GIST 로고" />,
         description: '도전탐색과정',
+      },
+      {
+        title: 'GIST EECS 오디오 지능연구실',
+        date: '2025.09 - 현재',
+        badges: [BadgeStatus.ACTIVE],
+        logo: (
+          <img
+            src={gistAiLogo}
+            width={28}
+            alt="GIST 전기전자컴퓨터공학과 오디오 AI 연구실 로고"
+          />
+        ),
+        description:
+          '오디오 지능연구실 실험 및 연구수행 (프론트엔드 개발자 인턴)',
       },
     ],
     achievements: [
@@ -177,7 +191,7 @@ export const careerData: CareerSection[] = [
         title: 'AI 창의융합경진대회',
         date: '2025',
         badges: [BadgeStatus.PARTICIPATED],
-        logo: <IconCode size={20} />,
+        logo: <img src={gistAiLogo} width={28} alt="GIST AI융합학과 로고" />,
         description: (
           <div>
             <div>주최: GIST AI융합학과</div>
@@ -193,6 +207,25 @@ export const careerData: CareerSection[] = [
           <img src={junctionLogo} width={28} alt="JUNCTION ASIA 2025 로고" />
         ),
         description: '주최: 앙트비 (ENTBE)',
+      },
+      {
+        title: 'L:AUNCH AI Career School',
+        date: '2025',
+        badges: [BadgeStatus.PARTICIPATED],
+        logo: (
+          <img
+            src={launchLogo}
+            width={28}
+            alt="L:AUNCH AI Career School 로고"
+          />
+        ),
+        description: (
+          <div>
+            <div>주최: 루트임팩트(Root Impact)</div>
+            <div>주관 및 운영: 크립톤엑스(Krypton X)</div>
+            <div>후원: Google.org</div>
+          </div>
+        ),
       },
     ],
     note: '* 추가 대회 참가 이력은 지속적으로 업데이트됩니다.',

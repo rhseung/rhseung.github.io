@@ -7,7 +7,7 @@ export enum BadgeStatus {
 
   // 자격증 관련
   ACQUIRED = '취득',
-  IN_PROGRESS = '준비중',
+  IN_PROGRESS = '준비 중',
 
   // 대회 관련
   WINNER = '수상',
@@ -16,7 +16,7 @@ export enum BadgeStatus {
   PARTICIPATED = '참가',
 
   // 기타
-  ACTIVE = '활동중',
+  ACTIVE = '활동 중',
   COMPLETED = '완료',
 }
 
